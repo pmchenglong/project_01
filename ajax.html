@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="art-template.js"></script> 
+    <script src="jquery.js"></script>
+    
+</head>
+<body>
+    <button class="btn">点我获取数据</button>
+    <script>
+        //用xhr看ajax请求的数据，repones是文本格式返回数据，preview是翻译的json数据
+        //get无参数请求，$.get((url,[data],[callback])，方括号代表可选参数,data是对象数据，具体看业务接口
+        $(".btn").on("click",function(){
+            $.get('http://www.liulongbin.top:3006/api/getbooks',function(res){//形参，打印参数
+                console.log(res)
+            })
+        })
+        //get有参数请求，payload看请求的相关参数
+        $(".btn").on("click",function(){
+            $.get('http://www.liulongbin.top:3006/api/getbooks',{id:1},function(res){
+                console.log(res)
+            })
+        })
+        //post有参数请求,$.post((url,[data],[callback])，方括号代表可选参数，data是对象数据，具体看业务接口
+        $(".btn").on("click",function(){
+            $.post('http://www.liulongbin.top:3006/api/addbook',{bookname:"孙子兵法",author:"孙武",publisher:"上海出版社"},function(res){
+                console.log(res)
+            })
+        })
+        $(".btn").on("click",function(){
+            $.get('http://www.liulongbin.top:3006/api/getbooks',function(res){
+                console.log(res)
+            })
+        })
+        //ajax的综合请求方式，$.ajax()，post和get相同方法
+        $(".btn").on("click",function(){
+            $.ajax({
+                type:"get",
+                url:"http://www.liulongbin.top:3006/api/getbooks",
+                data:{id:1},
+                success:function(res1){
+                    console.log(res1)
+                }
+                
+            })
+        })
+    </script>
+    <!--图书管理，第一步，引入bootstrp样式文件，第二步，引入jqurey文件，第三步，下载bootstrp3插件-->
+    <!--导航区域panel面板,输入bs3快捷指令-->
+    
+    <div class="panel panel-primary">
+          <div class="panel-heading">
+                <h3 class="panel-title">添加新图书</h3>
+          </div>
+          <div class="panel-body form-inline">
+                
+                <div class="input-group">
+                    <div class="input-group-addon">书名</div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入书名">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">作者</div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入作者">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon">出版社</div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入出版社">
+                </div>
+                <button class="btn btn-primary">新增</button>
+                
+          </div>
+    </div>
+    <!--表格区域-->
+    
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">   
+            
+        </tbody>
+    </table>
+    <script>
+        over()//查询图书
+        function over (){$.get('http://www.liulongbin.top:3006/api/getbooks',function(books){//get请求全部数据
+
+            if(books.status!==200){//状态码判断
+                alert("获取图书失败")
+            }else{
+                var books1=[]//声明一个空数组用来放行记录
+                $.each(books.data,function(i,item){//each遍历data数组，生成tr（一行），按照行存储到一个数组元素内  
+                    books1.push('<tr><td>'+item.id+'</td><td>'+item.bookname+'</td><td>'+item.author+'</td><td>'+item.publisher+'</td><td><a data-index="'+item.id+'">删除</a></td></tr>')
+                })
+                $('.tbody').empty().append(books1.join())//再把数组元素插入到tbody内，join用来转换成字符串类型
+
+            }
+
+        })
+    }
+    //删除图书
+        //事件委托a的按钮,因为事后添加，如果单纯写一个事件不行没反应
+        $(".tbody").on("click","a",function(){
+            var aid=$(this).attr("data-index")//获取id，拿着id去调删除接口
+            $.get("http://www.liulongbin.top:3006/api/delbook",{id:aid},function(call){
+                if(call.status==200){//处理完毕回调结果，成功后重新请求get接口
+                    over()
+                    alert("删除成功")
+                } if(call.status==503){
+                    alert("不允许删除1-3")
+                }
+            })
+
+        })
+        //新增图书
+        $(".btn-primary").on("click",function(){
+            
+            var bookname=$(".form-control").val()//获取表单值
+            var author=$(".form-control").val()
+            var publisher=$(".form-control").val()
+            if(bookname.length<=0||author.length<=0||publisher.length<=0){//表单限制必填
+                alert("不能为空")
+            }else{
+                $.post('http://www.liulongbin.top:3006/api/addbook',{bookname:bookname,author:author,publisher:publisher},function(res){//把表单值作为参数传递
+                if(res.status!==201){
+                    alert("添加失败")
+                }else{
+                    alert("添加成功")
+                    over()
+                }
+            })
+            }
+            
+        })
+        
+        
+        
+        
+        
+        
+    </script>
+
+    
+    
+
+</body>
+</html>
