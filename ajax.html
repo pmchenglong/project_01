@@ -100,9 +100,10 @@
             }else{
                 var books1=[]//声明一个空数组用来放行记录
                 $.each(books.data,function(i,item){//each遍历data数组，生成tr（一行），按照行存储到一个数组元素内  
-                    books1.push('<tr><td>'+item.id+'</td><td>'+item.bookname+'</td><td>'+item.author+'</td><td>'+item.publisher+'</td><td><a data-index="'+item.id+'">删除</a></td></tr>')
+                    //books1.push('<tr><td>'+item.id+'</td><td>'+item.bookname+'</td><td>'+item.author+'</td><td>'+item.publisher+'</td><td><a data-index="'+item.id+'">删除</a></td></tr>')
                 })
                 $('.tbody').empty().append(books1.join())//再把数组元素插入到tbody内，join用来转换成字符串类型
+
 
             }
 
@@ -135,19 +136,13 @@
                 if(res.status!==201){
                     alert("添加失败")
                 }else{
-                    alert("添加成功")
+                    alert("添加成功")//
                     over()
                 }
             })
             }
             
         })
-        
-        
-        
-        
-        
-        
     </script>
 
     
