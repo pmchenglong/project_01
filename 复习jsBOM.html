@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden1{
+            width: 600px;
+            height: 200px;
+            background-color: pink;
+        }
+        .daojishi span{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            text-align: center;
+            line-height: 50px;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <!--BOM是一个浏览器对象-->
+    <script>
+        var bom1='我是变量';//全局变量
+        function fn(){
+            return '我是函数'//全局函数
+        }
+        console.log(window)//全局变量和函数都会成为window对象属性和方法
+        console.log(window.bom1)//调用属性
+        console.log(window.fn())//调用方法
+    </script>
+    <!--页面加载事件，onload,全部元素、样式、图片等加载完毕触发事件。DOMContentLoaded，先加载DOM元素，不用等样式、图片加载完成后执行，更快一些-->
+    <script>
+        //代码执行自上而下，但是用这个onload事件和DOMContentLoaded会先获取所有内容后，再执行处理事件，所以写在什么位置都可以
+        window.addEventListener('load',function(){//新型监听事件，也可以用传统，只不过传统的如果存在多个相同事件会层叠掉
+            var button1=document.querySelector('.button1')
+            button1.addEventListener('click',function(){
+            alert('我是onload触发事件')
+        })
+        })
+        document.addEventListener('DOMContentLoaded',function(){//这个是优先加载DOM元素后触发事件，不用先加载图片、样式等，更快一些
+            var button1=document.querySelector('.button1')
+            button1.addEventListener('click',function(){
+            alert('我是仅当dom加载完成后触发事件')
+        })
+           
+        })
+    </script>
+    <button class="button1">点击测试加载事件</button>
+    <!--浏览器窗口发生改变时事件，onresize-->
+    <script>
+        window.addEventListener('load',function(){
+            var hidden1=document.querySelector('.hidden1')
+            window.addEventListener('resize',function(){//当浏览器窗口发生改变时
+                console.log(window.innerWidth)//调用BOM对象的属性innerwidth，返回浏览器宽度
+                if(window.innerWidth<600){
+                    hidden1.style.display='none'
+                }else{
+                    hidden1.style.display='block'
+                }
+                
+            })
+        })
+    </script>
+    <div class="hidden1"></div>
+    <!--定时器，方法：setTimeout（函数,ms）-->
+    <script>
+        window.setTimeout(function (){
+            console.log('爆炸了')//可以直接写函数
+        },2000)
+        function fn2(){
+            console.log('再次爆炸')
+        }
+        window.setTimeout(fn2,2000)//也可以调用函数
+        var timer=window.setTimeout(fn2,2000)//也可以赋值变量
+    </script>
+    <!--定时器案例：5s之后取消广告图片-->
+    <div>
+        <img class="img6" src="images/bannar图片.png" alt="">
+    </div>
+    <script>
+        var img6=document.querySelector('.img6')
+        function fn7(){
+            img6.style.display='none'
+        }
+        window.setTimeout(fn7,4000)
+    </script>
+    <!--定时器，方法：clearTimeout（timer）-->
+    <button class="stop">点击停止定时器</button>
+    <script>
+        var stop=document.querySelector('.stop')
+        var timer5=window.setTimeout(function(){
+            console.log('爆炸了')
+        },5000)
+        stop.addEventListener('click',function(){
+            window.clearTimeout(timer5)//变量
+        })
+    </script>
+    <!--定时器之setinterval，方法：setInterval（函数,ms），与settiemout不同的是这个是重复执行-->
+    <script>
+        //window.setInterval(function(){
+            console.log('循环执行') 
+        //},5000)
+    </script>
+    <div class="daojishi">
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        var h1=document.querySelector('.hour')
+        var m1=document.querySelector('.minute')
+        var s1=document.querySelector('.second')
+        var date32=new Date('2023-3-3 18:00:00');//用户输入时间
+        date30()//先调用一次，防止刷新页面出现123
+        window.setInterval(date30,1000)
+        function date30(){//形参为接收用户输入的
+        var date31=new Date();//当前时间
+        var date33=(date32-date31)/1000; //获取秒数
+        var h=parseInt(date33/60/60%24);//获取小时
+        h1.innerHTML=h
+        var m=parseInt(date33/60%60);//获取分钟
+        m1.innerHTML=m
+        var s=parseInt(date33%60);//获取秒数
+        s1.innerHTML=s
+    }
+    </script>
+    </script>
+    <!--定时器，方法：clearinterval（变量名）-->
+    <button class="stop1">点击停止定时器</button>
+    <button class="begin">点击开始定时器</button>
+    <script>
+        var stop1=document.querySelector('.stop1')
+        var begin=document.querySelector('.begin')
+        var timer6=null;//全局声明
+        begin.addEventListener('click',function(){
+            var timer6=window.setInterval(function(){//timer6因为是局部变量，所以不会被下面引用，需要在全局声明
+            console.log('爆炸了')
+        },2000)
+        })
+        stop1.addEventListener('click',function(){
+            window.clearInterval(timer6)//变量
+        })
+    </script>
+    <!--定时器案例，点击发送短信后间隔5s再次发送-->
+    <div>
+        <input type="text">
+        <button class="send">发送</button>
+    </div>
+    <script>
+        var button=document.querySelector('.send');
+        var ss=5;
+        button.addEventListener('click',function(){
+            button.disabled=true
+            var ss1=window.setInterval(function(){
+                if(ss==0){
+                window.clearInterval(ss1)
+                button.disabled=false
+                button.innerHTML='发送'
+                ss=5;
+            }else{ 
+                button.innerHTML='还剩'+ss+'秒';
+                ss--;
+            }
+            },1000)
+        })
+        
+    </script>
+    <!--js执行机制，同步和异步，先同步后异步，提高效率，直接执行的为同步，比如console，异步是回调函数加入执行队列（点击事件、定时、加载都是异步）-->
+    <script>
+        console.log('1')
+        window.setTimeout(function(){//为异步处理，先执行同步，再执行异步
+            console.log('2')
+
+        },1000) 
+        console.log('3')
+    </script>
+    <!--location对象-->
+    <script>
+        console.log(window.location.href)//获得整个 url
+        console.log(window.location.host)//获得主机（域名）
+        console.log(window.location.search)//获得请求参数
+        console.log(window.location.pathname)//获得请求路径
+    </script>
+    <!--location对象案例，获取url参数值-->
+    <script>
+        var search1=window.location.search.substr(1)//获取参数值并且截取问号之后的内容，从索引号1开始，截取到最后
+        console.log(search1)
+        var arr1=search1.split('=')//利用=把字符串分割为数组
+        console.log(arr1[1]+'，你好')
+    </script>
+
+    <!--location对象案例，点击跳转页面-->
+    <div>
+        <button class="baidu">点击跳转百度</button>
+    </div>
+    <script>
+        var baidu=document.querySelector('.baidu')
+        baidu.addEventListener('click',function(){
+            window.location.href='http://www.baidu.com'
+        })
+    </script>
+    <!--location对象案例，5秒之后跳转页面-->
+    <div class="autotarget"></div>
+    <script>
+        var auto=document.querySelector('.autotarget');
+        var autotime=30;
+        autot();//主要解决页面加载出现空白问题，先调用一次函数
+        function autot (){
+                if(autotime==0){
+                    window.location.href='#'
+                }else{
+                    auto.innerHTML=''+autotime+'秒之后跳转页面'
+                    autotime--; 
+                }
+            }
+        window.setInterval(autot,1000)
+    </script> 
+    <!--navigator对象-->
+    <script>
+        console.log(window.navigator.userAgent)//获取用户浏览信息，可以判断是否电脑端和移动端，返回不同的页面
+    </script>
+    <!--history对象-->
+    <div>
+        <button class="back1" >点我返回上一个页面</button>
+    </div>
+    <script>
+        var back=document.querySelector('.back1')
+        back.addEventListener('click',function(){
+            window.history.go(-1)
+        })
+        
+    </script>
+    <div>
+        <button class="next1" >点我跳转下一个页面</button>
+    </div>
+    <script>
+        var back=document.querySelector('.next1')
+        back.addEventListener('click',function(){
+            window.history.go(1)
+        })
+        
+    </script>
+
+    <!--本地存储，sessionstorage和localstorage-->
+    <div>
+        <input class="input" type="text">
+        <input class="input1" type="text">
+        <input class="input2" type="text">
+        <button class="set">存储数据</button>
+        <button class="get">获取数据</button>
+        <button class="del">删除数据</button>
+        <button class="clear">清空所有数据</button>
+    </div>
+    <script>
+        var text=document.querySelector('.input')
+        var text1=document.querySelector('.input1')
+        var text2=document.querySelector('.input2')
+        var set=document.querySelector('.set')
+        var get=document.querySelector('.get')
+        var del=document.querySelector('.del')
+        var clear=document.querySelector('.clear')
+        
+        //sessionstorage的生命周期为关闭浏览器，关闭后就不再存储数据,页面之间不共享数据
+        //sessionstorage的使用
+        //存储数据
+        set.addEventListener('click',function(){
+            var value=text.value
+            var value1=text1.value
+            window.sessionStorage.setItem('uname',value)
+            window.sessionStorage.setItem('upassword',value1)
+        })
+        //获取数据
+        get.addEventListener('click',function(){
+            console.log(window.sessionStorage.getItem('uname'))
+        })
+        //删除数据
+        del.addEventListener('click',function(){
+            console.log(window.sessionStorage.removeItem('uname'))
+        })
+        //清除所有数据
+        clear.addEventListener('click',function(){
+            console.log(window.sessionStorage.clear())
+        })
+
+        //localstorage的使用，生命周期永久生效，页面之间可以共享数据
+        set.addEventListener('click',function(){
+            var value2=text2.value
+            window.localStorage.setItem('sex',value2)
+        })
+        get.addEventListener('click',function(){
+            console.log(window.localStorage.getItem('sex'))
+        })
+        del.addEventListener('click',function(){
+            console.log(window.localStorage.removeItem('sex'))
+        })
+        clear.addEventListener('click',function(){
+            console.log(window.localStorage.clear())
+        })
+        var data=[{title:123,year:123},{title:1234,year:1234}]
+        localStorage.setItem("name",JSON.stringify(data) )//本地存储的是字符串格式，需要转成字符串格式
+        var data1=localStorage.getItem("name")
+        var data1=JSON.parse(data1)
+        console.log(data1[0].title)
+    </script>
+    <!--记住用户名案例-->
+    <div>
+        <input type="text" class="inputt">
+        是否记住用户名<input  class="inputtt" type="checkbox">
+        <button class="baocun">保存</button>
+    </div>
+    <script>
+        var inputt=document.querySelector('.inputt')
+        var inputtt=document.querySelector('.inputtt')
+        var baocun=document.querySelector('.baocun')
+        if(window.localStorage.getItem('uname2')){
+            inputt.value=window.localStorage.getItem('uname2')
+            inputtt.checked=true
+        }
+        baocun.addEventListener('click',function(){
+            if(inputtt.checked){
+                localStorage.setItem('uname2',inputt.value)
+            }else{
+                localStorage.removeItem('uname2')
+            }
+        })
+        
+    </script>
+
+    
+
+</body>
+</html> 

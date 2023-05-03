@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复习js(数组)</title>
+    <script>
+        //创建数组必要性：一个变量需要存多个值，所以用数组来满足，数组里面的值称为数组元素,数组元素写法和值相同，例如字符串也需要加''
+        //创建数组语法，1.通过new 关键字创建：new Array();2.通过字面量创建 [];
+        var arr=new Array();//创建一个空的数组
+        var arr=[];//和new创建是等价的，平时用这个
+        var arr=[1,'pink',true,undefined];//一个数组内可以包括不同的数据类型的数据
+        //数组的索引（下标）,获取数组内的元素，索引号从0开始
+        var arr=[1,2,3,4,5];//第一个数组元素从0开始索引
+        console.log(arr);//索引全部数组元素
+        console.log(arr[0]);//索引第一个数组元素
+        console.log(arr[1]);//索引第二个数组元素
+        //遍历数组，获取数组内的全部元素，如果直接打印数组名会折叠，所以要循环打印出来
+        var arr=['刘德华','凌志玲','成龙','jack','马云'];
+        for(var i=0;i<=4;i++){//i相当于索引号使用
+            console.log(arr[i]);
+        }
+        //获取数组元素的个数，场景：不知道数组元素有多少个，关键字：.length
+        var arr1=['曹操','刘备','诸葛亮','孙悟空'];
+        for(var i1=0;i1<arr1.length;i1++){//条件表达式是<,因为按照i1索引号来讲是3个，按照.length来讲是4个，所以不能大于3
+            console.log(arr1[i1]);
+        }
+        var a1=0;
+        //遍历数组案例1，求和以及平均数，2,6,1,7,4
+        var arr2=[2,6,1,7,4]
+        for(var arr3=0;arr3<arr2.length;arr3++){
+            a1=a1+arr2[arr3];
+        }
+        console.log(a1);
+        console.log(a1/arr2.length);
+        //遍历数组案例2，求数组中最大值，2,6,1,77,52,99
+        var arr4=[2,6,1,77,52,99];
+        var a2=arr4[0];
+        for(var a3=1;a3<arr4.length;a3++){
+            if(a2<arr4[a3]){
+                a2=arr4[a3];
+            }
+        }
+        console.log(a2);
+        //遍历数组案例3，将数组元素green、blue、red、black转换成字符串：green|blue|red|black|
+        var arr5=['green','blue','red','black'];
+        var a4='';
+        for(arr6=0;arr6<arr5.length;arr6++){
+            a4=a4+arr5[arr6]+'|';
+        }
+        console.log(a4);
+
+        //数组修改长度以及增加元素
+        var arr7=['green','blue','red','black'];
+        arr7.length=4;//修改数组长度
+        console.log(arr7[4]);//得到一个undefined
+        //数组增加元素
+        var arr8=['green','blue','red','black'];
+        arr8[4]='yellow';//在第四个位置插入元素
+        console.log(arr8[4]);
+        arr8[0]='wicth';//更新第一个数组元素
+        console.log(arr8[0]);
+        //案例：新建一个空白数组，存放1-10
+        var arr9=[];
+        for(var a5=0;a5<10;a5++){
+            arr9[a5]=a5+1;
+        }
+        console.log(arr9);
+
+        //数组筛选方法1，案例：筛选数组2,0,6,1,77,0,52,8大于10的存放在一个新数组内
+        var arr10=[2,0,6,1,77,0,52,8];
+        var arr11=[];
+        var a7=0;//索引号递增
+        for(a6=0;a6<8;a6++){
+            if(arr10[a6]>10){
+                arr11[a7]=arr10[a6];
+                a7++;
+            }
+        }
+        console.log(arr11);
+        //数组筛选方法2，案例：筛选数组2,0,6,1,77,0,52,8大于10的存放在一个新数组内
+        var arr12=[2,0,6,1,77,0,52,8];
+        var arr13=[];//arr13.length=0
+        for(a8=0;a8<8;a8++){
+            if(arr10[a8]>10){
+                arr13[arr13.length]=arr10[a8];
+            }
+        }
+        console.log(arr13);
+
+        //数组筛选案例：筛选数组2,0,6,1,77,0,52,8不等于0的存放在一个新数组内
+        var arr14=[2,0,6,1,77,0,52,8];
+        var arr15=[];
+        for(var a9=0;a9<arr14.length;a9++){
+            if(arr14[a9]!=0){
+                arr15[arr15.length]=arr14[a9];
+            }
+        }
+        console.log(arr15);
+
+        //翻转数组方法，将数组元素green、blue、red、black翻转过来存到一个新的数组
+        var arr16=['green','blue','red','black'];
+        var arr17=[];
+        for(var a10=arr16.length-1;a10>=0;a10--){//arr16.length=4,arr16内有3个索引，所以减掉一个从第三个索引开始
+            arr17[arr17.length]=arr16[a10];
+        }
+        console.log(arr17); 
+
+        //冒泡排序，外层和内层循环搭配使用，外层是控制交换趟数即数组的长度-1，内层是控制交换列数（交换次数）即数组的长度-趟数-1
+        var arr18=[2,3,1,4,5];
+        for(var a11=0;a11<=arr18.length-1;a11++){
+            for(var a12=0;a12<=arr18.length-a11-1;a12++){
+                if(arr18[a12]>arr18[a12+1]){
+                    var temp1=arr18[a12];
+                    arr18[a12]=arr18[a12+1];
+                    arr18[a12+1]=temp1;}
+            }
+        }
+        console.log(arr18);
+
+
+        //函数知识，（为什么使用函数，不需要写重复的代码，把业务可以封装一个代码块进行调用，类似将电脑配件整合组装到机箱中）
+        //函数的步骤：声明和调用，声明：function 函数名（）{函数体};   调用：函数名（）;
+        function sayhai(){//声明函数
+            console.log('嗨');
+        }//封装的函数不调用不会出现
+        sayhai();//调用函数
+        sayhai();//可多次调用
+        //函数的声明和调用案例：求1-100得累加和
+        function getsum(){
+            var h1=0;
+            for(var h2=0;h2<=100;h2++){
+            h1=h1+h2;
+        }
+        console.log(h1);
+        } 
+        getsum();
+        getsum();
+        //带参数的函数，场景：实现调用函数时得到不同的结果，分为形参和实参，形参是封装函数时定一个形式上的参数（不知道具体内容），实参是调用时传给形参的参数
+        function canshu(xingcan1,xingcan2){//类似于一个变量，进行传参赋值
+            console.log(xingcan1,xingcan2);
+        }
+        canshu('我是调用参数时传的实参1','我是调用参数时传的实参2');
+        //带参数的函数匹配问题，在java中如果匹配的个数不一样会报错，js中不会
+        function h6(sum4,sum5){
+            var h8=0;
+            h8=sum4+sum5;
+            console.log(h8);
+        }
+        h6(1,2);//会正常计算
+        h6(1,2,3);//会依次匹配，输出3
+        h6(1);//1会给sum4，sum5因为相当于一个变量没有值所以是undefined，1+undefined=naN，不是一个数字
+        //带参数的函数案例1，求任意两个数的和
+        function h3(sum1,sum2){
+            var h4=0;
+            h4=sum1+sum2;
+            console.log(h4);
+        }
+        h3(1,3);
+        //带参数的函数案例2，求任意两个数之间的和
+        function h5(sum2,sum3){
+            var h7=0;
+            for(var h6=sum2;h6<=sum3;h6++){
+                h7=h7+h6;
+            }
+            console.log(h7);
+
+        }
+        h5(1,10);
+        //return关键字，返回结果值 function 函数名(){return 需要返回的结果;}  返回给调用方。注意两点：1.ruturn只返回一个结果2.ruturn后面代码不再执行3.函数没有retrun会返回undefined
+        function h10 (sum6){
+            return sum6;
+        }
+        h10(1);//实参为1
+        console.log(h10(1));//h10(1) =1
+
+        function h11(sum7,sum8){
+            return sum7+sum8;
+        }
+        h11(1,4);
+        console.log(h11(1,4));
+
+        //函数案例1，利用函数求任意两个数的最大值
+        function h12 (sum9,sum10){
+            if(sum9>sum10){
+                return sum9;
+            }else{
+                return sum10;
+            }
+        }
+        console.log(h12(20,10));
+        //利用函数求数组中最大值
+        function h14(h15){
+            var h16=h15[0];
+            for(var h17=1;h17<h15.length;h17++){
+                if(h15[h17]>h16){
+                    h16=h15[h17];
+                }
+            }
+            return h16;
+        }
+        console.log(h14([1,3,5,7,10]));//实参可以是数组
+
+        //利用函数求任意两个数加减乘除的结果
+        function h20(sum1,sum2){
+            return [sum1+sum2,sum1*sum2,sum1-sum2,sum1/sum2]
+        }
+        console.log(h20(1,2));
+
+        //arguments,储存传递过来的全部实参，场景：定义函数时不知道具体要传多少个实参，所以用arguments接收，相当于arguments=[],得到一个伪数组
+        function h21(){
+            console.log(arguments);
+            console.log(arguments.length);//具有length属性
+            console.log(arguments[0]);//按照索引的方式进行存储
+            for(var h22=0;h22<arguments.length;h22++){
+                console.log(arguments[h22]);
+            }
+        }
+        h21(1,4,6);
+        //利用argumengts函数求任意个数的最大值
+        function h23 (){
+            var h25=arguments[0];
+            for(var h24=1;h24<arguments.length;h24++){
+                if(arguments[h24]>h25){
+                    h25=arguments[h24];
+                }
+            }
+            return h25;
+            
+        }
+        console.log(h23(1,3,5,7,9,6));
+
+        //利用函数翻转数组，将数组元素green、blue、red、black翻转过来存到一个新的数组
+        function h30(){
+            var h31=[];
+            for(var h32=arguments.length-1;h32>=0;h32--){
+                h31[h31.length]=arguments[h32];
+            }
+            console.log(h31);
+        }
+        h30(1,3,5,7);
+        h30(1,3,5,7,7,8,8,9);
+
+        //利用函数冒泡排序
+        function h33(h36){
+           for(var h34=0;h34<h36.length-1;h34++){
+              for(var h35=0;h35<h36.length-h34-1;h35++){
+                if(h36[h35]>h36[h35+1]){
+                    var temp3=h36[h35];
+                    h36[h35]=h36[h35+1];
+                    h36[h35+1]=temp3;}
+            }
+        }
+        return h36;
+
+        }
+        console.log(h33([1,4,6,9,3]));
+
+        //利用函数判断,判断一个年份是否是闰年
+        function h40(){
+            if(arguments%4==0&&arguments%100!==0||arguments%400==0){
+            return true;
+        }else{
+            return false;
+        }
+        }
+        h40(1991); 
+
+        //函数之间是可以相互调用的
+        function h42(){
+            console.log('我是调用的函数');
+            h43();
+        }
+        function h43(){
+            console.log('我是被调用函数')
+        }
+        h42();
+
+        //用户输入的年份，输出当前年份的2月份天数，当前年份为闰年2月份有29天，否则为平年2月份有28天
+        var h45=prompt('情输入年份');
+        function h44(){
+            if(h40(h45)){//调用h40的函数，传递用户输入的实参
+                alert('今年是闰年，2月份有29天')
+            }else{
+                alert('今年是平年，2月份有28天')
+            }
+        }
+        h44();
+
+        //因为作用域的不同，所以变量分为局部变量和全局变量
+        var h50='我是全局变量,变量名为h50';
+        console.log(h50);
+        function h51(){
+            var h50='我是局部变量,变量名为h50';
+            return h50;
+        }
+        console.log(h51());
+
+        //作用域链，内部函数访问外部函数的变量，采取的是链式查找的方式来决定取哪个值，这种结构我们称为作用域链  就近原则
+        var h60 =10;
+        function h61(){
+            var h60=20;
+            function h62(){
+                console.log(h60);
+            }
+            h62();
+
+        }
+        h61();
+
+        //js预解析，程序执行分为两步，第一步先把var和function提到前面（相同作用域内，如果局部作用域只会在局部内解析）2.执行代码
+        console.log(h63);//undefined
+        var h63=1;//会把var h63；提到前面，赋值不会提前
+
+        //var h70=10;
+        //fun();
+        //function fun(){
+           // console.log(h70);
+          //  var h70=20;
+       // }
+       //相当于以下代码
+       var h70;
+       function h71(){
+            var h70;
+            console.log(h70);//因为h70没有值，所以会报undefined
+            var h70=20;
+        }
+        h71();
+        
+        //var h72=10;
+        //function h73(){
+            //console.log(h72);
+            //var h72=20;
+            //console.log(h72);
+        //}
+        //h73();
+        //相当于以下代码
+        var h72;
+        function h73(){
+            var h72;
+            console.log(h72);//undefined
+            var h72=20;
+            console.log(h72);//会报20
+        }
+        h73();
+
+        //var h74=18;
+        //h75();
+        //function h75(){
+            //var h76=9;
+            //console.log(h74);
+            //console.log(h76);
+            //var h74='123';
+        //}
+        //相当于以下代码
+        var h74;
+        function h75(){
+            var h76;
+            var h74;
+            var h76=9;
+            console.log(h74);//undefined
+            console.log(h76);//报9
+            var h74='123';
+        }
+        h75();
+
+
+
+
+
+
+        
+        
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

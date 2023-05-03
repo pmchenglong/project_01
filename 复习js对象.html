@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //对象分为三种，1.自定义对象2.内置对象3.浏览器对象
+        //自定义对象
+        //对象由属性和方法组成，创建对象的第一种方式（字面量），声明一个对象用花括号包括，调用对象的属性用对象.属性名或对象名['属性名']，调用方法用对象名.属性名（实参）。
+        var obj={
+            name:'耿寒雪',
+            age:18,
+            sex:'男',
+            sayhi:function(){
+                console.log('hi~');
+            }
+        }
+        console.log(obj.name);
+        console.log(obj['age']);//调用对象属性另一种方式
+        obj.sayhi();
+        //创建一个狗的对象
+        var dog={
+            name:'可可',
+            type:'阿拉斯加犬',
+            sex:5,
+            color:'red',
+            doing:function(){
+                return '汪汪汪,演电影';
+            }
+        }
+        console.log(dog.doing());
+        console.log(dog.name);
+        //利用第二种方法创建对象，new Object
+        var mingren =new Object();
+        mingren.name='鸣人';
+        mingren.sex='男';
+        mingren.age=19;
+        mingren.kill=function(){
+            return '影分身数';
+        }
+        console.log(mingren.name);
+        console.log(mingren.kill());
+
+        //自定义对象，封装一个数学对象，里面有PI值，求最大值和最小值
+        var duixiang={
+            PI:3.143232323,
+            max:function(){
+                var max=arguments[0];
+                for(max1=1;max1<arguments.length;max1++){
+                    if(arguments[max1]>max){
+                        max=arguments[max1];
+                    }
+                }
+                return max;
+            },
+            min:function(){
+                var min=arguments[0];
+                for(max1=1;max1<arguments.length;max1++){
+                    if(arguments[max1]<min){
+                        min=arguments[max1];
+                    }
+                }
+                return min;
+            }
+        }
+        console.log(duixiang.PI);//调用PI属性
+        console.log(duixiang.max(1,3,2,4,5));//调用max方法
+        console.log(duixiang.min(1,3,2,4,5));//调用min方法
+
+
+        //使用构造函数来封装对象，场景：因为对象有很多共同属性和方法，所以用构造函数封装对象（构造函数和普通函数不一样，有区别）
+        function Star(uname,uage,usex){//函数名第一个字母必须是大写
+            this.name=uname;//必须使用this.来声明属性和方法
+            this.age=uage;
+            this.sex=usex;
+            this.sing=function(sing){
+                console.log(sing);
+            }
+        }
+        var ldh= new Star('刘德华',18,'男');//调用函数必须加一个new
+        console.log(typeof ldh);
+        console.log(ldh);//得到一个对象
+        console.log(ldh.name);
+        var zxy=new Star('张学友',20,'男');
+        console.log(zxy);
+        zxy.sing('李香兰');//调用方法
+        //构造函数封装对象案例
+        function Lol(uname,utype,ublood){
+            this.name=uname;
+            this.type=utype;
+            this.blood=ublood;
+            this.attack=function(attack1){
+                console.log(attack1);
+            }
+        }
+        var lianpo= new Lol('廉颇','力量型','500血量');
+        console.log(lianpo);
+        lianpo.attack('近战');
+        var houyi= new Lol('后裔','射手型','100血量');
+        console.log(houyi);
+        lianpo.attack('远程');
+
+        //遍历对象语法，for（var 变量名 in 对象名）{}
+        var q={
+            name:'pink',
+            sex:18,
+            action:function eat(){
+                return 1;
+            }
+        };
+        for(var q1 in q){
+            console.log(q1);//循环属性
+            console.log(q[q1]);//循环属性
+        }
+
+        //对象作业1,创建一个电脑对象，该对象要有颜色、重量、型号、可以看电影、听音乐、打游戏和敲代码
+        function Computer(){
+            this.color=color;
+            this.bood=bood;
+            this.acc=acc;
+            this.acction=function(acction1){
+                console.log(acction1);
+            }
+        }
+
+        //对象分为三种，1.自定义对象2.内置对象3.浏览器对象
+        //内置对象，查阅MDN文档，调用已经封装好的对象
+        //数学对象调用，math对象，因为不是构造函数，所以不需要new调用，直接使用即可
+        console.log(Math.PI);//相当于调用math对象里面的pi属性
+        console.log(Math.SQRT2);
+        console.log(Math.abs('1'));//将字符串类型转换为数字类型
+        console.log(Math.abs('pink'));//得到一个naN
+        console.log(Math.abs(''));//得到一个0
+        console.log(Math.floor(10.5));
+        console.log(Math.floor(10.8));
+        console.log(Math.max(1,4,7,1,2));//求最大值
+        console.log(Math.random());//求0-1随机小数
+        //封装一个函数取两个整数间的随机整数，包括两个数
+        function getrandom(max,min){
+            return Math.floor(Math.random() * (max - min + 1)) + min;//math对象提供的方法
+        }
+        console.log(getrandom(1,10));
+        //利用上面的这个函数，来做一个随机点名功能
+        var name1=['张三','李四','heoll','更寒'];
+        console.log(name1[getrandom(0,name1.length-1)]);
+        //猜数字游戏，程序随机生成1-10之间的数字，并让用户输入一个数字，如果大于该数字，就提示数字大了，小于就提示数字小了，等于该数字，就提示猜对了，结束程序
+        var obj11=getrandom(1,3);
+        while(true){
+            var obj10=prompt('请输入1-3之间的数字');
+            if(obj10<obj11){
+                alert('数字小了');
+            }else if( obj10>obj11){
+               alert('数字大了');
+            }else{
+                alert('输入正确');
+                break;
+            }
+         }
+
+         //日期对象调用，date对象，是一个构造函数，里面全部是方法语句，需要用new+Date实例化后调用方法
+         var date1=new Date();//如果没有参数，会返回系统当前时间
+         console.log(date1);
+
+         var date2=new Date('2022-9-12 14:3');//传递参数
+         console.log(date2);
+
+         var date3=new Date();//获取年份
+         console.log(date3.getFullYear());
+
+         var date4=new Date();//获取月份
+         console.log(date4.getMonth()+1);//月份需要+1
+
+         var date5=new Date;//获取日份
+         console.log(date5.getDate());
+
+         var date5=new Date;//获取星期几
+         console.log(date5.getDay());
+
+         //写一个动态的所处日期，年月日星期几时分秒
+         var date6=new Date();
+         var year=date6.getFullYear();
+         var month=date6.getMonth();
+         var dates=date6.getDate();
+         var days=date6.getDay();//也可以做一个数组，通过获取的天数遍历出来
+
+         function shifenmiao(){//封装一个时分秒的函数，里面加一个判断，小于两位数前面加一个0
+             var date7=new Date();
+             var h=date7.getHours();
+             if(h<10){
+                 h='0'+h
+             };
+             var m=date7.getMinutes();
+             if(m<10){
+                 m='0'+m
+             };
+             var s=date7.getSeconds();
+             if(s<10){
+                 s='0'+s
+             };
+             return h+':'+m+':'+s;
+         };
+         
+         console.log('今天是'+year+'年'+month+'月'+dates+'日'+'星期'+days+shifenmiao());
+
+         //时间戳，利用date.gettime方法获取毫秒数，因为毫秒是独一无二的，通常用来加密等
+         var date8=new Date();
+         console.log(date8.getTime());//距离1970-1-1 0:0:0的时间
+
+         //倒计时案例,设计思路，未来时间减去当前时间，因为会存在减法结果为负数，所以用毫秒（时间戳）来做，用户输入的总毫秒数减去现在时间的即为剩余毫秒数，然后转化成天、时、分、秒
+         function date30(time){//形参为接收用户输入的
+             var date31=new Date();//当前时间
+             var date32=new Date(time);//用户输入时间
+             var date33=(date32-date31)/1000; //获取秒数
+             var d=parseInt(date33/60/60/24);//获取天数
+             var h=parseInt(date33/60/60%24);//获取小时
+             var m=parseInt(date33/60%60);//获取分钟
+             var s=parseInt(date33%60);//获取秒数
+             return d+'天'+h+'时'+m+'分'+s+'秒';
+         }
+         console.log(date30('2022-9-15 01:01'));
+
+
+         //内置数组对象array，为构造函数，创建数组的两种方式，1.字面量创建2.new Array（3,1,4,5,3）调用array对象
+         //检测数组方式，Array.isArray
+         console.log(Array.isArray(1,2,3));//false
+         console.log(Array.isArray([1,2,3]));//true
+         //添加数组元素，.push()在末尾添加数组元素.unshift()在开头添加数组元素，都会默认返回数组的长度
+         var arr20=[1,2,3,4];
+         arr20.push('push加的');
+         console.log(arr20);
+         console.log(arr20.push('push加的'));//默认有一个返回值返回数组长度
+         arr20.unshift('unshift加的');
+         console.log(arr20);
+         console.log(arr20.unshift('unshift加的'));//默认有一个返回值返回数组长度
+         //删除数组元素，.pop()删除末尾的最后一个数组元素.unpop(),返回值是被删除的数组元素
+         arr20.pop();
+         console.log(arr20);
+         console.log(arr20.pop());
+         arr20.shift();
+         console.log(arr20);
+         console.log(arr20.shift());
+         //数组案例1，遍历一个数组，把工资大于2000放在一个新数组里面，1800，2000，2020，3000，1800
+         var arr30=[1800,2000,2020,3000,1800];
+         var arr31=[];
+         for(arr32=0;arr32<arr30.length;arr32++){
+            if(arr30[arr32]>2000){
+                arr31.push(arr30[arr32]);
+            }
+         }
+         console.log(arr31);
+
+         //反转数组,.reverse()
+         var arr40=['郎咸平','pink','刘德华'];
+         arr40.reverse();
+         console.log(arr40);
+         //冒泡排序，.sort(),需要定义一个函数function（a,b）{return a-b}，为升序b-a为降序
+         var arr41=[12,33,54,6,2];
+         arr41.sort(
+            function(a,b){
+                return a-b;//升序排序
+            }
+         );
+         console.log(arr41);
+        
+         //获取数组元素索引号,.indexOf(数组元素)，只返回第一个满足条件的索引号，如果找不到元素就会返回-1，同样也有lastindexof，从数组后面查找
+         var arr42=['郎咸平','pink','刘德华','刘德华'];
+         console.log(arr42.indexOf('刘德华'));//返回2
+         console.log(arr42.indexOf('yangying'));//返回-1
+         console.log(arr42.lastIndexOf('刘德华'));//返回3
+
+        //利用内置对象array制作去重案例
+         var arr43=['c','a','z','x','a','x','c','b'];
+         var arr45=[];
+         for( var arr44=0;arr44<arr43.length;arr44++){
+            if(arr45.indexOf(arr43[arr44])==-1){
+                arr45.push(arr43[arr44]);
+            }
+         }
+         console.log(arr45);
+
+         //将数组类型转化为字符串类型，.toString()和.join(),其中join()最常用，因为能够用符号隔开
+         var arr46=[1,2,3];
+         console.log(arr46.toString());
+         var arr47=[1,5,7,8,9];
+         console.log(arr47.join('&'));//传参用符号隔开  
+         
+         //将两个或多个数组合并为一个新的数组
+         var arr48=[1,2,3];
+         var arr49=[1,2,3];
+         console.log(arr48.concat(arr49));
+
+         //删除、添加数组元素.splice()
+         var arr50=[1,2,3,6,2];
+         console.log(arr50.splice(1,2));//从1索引的位置删除2个元素，所以会删掉2和3
+         console.log(arr50);//1，6，2
+         arr50.splice(1,0,'我是新来的');//从1索引的位置删除0个元素，并且增加一个元素
+         console.log(arr50);
+
+         //字符串对象
+         //获取字符索引号，和数组对象中的用法相同，有一个区别，字符串中的indexOf能够传递从第几个开始查找
+         var str1='我是刘德华我是刘德华 ';
+         console.log(str1.indexOf('刘德华'));//2
+         console.log(str1.indexOf('刘德华',3));//从索引号3开始查找刘德华，所以是7
+         //案例开始,查找字符串'iuhooyuojioo'所有o出现的位置和次数
+         var str2='iuhooyuojioo';
+         var str3=str2.indexOf('o');
+         var str4=0;
+         while(str3!=-1){//当o出现的位置不等于-1就要执行
+            console.log(str3);//打印0的索引号
+            str4++;//累加出现的次数
+            str3=str2.indexOf('o',str3+1);//继续找下一个元素
+         }
+         //根据索引号获取字符，.charAt()
+         var str5='我是刘德华我是刘德华';
+         console.log(str5.charAt(2));//刘
+         var str6='我是刘德华';
+         for(i=0;i<str6.length;i++){
+            console.log(str6.charAt(i));//遍历字符串
+
+         }
+         //根据索引号获取ASCLL码，这个是对应键盘上的一个值，后面可以校验用户输入的内容
+         var str7='w';
+         console.log(str7.charCodeAt(0));
+         
+         //拼接字符串，concat，平常开发还是用+的多一点
+         var str8='我是刘德华';
+         var str9='非常帅';
+         console.log(str8.concat(str9));
+         //截取字符串，substr
+         var str10='我是刘德华';
+         console.log(str10.substr(1,2));//是刘
+         //替换字符串.replace()
+         var str11='我是刘德话,我是刘德话';
+         console.log(str11.replace('话','华'));//只替换第一个字符，可以遍历字符串替换
+         //字符串转换为数组，.split（分隔符）
+         var str12='我是刘德华';
+         console.log(str12.split());
+         var str13='我是刘德华,我是梁朝伟';
+         console.log(str13.split(','));//约定分隔符分隔数组
+         //字符串转换为大写.toUpperCase()
+         var str14='woshiliudehuaWH';
+         console.log(str14.toUpperCase());
+         //字符串转换为小写.toLowerCase()
+         var str15='WOSHIJwoshiliudehua';
+         console.log(str15.toLowerCase());
+
+
+
+
+        
+
+
+
+
+        
+         
+
+         
+         
+
+        
+        
+        
+        
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="template-web.js"></script>
+    <script src="自己封装的模板引擎函数.js"></script>
+    <script src="jquery.js"></script> 
+    <style>
+        .clear:before,.clear:after{
+            content:"";
+            display:table;
+        }
+        .clear:after{
+            clear:both;
+        }
+        .clear{
+            *zoom:1;
+        }
+        .right{
+            float: left;
+            margin-left: 70px;
+        }
+        .left{
+            float: left;
+        }
+        .father{
+            margin-bottom: 40px;
+        }
+        .span1{
+            display:inline-block;
+            margin-top: 5px;
+            margin-right: 5px;
+            font-size: 8px;
+            
+        }
+        .span2 span{
+            display:inline-block; 
+            margin-top: 10px;
+            margin-right: 15px;
+
+        }
+        .resualt{
+            width: 175px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        .listseacrh:hover{
+            cursor: pointer;
+            background-color: #ccc;
+        }
+        .listseacrh{
+            margin-top: 20px;
+            margin-left: 10px;
+
+        }
+        .img5{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!--表单域，用form标签包裹-->
+    <form action="loginhhhh" target="_blank"   method="post" enctype="multipart/form-data"><!--提交到指定地址后，会打开新页面,一般保密数据用post,
+        enctype默认是x-www-form-rulencoded，如果表单含有上传文件的，必须用form-data-->
+        <input type="text" name="name">
+        <input type="password" name="password">
+        <input type="checkbox" name="remenber">
+        <input type="file">
+        <button type="submit">提交</button>
+    </form>
+    <!--以上有弊端，不推荐使用，可以用表单接收数据，用ajax提交数据，即监听表单提交事件-->
+    <form class="form" enctype="multipart/form-data">
+        <input type="text" name="name1">
+        <input type="password" name="password1">
+        <input type="checkbox" name="remenber1">
+        <input type="file" name="file1">
+        <button type="submit">提交</button>
+    </form>
+    <div class="getdata11"></div>
+    <div class="list"></div>
+    <div class="gettempalte"></div>
+    <div><input class="search" type="text"></div>
+    <div class="resualt"></div>
+    <script>
+        $(".form").submit(function(e){//给表单添加监听提交事件
+            e.preventDefault()//阻止默认提交行为
+            console.log($(this).serialize())//获取所有表单值，必须在标签中添加name属性
+        })
+    </script>
+    <!--art-template模板引擎的html结构，type默认的是javascript,这里需要改成html结构用来被解析，{{}}是占位符，里面是变量，{{@+变量}}把返回的html标签内原文输出；{{if value}}内容{{else if value}}内容{{/if}}，代表条件输出，支持双分支条件结构，以/if结束；each遍历数组，{{each 数组名称}},以{{/each结束}}；{{value|函数名称}}为过滤值-->
+   <script type="text/html" id="htmlcom">
+    <h1>{{name}}----{{age}}</h1>
+    {{@test}}
+    <div>{{if flag==0}}hello{{else if flag==1}}what{{/if}}</div>
+    <ul>
+        {{each aihao}}
+        <li>索引号：{{$index}},爱好：{{$value}}</li>
+        {{/each}}
+
+    </ul>
+    <ul>
+        {{each aihao2}}
+        <li>索引号：{{$index}},名字：{{$value.name}},爱好：{{$value.aihao}}</li>
+        {{/each}}
+
+    </ul>
+    <div>{{date|date2}}</div>
+   </script> 
+    <script>
+            //用art-template模板引擎渲染数据
+                //1.定义数据
+                var data={"name":"zhangsan","age":18,"test":"<h3>返回的数据</h3>","flag":1,"aihao":["吃饭","睡觉","打豆豆"],"aihao2":[{"name":"jack","aihao":"睡觉"},{"name":"tom","aihao":"打豆豆"}],"date":new Date()}
+                //1.1这里是过滤数据用的
+                template.defaults.imports.date2=function (date){//date2是函数名称，date是形参（里面是new date（）内容）
+                    var y=date.getFullYear();
+                    var m=date.getMonth()+1;
+                    var d=date.getDate();
+                    return y+"-"+m+"-"+d
+
+                }
+                //2.定义html结构，单独的标签
+                //3.调用template函数template('模板id',数据)
+                var data1=template('htmlcom',data)
+                console.log(data1)
+                //4.渲染数据
+                $(".getdata11").html(data1)
+    </script>
+    <script type="text/html" id="list">
+        {{each data}}
+        <div class="clear father">
+            
+            <div class="left clear"><img src="{{'http://www.liulongbin.top:3006'+$value.img}}" alt=""></div>
+            <div class="right clear">
+                <h3>{{$value.title}}</h3>
+                
+                <p>{{each $value.tags}}
+                    <span class="span1">{{$value}}</span>
+                    {{/each}}
+                </p>
+                
+                <p class="span2"><span>{{$value.source}}</span><span>创建时间：{{$value.time | timeget}}</span><span>评论数：{{$value.cmtcount}}</span></p>
+            </div>
+            
+        </div>
+        {{/each}}
+    </script>
+    <script>
+         $(function(){
+            template.defaults.imports.timeget=function (dts){
+                    var dt=new Date(dts)
+                        var y=dt.getFullYear();
+                        var m=buling(dt.getMonth()+1);
+                        var d=buling(dt.getDate());
+                        var hh=buling(dt.getHours());
+                        var mm=buling(dt.getMinutes());
+                        var ss=buling(dt.getSeconds());
+                        return y+"-"+m+"-"+d+""+hh+":"+mm+":"+ss
+
+                    }
+         })
+        $.get("http://www.liulongbin.top:3006/api/news",function(res){
+            for(i=0;i<res.data.length;i++){
+                res.data[i].tags=res.data[i].tags.split(',')
+            }
+            //console.log(res)
+            var data2=template('list',res)
+            //console.log(data2)
+            $(".list").html(data2)
+        })
+        function buling(n){
+            if(n<10){
+                return "0"+n
+            }else{
+                return n
+            }
+
+        }
+        
+    </script>
+    <script>
+        //templated的实现原理，可以自己封装函数
+        //用exec函数提取字符串内容，得到数组
+        var str='hello'
+        var pat=/e/ //定义正则表达式
+        console.log(pat.exec(str))
+        var str1='<div>我是{{name}}</div>'
+        var pat1=/{{([a-zA-Z]+)}}/
+        console.log(pat1.exec(str1))
+        //用replace函数在字符串中替换另外字符串,.replace(要替换的，替换成)
+        var str2='<div>我是{{name}},我会{{aihao}}</div>'
+        var pat2=/{{([a-zA-Z]+)}}/
+        var result=pat2.exec(str2)//获取结果，数值格式
+        str2=str2.replace(result[0],result[1])//替换
+        console.log(pat2.exec(str2))
+        var result2=pat2.exec(str2)//多次replace
+        str2=str2.replace(result2[0],result2[1])
+        console.log(str2) 
+        //如果替换很多，需要用循环来repalce
+        var str3='<div>我是{{name}},我会{{aihao}}</div>'
+        var pat3=/{{([a-zA-Z]+)}}/
+        var result3=null
+        while(result3=pat3.exec(str3)){//当提取到内容时满足条件，如果未提取到内容为false不执行
+            str3=str3.replace(result3[0],result3[1])
+        }
+        console.log(str3)
+        
+    </script>
+    <script type="text/html" id="gettem">
+        <p>我是{{name}}</p>
+        <p>我今年{{age}}</p>
+    </script>
+    <script>
+        //用自己封装的templated的函数
+        data={"name":"程先生","age":18}
+        var gethtml=template("gettem",data)
+        $(".gettempalte").html(gethtml)
+    </script>
+
+
+    <script>
+        //数据交换格式，json格式,是一个字符串,由对象和数组组成嵌套，key必须用双引号括起来value类型是数字、字符串、布尔值、null、数组、对象
+        var data1='{"name":"lixoalong","age":23,"aihao":["打篮球","游泳"],"aihao2":[{"name":"hello","age":18},{"name":"hello2","age":18}],"istrue":true,"shuju":{"name":"chenglong","age":18}}'
+        console.log(data1)
+        //js的数据对象
+        var data2={name:'lixoalong',age:23,aihao:['打篮球','游泳']}
+        console.log(data2)
+        //把json格式字符串转换成js对象
+        var data3=JSON.parse(data1)
+        console.log(data3)
+        //把js对象转化为json格式字符串
+        var data4=JSON.stringify(data2)
+        console.log(data4)
+        //接收数据，转换为json格式字符串
+        $.get('http://www.liulongbin.top:3006/api/news',function(res){
+            console.log(JSON.stringify(res))
+        })
+    </script>
+
+    <script>
+        //跨域问题：协议、域名、端口不同会造成接口不通，jqurey解决方案：datatype：'jsonp',只能发起get请求，是js类型的请求
+        $.ajax({
+            url:'http://ajax.frontend.itheima.net:3006/api/jsonp?name=zs&age=20',
+            dataType:'jsonp',
+            //调用接口会默认拼接一个参数callback: jQuery36107346291821310074_1682160952619，值是随机生成
+            jsonp:'abc',//自定义参数名称
+            jsonpCallback:'def',//自定义回调函数名称
+            success:function(res){
+                console.log(res)
+
+       }
+        })
+
+    </script>
+
+    <script type="text/html" id="search1">
+        {{each result}}
+        <div class="listseacrh">{{$value[0]}}</div>
+        {{/each}}
+
+    </script>
+
+    <script>
+        //模仿淘宝实时搜索
+        $(".search").on('keyup',function(){
+            clearTimeout(timer)//延时期间清除定时器
+            var search=$(this).val().trim()
+            if(window.sessionStorage.getItem(search)!=null){//首先拿着输入的值判断本地存储有没有key
+                var getsess=window.sessionStorage.getItem(search)//取值
+                
+                var searchui=template('search1',JSON.parse(getsess) )//调用模板，并且把字符串转换成json格式（因为返回数据就是严格的json格式，所以直接转）
+              
+                $(".resualt").html(searchui).show()
+
+            }else{
+                settime(search)//防抖函数设置时长
+            }
+            
+        })
+        //定义请求方法
+        function getawy(sq){
+            $.ajax({
+                    url:'https://suggest.taobao.com/sug?q='+sq,
+                    dataType:'jsonp',//跨域请求
+                    success:function(res){
+                        if(res.result.length<=0){
+                            $(".listseacrh").empty().hide()
+                        }else{
+                            var searchui=template('search1',res)
+                            $(".resualt").html(searchui).show()
+                            window.sessionStorage.setItem(sq,JSON.stringify(res)) //把输入值放在本地，并且转换成字符串格式（json）
+                        }
+                    }
+                })
+        }
+        //防抖函数，定时执行请求，节省请求资源减轻服务器压力
+        var timer=null//声明定时器名称
+        function settime (se){
+            timer=setTimeout(function(){getawy(se)},1000
+                
+            )
+        }
+    </script>
+    <!--节流阀，减少事件输出-->
+    <img class="img5" src="images/男孩.png" alt="">
+    <script>
+       var img4=document.querySelector('.img5')
+       var flag=null
+       document.addEventListener('mouseover',function(event){
+        if(flag!=null){return}//是否为空，不等于空说明还没执行完
+        flag=setTimeout(function(){
+           var x=event.pageX
+           var y=event.pageY
+           img4.style.left=x+'px';
+           img4.style.top=y+'px';
+           flag=null
+        },16)  
+       })
+    </script> 
+
+    
+
+    
+</body>
+</html> 

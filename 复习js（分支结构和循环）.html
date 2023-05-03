@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复习js</title>
+    <script>
+        //以下是三种输入输出方法
+        prompt('请输入内容');//这是一个输入框
+        alert('这是一个警告提示');//这是一个提示
+        console.log('我是打印输出的内容');//通过控制台打印输出
+
+        //以下是变量内容
+        var name = '刘德华';//变量初始化，声明一个空间并且起一个名字，再进行赋值，这里和var name；name='刘德华'是等价的（=不是等于的意思，是赋值的意思）
+        var age = '50';
+        console.log(name);
+        console.log(age);
+        var ent = prompt('请输入内容');//储存输入的内容，然后输出提示
+        console.log(ent);
+        alert(ent);
+        name = '迪丽热巴';//变量的语法拓展——会和样式层叠一样更新变量值，覆盖掉上面的变量值
+        console.log(name);
+        var address = '青岛市北区', gz = 2000;//变量的语法拓展——会和并集选择器一样能够声明多个变量，按照逗号隔开，分号结束
+        console.log(address);
+        console.log(gz);
+        var sex;
+        console.log(sex);//变量的语法拓展——只声明不赋值，会报undefined，即未被定义
+        //console.log(tel);//变量的语法拓展——不声明不赋值，会报错
+        qq = 10;
+        console.log(qq);//变量的语法拓展——不声明直接赋值，可以使用（不推荐）
+        //交换变量值案例,Apple1和Apple2交换值
+        var temp;//声明一个变量为空
+        var apple1 = '苹果';
+        var apple2 = '香蕉';
+        temp = apple1;//apple1的值赋值给temp，temp此时为苹果
+        apple1 = apple2;//apple2的值赋值给apple1，apple1此时为香蕉（变量重叠性）
+        apple2 = temp;//temp的值赋值给apple2，apple2的值此时为苹果（变量重叠性）
+        console.log(apple1);
+        console.log(apple2);
+
+        //以下是数据类型内容（number）
+        var number1 = 1000;//整数数字型
+        var number2 = 1.123;//浮点数字型
+        console.log(number1);
+        console.log(number2);
+        console.log('演示非数字型' - 100);//not a number 代表非数字，这里计算机不知道数据类型才会报缩写：NAN
+        console.log(isNaN(number1));//判断number1是否为非数字类型，因为不是非数字，所以返回否即false
+        var number3 = 010;//八进制 0-7 数字前面加0表示八进制
+        console.log(number3);//八进制 转化为十进制就是8
+        var number3 = 0x9;//十六进制 0-9 a-f  数字前面加0x或#fffffff 表示十六进制
+        console.log(number3);
+        console.log(Number.MAX_VALUE);//数字型的最大值
+        console.log(Number.MIN_VALUE);//数字型的最小值
+        console.log(Number.MAX_VALUE * 2);//无穷大
+        console.log(-Number.MAX_VALUE * 2);//无穷小
+        //以下是数据类型内容（string）
+        var str1 = '我是一个高富帅的程序员';
+        var str2 = '我是一个"高富帅"的程序员';//外单内双
+        var str3 = '我来演示js代码\n换行';
+        var str4 = '我来演示js代码带斜杠\\';
+        var str5 = '我来演示js代码单引号\'';
+        var str6 = '我来演示js代码双引号\"';
+        var str7 = '我来演示js代码\t缩进';
+        var str8 = '我来演示js代码\b空格';
+        console.log(str1);
+        console.log(str2);
+        console.log(str3);
+        console.log(str4);
+        console.log(str5);
+        console.log(str6);
+        console.log(str7);
+        console.log(str8);
+        //练习以上代码
+        alert('可视化工作流审核日志和历史水平可伸\n缩性耐久性及容错性完全事\n件驱动操作方便"语言无关"的')
+        var str9 = '我是演示通过length 计算我的长 度';//字符串中每一个字符占一个位置，包括空格
+        console.log(str9.length);
+        console.log('我是字符串' + '我是拼接');//字符串拼接
+        console.log('我是字符串' + 18);//字符串拼接，只要存在字符串类型拼接后的数据就会转换成字符串类型
+        console.log(18 + 18);//数值类型直接加号运算
+        console.log('12' + 12);//字符串拼接，只要存在字符串类型拼接后的数据就会转换成字符串类型
+        var str10 = 18;
+        console.log('今年他是' + str10 + '岁');//字符串拼接变量，变量不需要引号，否则会认为是一个字符串
+        //练习以上代码
+        var str11 = prompt('请输入年龄');
+        alert('你的年龄是' + str11 + '岁');
+        //以下是数据类型内容（undefined），未被定义的数据类型
+        var str12
+        console.log(str12);//打印出来undefined
+        console.log(str12 + 'pink');//打印出来是一个字符串类型：undefinedpink
+        console.log(str12 + 1);//打印出来是一个NaN,因为浏览器不能识别数据类型，所以定义为不是一个数字类型数据
+        //以下是数据类型内容（null），空值
+        var str13 = null;
+        console.log(str13 + 'pink');//打印出来是一个字符串类型：nullpink
+        console.log(str13 + 1);//因为null值是为空，所以+1会直接变成1
+        //以下是数据类型内容（boolean），对与错
+        var str14 = true;
+        console.log(str14 + 1);//因为true代表1，所以+1会直接变成2
+        var str15 = false;
+        console.log(str15 + 1);//因为false代表0，所以+1会直接变成1
+        //判断变量的数据类型
+        var str16 = 1234;
+        console.log(typeof str16);
+        var str17 = '1234';
+        console.log(typeof str17);
+        var str18 = undefined;
+        console.log(typeof str18);
+        var str19 = true;
+        console.log(typeof str19);
+        var str20 = null;
+        console.log(typeof str20);//null为object数据类型
+        var str21 = prompt('请输入内容');
+        console.log(typeof str21);//输入内容全部是string类型
+
+        //变量数据转换（转换成string）
+        //第一种方式,变量名+.toString()
+        var str22 = 10;
+        var str23 = str22.toString();
+        console.log(str23);
+        console.log(typeof str23);
+        //第二种方式,String(变量名)
+        var str24 = 10;
+        var str25 = String(str24);
+        console.log(str25);
+        console.log(typeof str25);
+        //第二种方式,变量名+'',常用！ 
+        var str26 = 10;
+        var str27 = str26 + '';
+        console.log(str27);
+        console.log(typeof str27);
+
+        //变量数据转换（转换成number）
+        //第一种方式，parseInt()和parsefloat()
+        //parseInt（变量名），整数数字型
+        var str28 = '20';
+        var str29 = parseInt(str28);
+        console.log(str29);
+        console.log(typeof str29);
+        var str30 = '20.11';
+        var str31 = parseInt(str30);//得到一个整数数字型即20，不会进制
+        console.log(str31);
+        console.log(typeof str31);
+        var str32 = '20px';
+        var str33 = parseInt(str32);//得到一个整数数字型即20，去掉后面的非数值
+        console.log(str33);
+        console.log(typeof str33);
+        var str34 = 'px20';
+        var str35 = parseInt(str34);//得到一个NaN，因为第一个是非数值所以不会再继续识别，但是这个变量还是数字型
+        console.log(str35);
+        console.log(typeof str35);
+        //parseFloat（变量名），浮点数字型,与整数数字型区别就在可以支持小数点的数据，其他基本一致
+        var str35 = '20.1111'
+        var str36 = parseFloat(str35);
+        console.log(str36);
+        console.log(typeof str36);
+        //第二种方式，强制转换：number(变量名)
+        var str37 = '20';
+        var str38 = Number(str37);
+        console.log(str38);
+        console.log(typeof str38);
+        //第三种方式，隐式转换：-*/
+        var str39 = '20';
+        var str40 = str39 - 0;
+        console.log(str40);
+        console.log(typeof str40);
+        var str41 = '20';
+        var str42 = str41 - 5;//直接运算，减号代表隐式转换
+        console.log(str42);
+        console.log(typeof str42);
+        //练习以上内容的代码，动态年龄
+        var str43 = prompt('请输入您的出生年份');
+        var str44 = 2022 - str43;//隐式转换number,并且内部处理
+        alert('您今年' + str44 + '岁');
+        //练习以上内容的代码，加法器
+        var str45 = prompt('请输入第一个值');
+        var str46 = prompt('请输入第二个值');
+        var str47 = parseFloat(str45) + parseFloat(str46);//parseFloat转换number,并且内部处理
+        alert('两个值相加等于' + str47);
+
+        //变量数据转换（转换成Boolean）,空、0、否定的值都会被转成false
+        console.log(Boolean(''));//false
+        console.log(Boolean(0));//false
+        console.log(Boolean(NaN));//false
+        console.log(Boolean(null));//false
+        console.log(Boolean(undefined));//false
+        console.log(Boolean('你好'));//true
+        console.log(Boolean(123));//true
+        //课后作业开始
+        var str48 = prompt('请输入姓名');
+        var str49 = prompt('请输入年龄');
+        var str50 = prompt('请输入性别');
+        alert('您的姓名:' + str48 + '\n您的年龄：' + str49 + '\n您的性别：' + str50);//遇到问题：实现不了换行?思路：换行放在引号里面
+
+
+        //以下是运算符内容
+        //算数运算符，+-*/%(加减乘除取余数)，优先级为先算乘除再算加减，有括号先算小括号
+        console.log(1 + 1);
+        console.log(1 - 1);
+        console.log(2 * 2);
+        console.log(2 / 2);
+        console.log(5 % 3); //余数为2
+        console.log(3 % 5);//余数为3
+        console.log(0.1 + 0.2);//浮点型进行算术运算会有问题
+
+        //递增递减运算符，++--（也称一元表达式）
+        var a = 1;
+        a = a + 1;
+        console.log(a);
+        var a1 = 1;
+        ++a1;//前置递增和单独使用时和a1++后置递增是等价的
+        console.log(a1);
+        var a2 = 1;
+        console.log(a2++ + 2);//后置递增和前置递增唯一区别在于先返回值再计算，所以为1+2=3
+        console.log(a2);//此时a2等于2
+        //递增运算符练习
+        var a3 = 10;
+        ++a3;//a3=11
+        var a4 = ++a3 + 2;//a3=12
+        console.log(a4);
+        var a5 = 10;
+        a5++;//a5=11
+        var a6 = a5++ + 2;//a5=11
+        console.log(a6);//a5=12
+        var a7 = 10;
+        var a8 = a7++ + ++a7;//a7++=10,a7=11,++a7=12
+        console.log(a8);//a5=12
+
+
+        //判断运算符
+        console.log(3 > 5);//返回false
+        console.log(5 > 3);//返回true
+        console.log(5 >= 3);//返回true
+        console.log(3 >= 5);//返回false
+        console.log(5 == 5);//返回true
+        console.log(5 != 5);//返回false
+        console.log('pink' == '刘德华');//返回false
+        console.log(5 == '5');//返回true，==会转换成数字类型，值是否一致
+        console.log(5 === '5');//返回false,===绝对等于，数字类型和值是否一致
+
+
+        //逻辑运算符,&&,||,!(取反)
+        console.log(5 > 10 && 7 > 5);//返回false，两者都要满足才能true
+        console.log(5 > 10 || 7 > 5);//返回true,两者满足一个就是true
+        console.log(!(10 > 5));//返回false
+        //逻辑运算符案例
+        var b = 7;
+        var b1 = '我爱你中国~'
+        console.log(b > 5 && b1.length >= b);//false
+        console.log(b < 5 && b1.length >= b);//false
+        console.log(!(b < 5));//true
+        console.log(!(b < 10 || b1.length == num));//false
+
+        //逻辑运算符的中断（&&，与），场景：特殊的逻辑运算，仅存在值或者表达式，而不是判断
+        console.log(123 && 456);//第一个是为值（并且为真true），则返回表达式2，即456
+        console.log(0 && 456);//第一个是为值（并且为真false，因为0代表false，还有''，null,undefined,NaN），则返回表达式1，即0
+        console.log(1 && 1 + 1);//第一个是为值（并且为真true），则返回表达式2，即2
+        //逻辑运算符的中断（||，或）
+        console.log(123 && 456);//第一个是为值（并且为真true），则返回表达式1，即123
+        console.log(0 && 456);//第一个是为值（并且为真false，因为0代表false，还有''，null,undefined,NaN），则返回表达式2，即456
+        console.log(1 && 1 + 1);//第一个是为值（并且为真true），则返回表达式1，即1
+
+        //赋值运算符
+        var c = 5;
+        c += 5;//相当于c=c+5;
+        console.log(c);
+        var c1 = 5;
+        c1 -= 5;//相当于c1=c1-5;
+        console.log(c1);
+        var c2 = 5;
+        c2 *= 5;//相当于c2=c2*5;
+        console.log(c2);
+        var c3 = 5;
+        c3 /= 5;//相当于c3=c3/5;
+        console.log(c3);
+        var c4 = 5;
+        c4 %= 5;//相当于c4=c4%5;
+        console.log(c4);
+
+        //运算符优先级，1.（）2.++--！3.*/+-4.>>=<=5.==!=====!==6.&&||,先&&再||7.=8.,
+        console.log(4 >= 6 || '人' != '阿凡达' && !(12 * 2 == 144) && true);//true
+        var d = 10;
+        console.log(5 == d / 2 && (2 + 2 * d).toString() === '22');//true
+        var d1 = 3 > 5 && 2 < 7 && 3 == 4;
+        console.log(d1);//false
+        var d2 = 3 <= 4 || 3 > 1 || 3 != 2;
+        console.log(d2);//true
+        var d3 = 2 === '2';
+        console.log(d3);//false
+        var d4 = !d3 || d2 && d1;
+        console.log(d4);//true
+
+
+        //流程控制知识，顺序结构(由上而下依次执行代码)、分支结构（条件分支）、循环结构，代表三种执行顺序
+        //分支结构，if，语法结构：if(条件表达式){为true时的执行语句},等价于流程图中判断Y
+        if (5 > 3) {
+            alert('因为5>3,所以我是true,执行这条语句');
+        }
+        //网吧的案例
+        var wangba = prompt('请输入年龄');
+        if (wangba >= 18) {
+            alert('您可以进入网吧');
+        }
+        //双分支结构，if，语法结构：if(条件表达式){为true时的执行语句}else{为false时的执行语句},注意：if和else里的语句只能二选一，即不存在两个语句同时出现，等价于流程图中判断Y和N
+        var wangba1 = prompt('请输入年龄');
+        if (wangba1 >= 18) {
+            alert('您可以进入网吧');
+        } else {
+            alert('滚，不可以进入');
+        }
+        //判断闰年的写法，算法：能被4整除并且不能整除100的为闰年或者能够被400整除的就是闰年
+        var runnian = prompt('请输出年份');
+        if (runnian % 4 == 0 && runnian % 100 != 0 || runnian % 400 == 0) {
+            alert('是闰年');
+        } else {
+            alert('是平年');
+        }
+        //判断是否是刘德华，是的话提示中奖，不是的话提示不中奖
+        var jiang = prompt('请输入获奖姓名');
+        if (jiang == '刘德华') {
+            alert('已获奖');
+        }
+        else {
+            alert('未获奖');
+        }
+        //简化版的双分支结构语法，条件表达式？表达式1：表达式2;同样是二选一
+        var jianhua = 10;
+        var jianhua1 = jianhua > 5 ? '是的' : '不是的';
+        console.log(jianhua1);//和if(jianhua>5{jianhua1='是的';}else{jianhua1='不是的';};是等价的
+        //接收用户输入的值，如果小于10就在数字前加一个零
+        var e = prompt('请输入数字，如果小于零会加一个零在前面');
+        var e1 = e < 10 ? '0' + e : e;
+        alert(e1);
+
+        //多分支结构，if else if,语法结构：if(){} else if(){} else if(){} else{},相当于流程图中N下面再增加判断条件
+        var chengji = prompt('请输出成绩');
+        if (chengji >= 90) {
+            alert('您很优秀，继续加油');
+        } else if (chengji >= 80) {
+            alert('继续加油');
+        } else if (chengji >= 70) {
+            alert('您很危险');
+        } else {
+            alert('不想和你说话，挨鞭子吧');
+        }
+
+        //多分支结构，switch,针对特定的值(固定的值)进行匹配后输出语句，ifelseif是对判断范围进行匹配输出语句，语法结构switch(值){case 值1：执行语句;break; case 值2：执行语句;break; default：执行语句};
+        //注意：1.匹配的两个值必须===2.break必须要有，中断否则会继续执行语句
+        switch (5) {
+            case 1:
+                console.log('这是1');
+                break;
+            case 5:
+                console.log('这是5');
+                break;
+            default:
+                console.log('没有匹配结果');
+        }
+        //查询水果价格案例
+        var frult = prompt('请输入查找的水果');
+        switch (frult) {
+            case '香蕉':
+                alert('30元/斤');
+                break;
+            case '苹果':
+                alert('40元/斤');
+                break;
+            default:
+                alert('没有此水果');
+        }
+        //分支流程控制总结练习案例1
+        var anli1 = prompt('请输入时间点');
+        switch (anli1) {
+            case '12':
+                alert('中午好');
+                break;
+            case '18':
+                alert('傍晚好');
+                break;
+            case '23':
+                alert('深夜好');
+                break;
+            default:
+                alert('识别不了');
+        }
+        //分支流程控制总结练习案例2
+        var anli2_1 = prompt('请输入第一个值');
+        var anli2_2 = prompt('请输入第二个值');
+        var anli2_3 = anli2_1 < anli2_2 ? anli2_2 : anli2_1;
+        alert(anli2_3);
+        //分支流程控制总结练习案例3
+        var anli3 = prompt('请输入一个数判断奇数还是偶数');
+        var anli3_1 = anli3 % 2 == 0 ? '这是偶数' : '这是奇数';
+        alert(anli3_1);
+        //分支流程控制总结练习案例4
+        var anli4 = prompt('请输入数字返回星期几');
+        switch (anli4) {
+            case '1':
+                alert('今天星期一');
+                break;
+            case '2':
+                alert('今天星期二');
+                break;
+            case '3':
+                alert('今天星期三');
+                break;
+            default:
+                alert('识别不了');
+        }
+        //分支流程控制总结练习案例5
+        var anli5 = prompt('请输入口袋里的钱');
+        if (anli5 >= 2000) {
+            alert('请大家吃西餐');
+        } else if (anli5 < 2000 && anli5 >= 1500) {
+            alert('请大家吃快餐');
+        } else if (anli5 < 1500 && anli5 >= 1000) {
+            alert('请大家喝饮料');
+        } else {
+            alert('下次把钱带够!');
+        }
+        //分支流程控制总结练习案例6
+        var anli6 = prompt('请输入分数，看对应等级');
+        if (anli6 >= 90) {
+            alert('您的等级为A');
+        } else if (anli6 >= 80 && anli6 < 90) {
+            alert('您的等级为B');
+        } else if (anli6 >= 70 && anli6 < 80) {
+            alert('您的等级为C');
+        } else if (anli6 < 60) {
+            alert('您的等级为E');
+        }
+
+
+        //循环知识
+
+        //for循环，语法结构：for(初始化变量;条件表达式；操作表达式){循环体}，初始化变量：用var声明一个变量，用于计数器使用。条件表达式：是否满足条件继续执行，判断运算符。操作表达式：对计数器变量进行更新，例如++
+        for (var i = 1; i <= 10; i++) {
+            console.log('你好吗？');
+        }//代码执行顺序：1.首先执行计数器变量 var i=1 ,这句话只在for里面执行一次 2.i<=10 来判断是否满足，满足的话执行循环体内容，不满足推出循环 3.最后执行i++，因为作为后置递增 4.接着拿着i的值执行i<=10，验证是否满足
+        //fou循环拓展知识
+        var t = prompt('请输入循环的次数');
+        for (var t1 = 1; t1 < t; t1++) {
+            console.log('根据输入要求次数循环');
+        }
+        //for循环不同的代码
+        for (var t2 = 1; t2 < 10; t2++) {
+            console.log('今年是' + t2 + '岁');
+        }
+        //fou循环案例1，求1~100的累加和
+        var sum = 0;
+        for (var t3 = 1; t3 <= 100; t3++) {
+            sum = sum + t3;
+        }
+        console.log(sum);
+        //fou循环案例2，求1~100所有值的平均数
+        var sum1 = 0;
+        for (var t3 = 1; t3 <= 100; t3++) {
+            sum1 = sum1 + t3;
+        }
+        console.log(sum1 / 100);
+        //fou循环案例3，求1~100之间所有偶数和奇数的和
+        var even = 0;
+        var odd = 0;
+        for (var t4 = 1; t4 <= 100; t4++) {
+            t4 % 2 == 0 ? even = even + t4 : odd = odd + t4;
+        }
+        console.log(even);
+        console.log(odd);
+        //fou循环案例4，求1~100之间所有所有能被3整除的和
+        var t5 = 0;
+        for (var t6 = 1; t6 <= 100; t6++) {
+            t6 % 3 == 0 ? t5 = t5 + t6 : 0;
+        }
+        console.log(t5);
+        //fou循环案例5，用户输入班级人数，根据输入的人数依次输入对应的学生成绩，最后打印输出总的成绩以及平均成绩
+        var t7 = prompt('请输入学生人数');
+        var t7_02 = 0;//求和的变量
+        for (var t8 = 1; t8 <= t7; t8++) {
+            var t7_01 = prompt('请输入第' + t8 + '的学生成绩');
+            t7_02 = t7_02 + parseFloat(t7_01);
+        }
+        alert('总成绩为' + t7_02);
+        alert('平均成绩为' + t7_02 / t7);
+        //fou循环案例6，一行打印五颗星星
+        var t9 = '';
+        for (var t10 = 1; t10 <= 5; t10++) {
+            t9 = t9 + '★'
+        }
+        console.log(t9);
+        var t11 = prompt('请输入打印的星星数量');
+        var t13 = '';
+        for (var t12 = 1; t12 <= t11; t12++) {
+            t13 = t13 + '★';
+        }
+        console.log(t13);
+
+        //双重for循环知识,语法结构：for（外层变量初始化 ;外层条件表达式;外层操作表达式）{//执行语句; for(内层变量初始化 ;内层条件表达式;内层操作表达式){//执行语句;}}
+        for (var t14 = 1; t14 <= 2; t14++) {
+            console.log('这是外层循环的第' + t14 + '次');
+            for (var t15 = 1; t15 <= 2; t15++) {
+                console.log('这是内层循环的第' + t15 + '次');
+            }
+        }//先执行外层一次，再全部执行里层，最后再执行外层（里层再执行一遍）
+        //双重fou循环案例1，打印五行五列星星
+        var t16 = '';
+        for (var t17 = 1; t17 <= 5; t17++) {
+            for (var t18 = 1; t18 <= 5; t18++) {
+                t16 = t16 + '★';
+            }
+            t16 = t16 + '\n';//控制转行
+        }
+        console.log(t16);
+        //双重fou循环案例2，根据用户输入打印用户输入的行数和列数的星星
+        var t20 = prompt('请输入行数');
+        var t21 = prompt('请输入列数');
+        var t24 = ''
+        for (var t22 = 1; t22 <= t20; t22++) {
+            for (var t23 = 1; t23 <= t21; t23++) {
+                t24 = t24 + '★'
+            }
+            t24 = t24 + '\n';
+        }
+        console.log(t24);
+        //双重fou循环案例3，打印倒三角星星案例
+        var t16_01 = '';
+        for (var t17_01 = 1; t17_01 <= 5; t17_01++) {
+            for (var t18_01 = t17_01; t18_01 <= 10; t18_01++) {
+                t16_01 = t16_01 + '★';
+            }
+            t16_01 = t16_01 + '\n';//控制转行
+        }
+        console.log(t16_01);
+        //双重fou循环案例4，打印九九乘法表
+        var t25 = '';
+        for (var t26 = 1; t26 <= 9; t26++) {
+            for (var t27 = 1; t27 <= t26; t27++) {
+                //1*1=1
+                //t25=t25+'★'
+                t25 = t25 + t27 + '*' + t26 + '=' + t27 * t26 + '\t';
+            }
+            t25 = t25 + '\n';
+        }
+        console.log(t25);
+        //while循环语句，语法结构：while(判断条件){执行语句;},与for循环区别在于，while对判断执行语句，即当...执行语句，for是根据计数循环
+        var t30 = 1;//初始化变量
+        while (t30 <= 5) {
+            console.log('我是while循环');
+            t30++;//操作表达式用来更新计数器，防止死循环
+        }
+        //while循环案例1，打印5岁之前的年龄
+        var t31 = 1;
+        while (t31 <= 5) {
+            console.log('我今年' + t31 + '岁');
+            t31++;
+        }
+        //while循环案例2，计算1—100之间所有的整数和
+        var t32 = 0;
+        var t33 = 1;
+        while (t33 <= 100) {
+            t32 = t32 + t33;
+            t33++;
+        }
+        console.log(t32);
+        //while循环案例3，提示框：你爱我吗？输入我爱你关闭弹窗，否则一直弹出来
+        var t34 = prompt('你爱我吗？');
+        while (t34 !== '我爱你') {
+            t34 = prompt('你爱我吗？');//需要把用户输入的值更新到t34，然后去验证条件，否则会永远提示你爱我吗？陷入死循环
+        }
+        alert('我也爱你！');
+        //do while循环语句，语法结构：do{执行语句;}while(判断条件),先做后判断，和while只有这一个区别
+        var t35 = 1;//初始化变量
+        do {
+            console.log('我是dowhile循环');
+            t35++;//更新变量
+        } while (t35 <= 5)
+        //do while循环案例1，打印5岁之前的年龄
+        var t36 = 1;
+        do {
+            console.log('我今年' + t36 + '岁了');
+            t36++;
+        } while (t36 <= 5)
+        //do while循环案例2，计算1—100之间所有的整数和
+        var t37 = 1;
+        var t38 = 0;
+        do {
+            t38 = t37 + t38;
+            t37++;
+        } while (t37 <= 100)
+        console.log(t38)
+        //do while循环案例3，提示框：你爱我吗？输入我爱你关闭弹窗，否则一直弹出来
+        do {
+            var t39 = prompt('你爱我吗？');
+        } while (t39 != '我爱你')
+        alert('我也爱你')
+
+        //continue关键字，退出本次循环，继续下一次循环
+        for (var t40 = 1; t40 <= 5; t40++) {
+            if (t40 == 3) {
+                continue;//没有吃第三个包子
+            }
+            console.log('我正在吃第' + t40 + '个包子');
+        }
+        //continue案例，求1-100之间，除了能被7整除外的数字之和
+        var t42 = 0;
+        for (var t41 = 1; t41 <= 100; t41++) {
+            if (t41 % 7 == 0) {
+                continue;
+            }
+            t42 = t42 + t41;
+        }
+        console.log(t42);
+
+        //break关键字，立即跳出循环
+        for (var t43 = 1; t43 <= 5; t43++) {
+            if (t43 == 3) {
+                break;
+            }
+            console.log('我正在吃第' + t43 + '个包子');
+        }
+
+        //循环作业1，根据用户输入的用户名和密码，如果正确则提示登录成功，如果错误则一直提示，用户名：admin，密码123456
+        var t50=prompt('请输入用户名');
+        var t51=prompt('请输入密码');
+        while(t50!=='admin'){
+            var t50=prompt('请输入用户名');
+        }
+        while(t51!=='123456'){
+            var t51=prompt('请输入密码');
+        }
+        alert('登录成功');
+        //循环作业2，求1-100之间，除了含有3的数字之和
+        var t53=0;
+        for(var t52=1;t52<=100;t52++){
+            if(t52==3||t52==13||t52==23||t52==33||t52==43||t52==53||t52==63||t52==73||t52==83||t52==93){
+                continue;
+            }
+            t53=t53+t52;
+       }
+       console.log(t53);
+       //循环作业3
+       var t54=100;
+       var t55=prompt('请选择想要的操作');
+       switch(t55){
+           case('1'):
+           var t56=prompt('请输入存的钱数');
+           var t57=t56*1+100;
+           alert('您的余额为'+t57);
+           break;
+           case('2'):
+           var t58=prompt('请输入取的钱数');
+           var t59=100-t58*1;
+           alert('您的余额为'+t59);
+           break;
+           case('3'):
+           alert('您的余额为'+t54);
+           break;
+           case('4'):
+           break;
+
+       }
+       //循环作业4
+       var t100=prompt('请选择想要的操作1.加法运算2.减法运算3.乘法运算4.除法运算5.退出');
+       switch(t100){
+           case('1'):
+           var t101=prompt('请输入第一个值');
+           var t102=prompt('请输入第二个值');
+           var t103=t101*1+t102*1;
+           alert('结果为'+t103);
+           break;
+           case('2'):
+           var t101=prompt('请输入第一个值');
+           var t102=prompt('请输入第二个值');
+           var t103=t101*1-t102*1;
+           alert('结果为'+t103);
+           break;
+           case('3'):
+           var t101=prompt('请输入第一个值');
+           var t102=prompt('请输入第二个值');
+           var t103=t101*t102;
+           alert('结果为'+t103);
+           break;
+           case('4'):
+           var t101=prompt('请输入第一个值');
+           var t102=prompt('请输入第二个值');
+           var t103=t101/+t102;
+           alert('结果为'+t103);
+           break;
+           case('5'):
+           break;
+
+       }
+        
+
+    </script>
+</head>
+<body>
+</body>
+
+</html>

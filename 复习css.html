@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ch-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复习css</title>
+    <link rel="stylesheet" href="复习+案例css文件.css" />
+</head>
+
+<body>
+    <ul>
+        <li>我是深红色</li>
+        <!--标签选择器-->
+        <li class="red">我是红色</li>
+        <!--类选择器-->
+        <li class="red">我也是红色</li>
+        <!--类选择器-->
+        <li class="black">我是黑色</li>
+        <!--类选择器-->
+        <li class="bule">我是蓝色</li>
+        <!--类选择器-->
+        <li id="pink">我是粉色</li>
+        <!--id选择器-->
+    </ul>
+    <!--多类名标签-->
+    <div class="redbox boxsize"></div>
+    <div class="greenbox boxsize"></div>
+    <div class="redbox boxsize"></div>
+    <p class="left">我是左侧</p>
+    <p class="center">我是中间</p>
+    <p class="right">我是右侧</p>
+    <p><a href="#" class="A">我是链接没有下划线</a></p>
+    <p class="indent">展示首行缩进效果</p>
+    <p class="line">行高展示行高展示行高展示行高展示<br />行高展示行高展示行高展示</p>
+    <p style="color:red; font-size:40px;">行高展示行高展示行高展示行高展示<br />行高展示行高展示行高展示</p>
+    <h1><a href="css案例.html">点我查看案例</a></h1>
+    <!--复合选择器开始-->
+    <!--后代选择器和子选择器-->
+    <ol>
+        <li>我是兒子</li>
+        <li><a href="#">我是孫子</a></li>
+        <li class="B"><a href="#">我是孫子</a></li>
+        我不是兒子
+    </ol>
+    <ul>
+        <li>我是兒子
+            <a href="#">我是孫子</a>
+        </li>
+    </ul>
+    <!--并集选择器-->
+    <div>熊大</div>
+    <p>熊二</p>
+    <dl class="C">
+        <dd>小猪佩奇</dd>
+    </dl>
+    <!--伪类选择器-->
+    <p class="D"> <a href="#">我是标题，演示链接伪选择器</a></p>
+    <input type="text" value="我是演示表单伪选择器" name="#" />
+    <!--伪元素选择器-->
+    <div class="weiyuansu">我来演示伪元素选择器</div>
+    <h2><a href="css案例.html">点我查看伪元素使用场景</a></h2>
+    <!--以下是css新增特性——属性选择器-->
+    <div class="shuxingming">
+        <input type="text"  />
+        <input type="text" value="我是根据属性名选择器选中">
+    </div>
+    <div class="shuxingzhi">
+        <input type="text" value="我是根据属性值选择器选中"  />
+        <input type="text" value="我未被属性值选择器选中">
+    </div>
+    <div class="shuxingkaitou">
+        <input type="text" value="我是开头-01会被选中"  />
+        <input type="text" value="我是开头-01会被选中">
+        <input type="text" value="我是开头-02不会被选中">
+    </div>
+    <div class="shuxingjiewei">
+        <input type="text" value="我是结尾-01不会被选中"  />
+        <input type="text" value="我是结尾-01不会被选中">
+        <input type="text" value="我是结尾-01不会被选中的反义">
+    </div>
+    <!--以下是css新增特性——结构伪类选择器（nth-child）-->
+    <div class="jiegouweilei">
+        <ul class="jiegouweilei-01">
+            <li>我是第一行</li>
+            <li>我是第二行</li>
+            <li>我是第三行</li>
+        </ul>
+        <ul class="jiegouweilei-02">
+            <li>我是第一行</li>
+            <li>我是第二行</li>
+            <li>我是第三行</li>
+            <li>我是第四行</li>
+        </ul>
+        <ul class="jiegouweilei-03">
+            <li>我是第一行</li>
+            <li>我是第二行</li>
+            <li>我是第三行</li>
+            <li>我是第四行</li>
+        </ul>
+        <ul class="jiegouweilei-04">
+            <li>我是第一行</li>
+            <li>我是第二行</li>
+            <li>我是第三行</li>
+            <li>我是第四行</li>
+        </ul>
+        <ul class="jiegouweilei-05">
+            <li>我是第一行</li>
+            <li>我是第二行</li>
+            <li>我是第三行</li>
+            <li>我是第四行</li>
+        </ul>
+        <ul class="jiegouweilei-06">
+            <li>我是第一行</li>
+            <li>我是第二行</li>
+            <li>我是第三行</li>
+            <li>我是第四行</li>
+        </ul>
+        <ul class="jiegouweilei-07">
+            <li>我是第一行</li>
+            <li>我是第二行</li>
+            <li>我是第三行</li>
+            <li>我是第四行</li>
+        </ul>
+        <ul class="jiegouweilei-08">
+            <li>我是第一行</li>
+            <li>我是第二行</li>
+            <li>我是第三行</li>
+            <li>我是第四行</li>
+        </ul>
+    </div>
+    <!--以下是css新增特性——结构伪类选择器（nth-of-type-->
+    <div class="jiegouweilei2">
+        <p>我来演示占用第一个位置</p>
+        <span>我来演示用nth-child选不中我</span>
+    </div>
+    <div class="jiegouweilei3">
+        <p>我来演示占用第一个位置</p>
+        <span>我来演示用nth-of-type选中我</span>
+    </div>
+    <!--标签元素展示逻辑-->
+    <div class="E">我是块级元素,独占一行</div>
+    <!--div、h1-h6、p、ul、ol、li等-->
+    <span class="F">我是行内元素,一行可以放多个</span><strong class="F">我是行内元素，一行可以放多个</strong>
+    <!--span,a,strong,em,i,del,ins等--><br />
+    <input class="G" type="text" value="我是行内块元素，一行可以多个并且可以设置宽高" /><input class="G" type="text"
+        value="我是行内块元素，一行可以多个并且可以设置宽高" />
+    <!--img,input等--><br />
+    <!--标签元素转换-->
+    <div class="H">我是块级元素，已经转换成行内元素,不再独立一行并且宽高失效</div>
+    <div class="H">我是块级元素，已经转换成行内元素,不再独立一行并且宽高失效</div><br /><br />
+    <sapn class="I">我是行内元素，已转换成块级元素，独占一行并且可以设置宽高</sapn>
+    <sapn class="I">我是行内元素，已转换成块级元素，独占一行并且可以设置宽高</sapn><br />
+    <sapn class="J">我是行内元素，已转换成行内块级元素，一行占多个并且可以设置宽高</sapn>
+    <sapn class="J">我是行内元素，已转换成行内块级元素，一行占多个并且可以设置宽高</sapn><br /><br />
+    <div class="K">我是块级元素，已转换成行内块级元素，一行占多个并且可以设置宽高</div>
+    <div class="K">我是块级元素，已转换成行内块级元素，一行占多个并且可以设置宽高</div>
+    <p><a href="css案例.html">点我查看案例</a></p>
+    <!--背景样式-->
+    <div class="L">演示背景颜色</div>
+    <div class="L1">演示背景图片</div>
+    <div class="L2">演示超大图片</div>
+    <div class="L3">演示背景图片精确方位1</div>
+    <div class="L4">演示背景图片精确方位2</div>
+    <div class="L5">演示背景图片精确方位3</div>
+    <p><a href="css案例.html">点我查看案例</a></p>
+    <!--css三大特性-->
+    <div>
+        <p class="L6">我是相同样式</p>
+        <p class="L6">我是相同样式</p>
+    </div>
+    <div class="L7">
+        <span>我是儿子，继承了父亲的样式</span>
+        <p class="L8">演示继承父亲的行高</p>
+    </div>
+    <div>
+        <p class="L9" id="L10" style="color:brown">我来演示选择器权重</p>
+        <ul class="L10">
+            <li class="L11">我来演示复合选择器计算</li>
+        </ul>
+        <!--盒子模型边框样式-->
+    </div>
+    <div class="L12">演示盒子边框样式</div>
+    <div class="L13">演示盒子边框样式</div>
+    <div class="L14">演示盒子边框样式</div>
+    <div class="L14">演示盒子边框样式</div>
+    <div class="L15">演示盒子边框样式层叠性</div>
+    <!--表格边框样式-->
+    <table class="L16" cellpadding="20">
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1</th>
+                <th>刘德华</th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>林志玲</th>
+            </tr>
+        </tbody>
+    </table>
+    <!--以下是演示边框宽度会影响盒子大小-->
+    <div class="L17">我是宽度和高度固定为380px的盒子，边框占了10px</div>
+    <!--以下是演示边框宽度不会影响盒子大小-->
+    <div class="L17-01">我是宽度和高度固定为400px的盒子，边框占了10px</div>
+    <!--以下是演示盒子内边距-->
+    <div class="L18">我来演示盒子内边距</div>
+    <!--以下是演示盒子内边距会影响盒子大小-->
+    <div class="L19">我是宽度和高度固定为98px的盒子，内边距占了100px</div>
+    <!--以下是演示盒子内边距不会影响盒子大小-->
+    <div class="L19-01">我是宽度和高度固定为300px的盒子，内边距占了100px</div>
+    <!--以下是演示盒子内边距不会影响盒子大小（未指定宽度）-->
+    <div class="L20">我来演示盒子内边距不会影响盒子大小</div>
+    <p><a href="css案例.html">点我查看新浪导航栏案例</a></p>
+    <div class="L21">我来演示盒子上外边距</div>
+    <div class="L22">我来演示盒子水平居中</div>
+    <div class="L23">我来演示盒子塌陷问题<div class="L24"></div>
+    </div><br />
+    <p><a href="css案例.html">点我查看图片广告列表案例</a></p>
+    <p><a href="css案例.html">点我查看新闻快报案例</a></p>
+    <!--以下是演示圆角边框-->
+    <div class="L25">圆形的制作</div>
+    <div class="L26">圆角矩形的制作</div>
+    <div class="L27">四角不同的边框</div>
+    <!--以下是演示盒子阴影-->
+    <div class="L28">盒子阴影</div>
+    <!--以下是文字阴影-->
+    <p class="L29">文字阴影</p>
+    <!--以下是盒子浮动-->
+    <div class="L30">我是左侧盒子</div>
+    <div class="L31">我是右侧盒子</div>
+    <!--以下是演示盒子浮动脱标-->
+    <div class="L32">我是标准盒子,演示脱标</div>
+    <!--以下是演示盒子浮动具有行内块元素特性-->
+    <span class="L33">我是来演示任何元素加了浮动都会具有行内块特性</span>
+    <p class="L34">我来演示没有指定宽度，浮动后具有行内块元素特性，宽度由内容来决定</p>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <!--以下是演示浮动的盒子只会影响后面的标准流不会影响前面的标准流-->
+    <div>
+        <div class="L35">我是浮动盒子影响下面标准流</div>
+        <div class="L36">我是标准流盒子</div>
+        <div class="L37">我是浮动盒子不会影响上面标注流</div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <p><a href="css案例.html">点我查看浮动布局练习</a></p>
+    <!--以下是演示为什么清除浮动-->
+    <div class="L38">
+        <div>我是子元素，我把父元素高度撑起来</div>
+    </div>
+    <br /><br /><br />
+    <div class="L39">
+        <div>我是浮动元素，浮动起来以后父元素就没有了高度，会影响下面的标准流盒子</div>
+    </div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <!--以下是演示盒子的相对定位-->
+    <div class="L40">我是相对定位的盒子</div>
+    <div class="L41">我是来掩饰上面的盒子移动会保留之前的位置，即不脱离标准流</div>
+    <!--以下是演示盒子的绝对定位-->
+    <div class="L42">我是绝对盒子的爷爷元素，存在定位
+        <div class="L43">我是绝对定位盒子的父元素，存在定位
+            <div class="L44">我是绝对定位的盒子，位置不保留,并且按照父元素位偏移</div>
+        </div>
+    </div>
+    <div class="L45">我是绝对盒子的爷爷元素，存在定位
+        <div class="L46">我是绝对定位盒子的父元素，不存在定位
+            <div class="L47">我是绝对定位的盒子，位置不保留,并且按照爷爷元素位偏移</div>
+        </div>
+    </div>
+    <!--以下是演示盒子的固定定位-->
+    <div class="L48">固定定位的盒子</div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <!--以下是演示盒子如何固定在版心右侧-->
+    <div class="L49">我是版心</div>
+    <div class="L50">我是固定盒子，在版心右侧展示</div>
+    <!--以下是演示定位盒子的叠放顺序-->
+    <div class="L51">
+        <div class="L51-1">我是第一个盒子,压住下面第二个盒子，利用了z-index</div>
+        <div class="L51-2">我是第二个盒子</div>
+    </div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <!--以下是演示定位盒子如何垂直居中-->
+    <div class="L52">
+        <div>演示定位盒子水平垂直居中</div>
+    </div>
+    <h2><a href="css案例.html">点我查看淘宝焦点图案例</a></h2>
+    <!--以下是演示显示和隐藏元素-->
+    <div class="L53">我是隐藏盒子</div>
+    <div class="L54">我是代替了隐藏的盒子位置（display）</div>
+    <hr />
+    <div class="L55">我是隐藏盒子</div>
+    <div class="L56">我没有代替隐藏的盒子位置（visibility）</div>
+    <div class="L57">我来演示超出部分隐藏的啦啦啦啦啦啦啦啦阿拉拉阿拉啦啦啦拉拉阿拉啦啦啦啦啦啦</div>
+    <div class="L58">我来演示超出部分自动添加滑块啦啦啦啦啦阿拉拉拉阿拉啦啦啦啦啦啦啦啦啦啦啦啦</div>
+    <div class="L59">我来演示超出不管超出否，都会出现滑块啦啦啦啦啦阿拉拉阿拉啦啦啦拉拉阿拉啦啦啦啦啦啦</div>
+    <h2><a href="css案例.html">点我查看土豆播放图片案例</a></h2>
+    <!--以下是演示精灵图-->
+    <div class="L60">
+        <span class="study"></span>
+        <span class="wenjian"></span>
+    </div>
+    <!--以下是演示字体图标的应用-->
+    <div><span class="L61">&#xeb98;</span></div>
+    <div><span class="L62">&#xeb98;</span></div>
+    <div><span class="L63">&#xeb98;</span></div>
+    <!--以下是演示三角形的制作-->
+    <div class="L64"></div>
+    <div class="L65"></div>
+    <h2><a href="css案例.html">点我查看三角案例</a></h2>
+    <!--以下是鼠标移入样式变化-->
+    <div class="L66">
+        <ul>
+            <li class="l661">我是默认的小白箭头</li>
+            <li class="l662">我是小手</li>
+            <li class="l663">我是移动十字架</li>
+            <li class="l664">我是文本</li>
+            <li class="l665">我是禁止</li>
+        </ul>
+    </div>
+    <!--以下是表单获得焦点轮廓取消和文本域防止拖拽细节-->
+    <div class="L67">
+        <input type="text" />
+        <textarea></textarea>
+    </div>
+    <!--以下是图片、表单与文本对齐方式-->
+    <div class="L68">
+        <img src="images/学成网首页-精品推荐03.png" />
+        我是文字,图片和我垂直居中
+    </div>
+    <div class="L69">
+        <img src="images/学成网首页-精品推荐03.png" />
+        我是文字,图片和我底部对齐
+    </div>
+    <div class="L70">
+        <img src="images/学成网首页-精品推荐03.png" />
+        我是文字,图片和我顶部对齐
+    </div>
+    <div class="L71">
+        <textarea></textarea>
+        我是文字,表单和我垂直居中对齐
+    </div>
+    <!--以下是文字超出宽度省略号展示-->
+    <div class="L72">我来演示单行文字超出宽度用省略号代替我来演示单行文字超出宽度用省略号代替我来演示单行文字超出宽度用省略号代替</div>
+    <div class="L73">我来演示多行文字超出宽度用省略号代替我来演示多行文字超出宽度用省略号代替我来演示多行文字超出宽度用省略号代替</div>
+    <!--以下是利用margin的负值布局技巧-->
+    <div class="L74 clear">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+    </div>
+    <div class="L75 clear">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+    </div>
+    <!--以下是文字环绕浮动元素技巧-->
+    <div class="L76 clear">
+        <div class="L76-1 clear">
+            <img src="images/学成网首页-数据分析right-03.png" alt="">
+        </div>
+        <p>我来演示，我是文字不会被浮动的盒子压住，并且会环绕盒子进行展示</p>
+    </div>
+    <br /><br />
+    <!--以下是行内块元素的技巧,做出分页器-->
+    <div class="L77">
+        <a href="#" class="l77-back">&lt;&lt;上一页</a>
+        <a href="#" class="l77no">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#" class="l77no">...</a>
+        <a href="#" class="l77-next">&gt;&gt;下一页</a>
+        到第
+        <input type="text" />
+        页
+        <button>确定</button>
+    </div>
+    <!--以下是图片模糊属性-->
+    <div class="L78">
+        <img src="images/学成网首页-精品推荐02.png" alt="">
+    </div>
+    <!--以下是css过渡属性-->
+    <div class="L79"></div>
+    <h2><a href="css案例.html">点我查看css过渡案例</a></h2>
+</body>
+
+</html>

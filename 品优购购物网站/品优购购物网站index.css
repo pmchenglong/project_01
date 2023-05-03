@@ -1,0 +1,267 @@
+.main{
+    margin-top: 10px;
+    margin-left: 219px;
+    background-color: aquamarine;
+}
+.main_left{
+    float: left;
+    position: relative;
+    width:720px;
+    height: 455px;
+    overflow: hidden;
+    
+}
+.main_left img{
+    position: relative;
+    width:720px;
+    height:455px;
+}
+.main_left_img ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2500px;
+}
+.main_left_img li{
+    float: left;
+}
+.main_left_fangxiang{
+    display: none;
+
+}
+.main_left_fangxiang span:nth-child(1){
+    position: absolute;
+    top:50%;
+    left:0;
+    font-size: 30px;
+    cursor: pointer;
+
+}
+.main_left_fangxiang span:nth-child(2){
+    position: absolute;
+    top:50%;
+    right:0;
+    font-size: 30px;
+    cursor: pointer;
+
+}
+.main_left_yuandian ul{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+}
+.main_left_yuandian ul li{
+    float: left;
+    margin-left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #333333;
+    background-color: #ffffffff;
+    cursor: pointer;
+}
+#current{
+    background-color: #666666;
+
+}
+.main_right{
+    float: left;
+    margin-left: 8px;
+    width:250px; 
+    height:454px;
+}
+.main_right_top{
+    width:250px;
+    height: 165px;
+    border: 1px solid #e4e4e4;
+}
+.main_right_top01{
+    width:248px;
+    height:33px;
+    border-bottom: 1px dashed #e4e4e4;
+}
+.main_right_top01 h1{
+    float: left;
+    margin-left: 15px;
+    font-size: 14px;
+    color: #333333;
+    line-height: 33px;
+}
+.main_right_top01 p{
+    float:right;
+    margin-right: 8px;
+    line-height: 33px;
+    font-size:10px;
+    color: #333333;
+}
+.main_right_top01 p a span{
+    font-family: "iconfont";
+}
+.main_right_top02{
+    height: 130px;
+}
+.main_right_top02 ul{
+    margin-left: 16px;
+    margin-top: 5px;
+    
+  
+}
+.main_right_top02 ul li{
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #333333;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.main_right_midlle ul {
+    width: 260px;
+   
+
+}
+.main_right_midlle ul li{
+    float: left;
+    padding-top: 10px;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    width:62.5px; 
+    height:71px;
+    text-align: center;
+}
+.main_right_midlle ul li:nth-child(1){
+    border-left: 1px solid #e4e4e4;
+}
+.main_right_midlle ul li:nth-child(5){
+    border-left: 1px solid #e4e4e4;
+}
+.main_right_midlle ul li:nth-child(9){
+    border-left: 1px solid #e4e4e4;
+}
+.main_right_midlle ul li i{
+    display: inline-block;
+    width: 29px;
+    height: 29px;
+    background-image: url(../images/品优购-精灵图.png);
+    background-position: -17px -15px;
+}
+.recommend {
+    margin-top: 11px;
+    position: relative;
+    height:163px;
+}
+.recommend ul li{
+    float: left;
+    position: relative;
+}
+.recommend ul li:first-child{
+    width:205px;
+    height:163px;
+   
+}
+.recommend ul li a{
+    display: block;
+    width: 248px;
+    height: 163px;
+    background-color: #ebebeb;
+}
+.recommend ul li a::after{
+    content: '';
+    position: absolute;
+    top:8px;
+    right: 0;
+    width: 1px;
+    height: 142px;
+    background-color: #ccc;
+}
+.recommend ul li:last-child a::after{
+    content: '';
+    position: absolute;
+    top:8px;
+    right: 0;
+    width: 1px;
+    height: 142px;
+    background-color: rgb(245, 244, 244);
+}
+#dianqi{
+    margin-top: 29px;
+}
+.dianqi-top{
+    height: 40px;
+    border-bottom:2px solid #c81623;
+}
+.dianqi-top h2{
+    float: left;
+    width: 100px;
+    font-size: 18px;
+    color: #c81623;
+}
+.dianqi-top div {
+    float: right;
+}
+.dianqi-top div a{
+    display: inline-block;
+    margin-top: 4px;
+    padding:0 14px;
+    border-right: 1px solid #ccc;
+    font-size: 12px;
+    color: #666666;
+}
+.dianqi-top div a:last-child{
+    border-right: 0px solid #ccc;
+   
+}
+.dianqi-top div a:hover{
+    color: #c81623;
+}
+.dianqi-bottom div{
+    float: left;
+}
+.dianqi-bottom01{
+    width:210px;
+    height:360px;
+    background-color: #f9f9f9;
+}
+.dianqi-bottom01 ul li{
+    float: left;
+    margin-left: 12px;
+    border-bottom: 1px solid #ccc;
+    width:86px;
+    height:33px;
+    background-color: #f9f9f9;
+    line-height: 33px;
+    text-align: center;
+    font-size: 12px;
+    color: #666666;
+}
+.dianqi-bottom02{
+    width:329px;
+    height:360px;
+   background-color: aquamarine;
+}
+.dianqi-bottom03{
+    width:220px;
+    height:360px;
+    border-right: 1px solid #ccc;
+    background-color: #c81623;
+}
+.dianqi-bottom03 .dianqi-bottom031{
+    height: 181px;
+    border-bottom: 1px solid #ccc;
+}
+.dianqi-bottom04{
+    width:220px;
+    height:360px;
+    background-color: #666666;
+}
+.dianqi-bottom05{
+    width:220px;
+    height:360px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    background-color: #c81623;
+}
+.dianqi-bottom05 .dianqi-bottom051{
+    height: 181px;
+    border-bottom: 1px solid #ccc;
+}

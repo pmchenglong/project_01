@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/SimpleSwitch.css"/>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+    <script src="jquery.js"></script>
+    <script type="text/javascript" src="js/SimpleSwitch.min.js"></script>
+    <style>
+        body{
+            height: 10000px;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .jq{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        video{
+            width: 400px;
+            height: 400px;
+        }
+        .parent{
+            width: 200px;
+            height: 200px;
+        }
+        .son{
+            width: 150px;
+            height: 150px;
+        }
+        .sunzi{
+            width: 100px;
+            height: 100px;
+        }
+        .sunzi2{
+            width: 50px;
+            height: 50px;
+        }
+        .nav>li{
+            float: left;
+            width: 50px;
+            list-style: none;
+        }
+        .nav li{
+            list-style: none;
+            width: 100px;
+            text-align: center;
+            border: 1px solid rgb(22, 19, 19);
+        }
+        .nav ul li a{
+            display: inline-block;
+            
+            line-height: 100px;
+            
+        }
+        .nav ul{
+            display: none;
+            width: 50px;
+            text-align: center;
+            line-height: 100px;
+        }
+        .anlili{
+            position: relative;
+            margin-top: 70px;
+
+        }
+        
+        .left li{
+            height: 70px;
+        }
+        .right {
+          position: absolute;
+          top: 0;
+          left: 50px;
+          border: 1px solid black;
+        }
+        .right  div{
+          display:none;
+
+        }
+        .right  div:nth-child(1){
+          display:block;
+
+        }
+        .right  img{
+          position: absolute;
+          top: 0;
+          left: 10px;
+          width: 150px;
+          height: 170px;
+
+        }
+        .jq1{
+            margin-top: 30px;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .jq2{
+            margin-top: 30px;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            transform: all 0.5s;
+        }
+        .current{
+            background-color: red;
+            transform: rotate(360deg);
+        }
+        .tab{
+            position: relative;
+            margin-top: 50px;
+        }
+        .tab_top li{
+            float: left;
+            padding:5px 5px;
+            list-style: none;
+            cursor: pointer;
+            
+        }
+        .tab_bottom div{
+            position: absolute;
+            top: 30px;
+            left: 5px;
+        }
+        .tab_bottom div{
+           display: none;
+        }
+        .tab_bottom div:nth-child(1){
+           display: block;
+        }
+        .current1{
+            background-color: red;
+            color: #ffffff;
+            
+        }
+        .showhide{
+            margin-top: 150px;
+        }
+        .showhide_01{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .updown{
+            margin-top: 150px;
+        }
+        .updown_01{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            display: none;
+        }
+        .fade{
+            margin-top: 150px;
+        }
+        .fade_01{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            display: none;
+        }
+        .gaoliang{
+            margin-top: 150px;
+        }
+        .gaoliang ul li{
+            float: left;
+            list-style: none;
+            margin-right: 10px;
+        }
+        .animeta_01{
+            position: relative;
+            margin-top: 400px;
+        }
+        .animeta_01 div{
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .wangzhe{
+            margin-top: 500px;
+        }
+        .wangzhe li{
+            position: relative;
+            float: left;
+            list-style: none;
+            width: 48px;
+            height: 48px;
+        }
+        .small{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+        }
+        .big{
+            width: 48px;
+            height: 48px;
+            display: none;
+        }
+        .cart ul li{
+            float: left;
+            list-style: none;
+        }
+        .cart ul li button{
+            width: 20px;
+            height: 20px;
+        }
+        .cart ul li input{
+            width: 30px;
+            height: 20px;
+        }
+        .cureeee{
+            background-color: antiquewhite;
+        }
+        .bbb{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border: 10px solid red;
+            padding: 10px;
+            margin: 10px;
+        }
+        .ccc{
+            position: relative;
+            margin-left: 50px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .ccc_01{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            margin-left: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .callback{
+            position: absolute;
+            top: 700px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            display: none;
+            
+        }
+        .dianqi , .shouji , .jiaju{
+            width: 100px;
+            height: 100px;
+            margin-top: 150px;
+            text-align: center;
+            line-height: 100px;
+            border: red 10px solid;
+        }
+        .dianti{
+            position:absolute;
+            top: 0;
+            right: 80px;
+            display: none;
+            
+        }
+        .dianti ul li{
+            list-style: none;
+            border: #ccc 1px solid;
+            padding: 5px;
+            cursor: pointer;
+            
+        }
+        .anli2{
+            position: relative;
+        }
+        .currentt{
+            background-color: aquamarine;
+        }
+        .onon{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+        .weibo22 input{
+            width: 200px;
+            height: 100px;
+        }
+        .weibo22 ul li a{
+            margin-left: 40px;
+
+
+        }
+        .jiebang{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        .trigger1{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+        .htmleaf-content{
+			width: 300px;
+			height: 300px;
+			margin: 30px auto;
+		}
+        .switch-wrapper {
+            margin: 0 0 20px;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        //var jq=document.querySelector('.jq')
+        //jq.style.display='none'
+        //$=jqery，$()，调用jquery的方法
+        $(function(){//jquery入口函数，$代表jq，等着页面dom元素加载完毕执行js代码，相当于原生js中的domcontentloaded
+            $(".jq").hide();//$是jq的顶级对象，可以把元素包装成对象，可以调用里面的属性和方法
+        })
+    </script>
+    <div class="jq"></div>
+    <script>
+        //dom对象和jq对象的区别
+        var jq=document.querySelector('.jq')
+        console.dir(jq)//封装元素的对象，属于dom对象
+        console.dir($('div'))//封装元素的伪数组对象，属于jq对象
+        jq.style.display='none';//dom对象只能使用原生的js方法和属性
+        $('div').hide();//jq对象只能使用jq的方法和属性
+    </script>
+    <video src="https://vd2.bdstatic.com/mda-ngedpjf0s396e56k/sc/cae_h264/1657878306881843580/mda-ngedpjf0s396e56k.mp4?v_from_s=hkapp-haokan-nanjing&auth_key=1657981820-0-0-3cb7cf6c551b31b3fbac602cfed89af8&bcevod_channel=searchbox_feed&cd=0&pd=1&pt=3&logid=0020449543&vid=3845456122020635170&abtest=103525_1&klogid=0020449543" muted></video>
+    <script>
+        var video=document.querySelector('video')
+        //video.autoplay='autoplay'//自动播放
+        //$(video).autoplay='autoplay'//dom对象装换jq对象
+        //$(video)[0].autoplay='autoplay'//把jq对象转换成dom对象
+    </script>
+    <div >
+        <ul class="moos">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ol class="mooa">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <script>
+        console.log($(".moos li"))//获取元素和css选择器一样
+        $(".moos li").css("background","pink")//隐式迭代，把匹配的所有元素进行内部遍历循环，不需要for循环
+        $(".moos li:first").css("background","red")//筛选第一个li
+        $(".moos li:last").css("background","red")//筛选最后一个li
+        $(".moos li:eq(2)").css("background","blue")//筛选指定的li
+        $(".mooa li:odd").css("background","blue")//筛选偶数的li
+        $(".mooa li:odd").css("background","blue")//筛选索引号为奇数的li
+        $(".mooa li:even").css("background","pink")//筛选索引号为偶数的li
+    </script>
+    <div class="parent">
+        <div class="son"> 
+            <div class="sunzi"></div>
+            <div class="sunzi2"></div>
+            <p>10000</p>
+        </div>
+    </div>
+    <script>
+
+        $(".son").parent().css("background","pink")//父亲选择器
+        $(".parent").children().css("background","red")//子代选择器，只选儿子
+        $(".son").find("div").css("background","black")//后代选择器，需要选择具体的标签
+    </script>
+    <div>
+        <ul class="eqtest">
+            <li></li>
+            <li class="siblings"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        $(".siblings").siblings("li").css("background","red")//把除了自己得兄弟元素选出来\
+        $(".eqtest li").eq(1).css("background","black")//把jq对象中伪数组按照索引号筛选出来，可以传变量
+
+    </script>
+    <div>
+        <ul class="nav">
+            <li>
+                <a href="">微博</a>
+                <ul>
+                    <li>私信</li>
+                    <li>评论</li>
+                    <li>@我</li>
+                </ul>
+            </li>
+            <li><a href="">微博</a>
+                <ul>
+                    <li>私信</li>
+                    <li>评论</li>
+                    <li>@我</li>
+                </ul></li>
+            <li><a href="">微博</a>
+                <ul>
+                    <li>私信</li>
+                    <li>评论</li>
+                    <li>@我</li>
+                </ul></li>
+            <li><a href="">微博</a>
+                <ul>
+                    <li>私信</li>
+                    <li>评论</li>
+                    <li>@我</li>
+                </ul></li>
+        </ul>
+    </div>
+    <script>
+        $(".nav>li").mouseover(function(){
+            $(this).children("ul").show()
+        })
+        $(".nav>li").mouseout(function(){
+            $(this).children("ul").hide()
+        })
+    </script>
+    <div class="paita">
+        <button>排他</button>
+        <button>排他</button>
+        <button>排他</button>
+        <button>排他</button>
+    </div>
+    <script>
+        $(".paita").children().click(function(){
+            $(this).css("background","red").siblings("button").css("background","")
+        })
+    </script>
+    <br>
+    <!--淘宝服饰楼梯案例-->
+    <div class="anlili">
+        <div class="left">
+            <ul>
+                <li>乐视</li>
+                <li>iphone</li>
+                <li>三星</li>
+            </ul>
+        </div>
+        <div class="right" id="right01">
+            <div><img src="images/乐视.png" alt="" ></div>
+            <div><img src="images/iphone手机.png" alt=""></div>
+            <div><img src="images/三星曲面屏.png" alt=""></div>
+        </div>
+
+    </div>
+    <script>
+        $(".left li").mouseover(function(){
+            var index=($(this).index());
+            $("#right01 div").eq(index).show().siblings().hide();//链式编程
+        })
+        $(".left li").mouseout(function(){
+            $("#right01 div").hide();
+            $("#right01 div:nth-child(1)").show();
+        })
+    </script>
+    <!--jqery修改样式方法-->
+    <div class="jq1"></div>
+    <script>
+        console.log($(".jq1").css("width"))//如果参数只是属性，则是只返回属性值
+        $(".jq1").css("width",300)//数字可以不用引号
+        $(".jq1").css({//可以修改多个元素样式,用对象形式,key:value
+            "width":43,
+            "height":400,
+            "background":"red"
+        })
+    </script>
+    <!--jqery修改操作类-->
+    <div class="jq2"></div>
+    <script>
+        $(".jq2").click(function(){
+            //$(this).addClass("current")   添加类，追加类名，classname是覆盖之前的类名
+            //$(this).removeClass("current")   移除类
+            $(this).toggleClass("current")   //切换类
+        })
+    </script>
+    <!--tab栏切换案例-->
+    <div class="tab">
+        <div class="tab_top">
+            <ul>
+                <li class="current1">我的待办</li>
+                <li>我的已办</li>
+                <li>我处理的</li>
+                <li>草稿箱</li>
+            </ul>
+        </div>
+        <div class="tab_bottom">
+            <div>待办列表</div>
+            <div>已办列表</div>
+            <div>我处理的</div>
+            <div>草稿箱</div>
+        </div>
+    </div>
+    <script>
+        $(".tab_top li").click(function(){
+            $(this).addClass("current1").siblings().removeClass("current1")
+            var index=$(this).index()
+            $(".tab_bottom div").eq(index).show().siblings().hide()
+        })
+    </script>
+    <!--显示和隐藏的动画效果,hide(速度，回调函数)-->
+    <div class="showhide">
+        <button>显示</button>
+        <button>隐藏</button>
+        <button>切换</button>
+        <div class="showhide_01"></div>
+    </div>
+    <script>
+        $(".showhide button").eq(1).click(function(){
+            $(".showhide_01").hide(1000,function(){
+                alert(1)
+            })
+        })
+        $(".showhide button").eq(0).click(function(){
+            $(".showhide_01").show(1000,function(){
+                alert(1)
+            })
+        })
+        $(".showhide button").eq(2).click(function(){
+            $(".showhide_01").toggle(1000,function(){//切换效果
+                alert(1)
+            })
+        })
+    </script>
+
+    <!--下滑动和上滑动的动画效果,slideup和slidedown、slidetoggle-->
+    <div class="updown">
+        <button>下滑动</button>
+        <button>上滑动</button>
+        <button>切换</button>
+        <div class="updown_01"></div>
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <script>
+        //$(".updown button").eq(0).mouseover(function(){
+          //  $(".updown_01").slideDown(1000)
+        //})
+        //$(".updown button").eq(0).mouseout(function(){
+          //  $(".updown_01").slideUp(1000)
+        //})
+        $(".updown button").eq(0).hover(function(){
+            $(". ").stop().slideToggle(1000)//stop写在动画方法前面，代表结束上一个动画，防止动画排队造成延迟
+        })//用hover方法和上面是等价的，如果只写一个函数鼠标经过和离开都会触发，写两个函数代表鼠标经过和离开
+
+        $(".updown button").eq(2).mouseover(function(){
+            $(".updown_01").slideToggle(1000)
+        })
+    </script>
+    <!--淡入淡出效果，fadein(),fadeout(),fadetoggle(),fadeto(修改背景色0-1，速度)-->
+    <div class="fade">
+        <button>淡入</button>
+        <button>淡出</button>
+        <button>切换</button>
+        <button>修改背景色</button>
+        <div class="fade_01"></div>
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <script>
+        $(".fade button").eq(0).click(function(){
+            $(".fade_01").stop().fadeIn(1000)
+        })
+        $(".fade button").eq(1).click(function(){
+            $(".fade_01").stop().fadeOut(1000)
+        })
+        $(".fade button").eq(2).click(function(){
+            $(".fade_01").stop().fadeToggle(1000)
+        })
+        $(".fade button").eq(3).click(function(){
+            $(".fade_01").stop().fadeTo(1000,0.2)
+        })
+    </script>
+    <!--案例：鼠标经过图片高亮，其他图片低亮-->
+    <div class="gaoliang">
+        <ul>
+            <li><img src="images/今日推荐-01.png" alt=""></li>
+            <li><img src="images/今日推荐04.png" alt=""></li>
+            <li><img src="images/今日推荐02.png" alt=""></li>
+            <li><img src="images/今日推荐03.png" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        $(".gaoliang li").hover(function(){
+            $(this).siblings().stop().fadeTo(400,0.4)
+        },function(){
+            $(this).siblings().stop().fadeTo(400,1)
+        })
+    </script>
+    <!--animate({修改的样式，对象形式},速度，回调函数),动画方法-->
+    <div class="animeta_01">
+        <button>点我移动滑块</button>
+        <div></div>
+    </div>
+    <script>
+        $(".animeta_01 button").click(function(){
+            $(".animeta_01 div").animate({
+                "left":100,
+                "top":100,
+                
+            },1000)
+        })
+    </script>
+
+    <!--王者荣耀手风琴的制作，思路：鼠标移入，当前的li宽度为224px，同时小图片淡出，大图片淡入，其他兄弟的li宽度为69px，同时小图片淡入，大图片淡出-->
+    <div class="wangzhe">
+        <li>
+            <img src="images/女孩.png" alt="" class="small small_01">
+            <img src="images/跳过.png" alt="" class="big big_01">
+        </li>
+        <li>
+            <img src="images/男孩.png" alt="" class="small">
+            <img src="images/跳过.png" alt="" class="big">
+        </li>
+        <li>
+            <img src="images/播放图标.png" alt="" class="small">
+            <img src="images/跳过.png" alt="" class="big">
+        </li>
+    </div>
+    <script>
+        $(".wangzhe li").mouseenter(function(){
+            $(this).stop().animate(1000,{
+                width:300
+            }).find(".small").stop().fadeOut(100).siblings(".big").fadeIn(100);
+            $(this).siblings("li").stop().animate(300,{
+                width:247
+            }).find(".small").stop().fadeIn(100).siblings(".big").fadeOut(100);
+        })
+    </script>
+    <br><br><br><br><br><br><br><br>
+    <!--jquery的属性获取属性值和修改属性值-->
+    <a class="value" href="www.baidu.com" index="1">w=11</a>
+    <input type="checkbox">
+    <script>
+        console.log($(".value").prop("href"))//获取内置的属性值
+        $(".value").prop("href","www.souhu.com")//修改内置的属性值
+        $("input").change(function(){//当表单发生改变时
+            console.log($("input").prop("checked"))
+        })
+        console.log($(".value").attr("index"))//获取自定义的属性值
+        $(".value").attr("index","2")//修改自定义的属性值
+        $(".value").data("name","刘德华")//数据缓存在某个元素中
+        console.log($(".value").data("name"))//打印出缓存的数据
+        
+    </script>
+    <br><br><br><br>
+    <!--购物车加减数量，修改商品小计-->
+    <div class="cart">
+        <ul class="hello">
+            <li>
+                <input type="checkbox" class="xuanze">
+                <button class="increase">+</button>
+                <input class="numbers" type="text" value="1">
+                <button class="reduce">-</button>
+                <span class="unit">￥10.30</span>
+                <span class="total">￥10.30</span>
+                <a  href="javascript:;" class="delete">删除</a>
+            </li>
+        </ul>
+        <br><br>
+        <ul class="hello">
+            <li>
+                <input type="checkbox" class="xuanze">
+                <button class="increase">+</button>
+                <input class="numbers" type="text" value="1">
+                <button class="reduce">-</button>
+                <span class="unit">￥20.00</span>
+                <span class="total">￥20.00</span>
+                <a  href="javascript:;" class="delete">删除</a>
+            </li>
+        </ul>
+        <br><br>
+        <ul>
+            <li>总数量<span class="count"></span></li>
+            <br>
+            <li>总金额<span class="money"></span></li>
+        </ul>
+        <br><br>
+        <ul>
+            <li><a href="javascript:;" class="delete01">删除所选商品</a></li>
+            <br>
+            <li><a href="javascript:;" class="deleteall">删除全部商品</a></li>
+        </ul>
+    </div>
+    <script>
+        getsum();
+        //点击加号时
+        $(".increase").click(function(){
+            var num1=$(this).siblings("input").val();//获取当前的表单值
+            num1++;//加一 
+            $(this).siblings("input").val(num1)//赋值
+            var price=$(this).siblings(".unit").html()//获取单价字符串
+            var price=price.substr(1);//截取第一个字符，￥
+            $(this).siblings(".total").html("￥"+(price*num1).toFixed(2))//修改总计(用tofixed保留两位小数)
+            getsum();
+            
+        })
+        //点击减号时
+        $(".reduce").click(function(){
+            var num1=$(this).siblings("input").val();
+            if(num1==1){//判断条件等于1不执行下面代码
+                return false
+            }
+            num1--;
+            $(this).siblings("input").val(num1)
+            var price=$(this).siblings(".unit").html()
+            var price=price.substr(1);
+            $(this).siblings(".total").html("￥"+(price*num1).toFixed(2))
+            getsum();
+        })
+        //当表单发生变化时
+        $(".numbers").change(function(){
+            var num2=$(this).val();
+            var price1=$(this).siblings(".unit").html()
+            var price1=price1.substr(1);
+            $(this).siblings(".total").html("￥"+(price1*num2).toFixed(2))
+            getsum();
+        })
+        //删除单个商品
+        $(".delete").click(function(){
+            $(this).parent().remove()
+            getsum();
+        })
+        //删除全部商品
+        $(".deleteall").click(function(){
+            $(".hello").remove()
+            getsum();
+        })
+        //删除所选商品
+        $(".delete01").click(function(){
+            $(".xuanze").each(function(i,eve){
+               if($(eve).prop("checked")==true){//加判断，如果是选中的则删除元素
+                $(this).parent().parent().remove()
+               }
+            })
+            getsum();
+        })
+        //勾选时商品换个样式
+        $(".xuanze").click(function(){
+            $(".xuanze").each(function(i,eve){
+            if($(this).prop("checked")==true){
+                $(this).parent().addClass("cureeee")
+            }else{
+                $(this).parent().removeClass("cureeee")
+            }
+        })
+        })
+        function getsum(){//总数量和总金额的封装函数 
+            var count=0;
+            var money=0;
+            $(".numbers").each(function(i,ele){//遍历输入框的值相加
+                count=count+parseInt($(ele).val())
+                $(".count").html(count)
+            })
+            $(".total").each(function(o,lo){//遍历总价文本相加
+                money=money+parseFloat(($(lo).html()).substr(1))
+                $(".money").html("￥"+money.toFixed(2))
+            })
+        }
+    </script>
+    <br><br><br>
+    <!--遍历元素-->
+    <div>
+        <div class="each">1</div>
+        <div class="each">2</div>
+        <div class="each">3</div>
+    </div>
+    <script>
+        $(".each").css("color","red")
+        //如果是相同元素不同操作呢？
+        var sum=0;
+        var arr=["red","black","pink"]
+        $(".each").each(function(i,dom){
+            console.log(i)//第一个参数一定是索引号
+            console.log($(dom))//第二个参数是dom元素，需要转换为jq对象
+            $(dom).css("color",arr[i])//遍历数组  
+            sum=sum+parseInt($(dom).html())
+            console.log(sum)
+        })
+
+    </script>
+    <br><br><br>
+    <!--创建、添加、删除元素-->
+    <div>
+        <ul class="father">
+            <li>我是亲生的</li>
+        </ul>
+    </div>
+    <script>
+        //创建元素
+        var lili=$("<li>我是后妈生的</li>")
+        //添加元素（内部，给亲儿子添加）
+        $(".father").append(lili)//默认至于后面
+        $(".father").prepend(lili)//默认至于前面
+        var ulul=$("<ul><li>我是ul的兄弟</li></ul>")
+        //添加元素（外部，给亲兄弟添加）
+        $(".father").after(ulul)//在后面添加
+        $(".father").before(ulul)//在后面添加
+        //删除元素
+        //$(".father").remove()//把元素全部删除
+        $(".father").html("")//把元素删除子节点
+
+    </script>
+    <br><br><br>
+    <!--获取元素大小,可以传参数该值-->
+    <div class="bbb">
+    </div>
+    <script>
+        console.log($(".bbb").width(210))//仅获取元素宽度，带参数是修改
+        console.log($(".bbb").innerWidth())//获取元素宽度，包含padding
+        console.log($(".bbb").outerWidth())//获取元素宽度，包含padding\border
+        console.log($(".bbb").outerWidth(true))//获取元素宽度，包含padding\border\margin
+    </script>
+
+    <!--获取元素位置偏移量，修改位置偏移量;获取距离父盒子定位盒子的距离定位，position-->
+    <br><br><br>
+    <div class="ccc">
+        <div class="ccc_01">
+        </div>
+    </div>
+    <script>
+        console.log($(".ccc").offset())//距离文档的距离
+        console.log($(".ccc").offset().top)//距离文档头部的距离
+        $(".ccc").offset({//修改距离文档左部的距离
+            left:100
+        })
+        console.log($(".ccc").offset().left)
+        console.log($(".ccc_01").offset())//子盒子也是获取距离文档的距离
+        console.log($(".ccc").position())//距离文档的距离
+        console.log($(".ccc_01").position())//距离带有定位父盒子的距离
+    </script>
+    <br><br>
+
+    <!--获取文档被卷去头部的尺寸，以及改变被卷去的头部的尺寸-->
+    <div class="callback">
+        返回顶部
+    </div>
+    <script>
+        $(window).scroll(//添加浏览器滑动事件
+            function(){
+                if($(document).scrollTop()>=100){//获取文档被卷去头部的尺寸
+                $(".callback").fadeIn()
+                $(".callback").css(
+                    {
+                        position: "fixed",
+                        top:20,
+                        right:20
+                    }
+                )
+        }else{
+            $(".callback").fadeOut()
+        }
+            }
+
+        )
+        $(".callback").click(//点击返回顶部
+            function(){
+                $("body,html").stop().animate(//把元素封装成jq对象
+                    {scrollTop:0},1000//调用annimate内的scrolltop属性
+                )//返回顶部作用
+            }
+        )
+        
+    </script>
+    <!--电梯导航-->
+    <br><br>
+    <div class="anli2">
+    <div class="dianqi w">
+        电器区域
+    </div>
+    <br><br>
+    <div class="shouji w">
+        手机区域
+    </div>
+    <br><br>
+    <div class="jiaju w">
+        家具区域
+    </div>
+    <div class="dianti">
+        <ul>
+            <li class="q">电器区域</li>
+            <li class="q">手机区域</li>
+            <li class="q">家具区域</li>
+        </ul>
+    </div>
+    </div>
+    <script>
+        var flag=true;//互斥锁，防止点击的时候，页面滚动也参与
+        $(window).scroll(
+            function(){
+                if($(document).scrollTop()>=$(".anli2").offset().top){//当文档被卷去的高度大于整个区域时，显示导航电梯
+                    $(".dianti").fadeIn()
+                    $(".dianti").css(
+                        {position:"fixed",
+                         top:20,
+                         right:60
+                        }
+                    )
+                }else{
+                    $(".dianti").fadeOut()
+                }
+                if(flag){
+                    $(".anli2 div").each(function(i,eve){//遍历每个区域，当被卷去的高度大于每个区域的距离顶部的距离时，渲染导航按钮样式
+                    if($(document).scrollTop()>=$(eve).offset().top){
+                    $(".dianti li").eq(i).addClass("currentt").siblings().removeClass("currentt")
+                }
+                })
+                }
+                
+                
+            }
+        )
+        $(".dianti  li").click(function(){//当点击电梯时，定位到页面的位置
+                flag=false;
+                var index=$(this).index()
+                var huadong=$(".w").eq(index).offset().top
+                $("body,html").stop().animate({scrollTop:huadong},function(){
+                    flag=true;
+                })
+                $(this).addClass("currentt").siblings().removeClass("currentt")
+
+            })
+    </script>
+
+    <!--事件处理on,优势1，可以写多个事件-->
+    <br><br>
+    <div class="onon">on事件</div>
+    <script>
+        $(".onon").on({
+            click:function(){
+                $(this).css("background","blue")
+            },
+            mouseover:function(){
+                $(this).css("background","green")
+            },
+            mouseout:function(){
+                $(this).css("background","")
+            }
+        })
+    </script>
+    <!--事件处理on,优势2，事件委派-->
+    <br><br>
+    <ul class="weipai">
+        <li>我是委派方</li>
+        <li>我是委派方</li>
+        <li>我是委派方</li>
+    </ul>
+    <script>
+        $(".weipai").on("click","li",function(){
+            alert(11)
+        })
+    </script>
+    <!--事件处理on,优势3，可以给新添加的元素指定事件-->
+    <br><br>
+    <ul class="ononon">
+        <li>我是委派方</li>
+        <li>我是委派方</li>
+        <li>我是委派方</li>
+    </ul>
+    <script>
+        //$(".ononon li").click(function(){//这个不会再对后面新添加的元素生效
+            //alert(11)
+       // })
+       $(".ononon").on("click","li",function(){//用on事件委托，可以对新添加的元素生效
+        alert(111)
+       })
+        var li=$("<li>我是后来的</li>")
+        $(".ononon").append(li)
+        
+    </script>
+    <!--微博发布留言按钮-->
+    <br><br>
+    <div class="weibo22">
+        <input class="vall" type="textarea">
+        <button class="fabu">发布</button>
+        <ul class="ul">
+            
+        </ul>
+    </div>
+    <script>
+        $(".fabu").click(function(){
+            var li=$("<li></li>")
+            li.html($(".vall").val()+"<a href='javascript:;'>删除</a>")
+            $(".ul").prepend(li)
+            li.fadeIn(500);//解决动画效果问题
+            $(".vall").val("") 
+        }
+        )
+        $(".ul").on("click","a",function(){
+            $(this).parent().remove()
+        })
+        //$(".ul").off("click","a")解绑事件委托
+        
+    </script>
+    <!--解绑事件,off()-->
+    <br><br>
+    <div class="jiebang"></div>
+    <script>
+        $(".jiebang").on({
+            click:function(){
+                console.log("点击了")
+            },
+            mouseover:function(){
+                console.log("移入了")
+            }
+        })
+        $(".jiebang").off("click")//解绑点击事件
+        $(".jiebang").one("click",function(){
+            console.log("只能点击一次")//只绑定一次事件
+        })
+    </script>
+    <!--自动触发事件,trigger("事件")方法-->
+    <br><br>
+    <div class="trigger1"></div>
+    <script>
+        $(".trigger1").on("click",function(){
+            alert("点击了")
+        })
+        $(".trigger1").trigger("click")
+    </script>
+    <!--获取事件对象-->
+    <br><br>
+    <div class="trigger1"></div>
+    <script>
+        $(".trigger1").on("click",function(event){
+            console.log(event)
+        })
+    </script>
+    <br><br>
+    <!--使用jqurey插件，步骤：1.引入css和js文件2.复制相关的html，css，js（调用插件）-->
+    <div class="htmleaf-content">
+        <div class="switch-wrapper">
+                <label>
+                    <input type="checkbox" data-type="simple-switch" />
+                    Remember Me
+                </label>
+            </div>
+            <div class="switch-wrapper">
+                <label>
+                    <input type="checkbox" data-type="simple-switch"
+                        data-material="true" />
+                    Sign Up for Newsletter
+                </label>
+            </div>
+    </div>
+     
+    <script type="text/javascript">
+        SimpleSwitch.init();
+    </script>    
+ 
+</body>
+</html>

@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        
+        .clear:before,.clear:after{
+            content:"";
+            display:table;
+        }
+        .clear:after{
+            clear:both;
+        }
+        .clear{
+            *zoom:1;
+        }
+        .password1{
+            position: relative;
+            width: 400px;
+            height:43px;
+            background-color:aqua;
+            border-bottom:qpx solid #cccccc;
+        }
+        .password1 input{
+            height: 40px;
+            width: 400px;
+            outline: none;
+            border: none;
+        }
+        .password1 img{
+            position:absolute;
+            right:5px;
+            top:17px;
+           
+        }
+        .sty{
+            margin-top: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        .on {
+            position: relative;
+        }
+        .on span {
+            position: absolute;
+            top: 2px;
+            left:2px;
+        }
+        .jingling li{
+            margin-top: 10px;
+            list-style: none;
+            width: 52px;
+            height:46px;
+            background: url(images/循环精灵图.png);
+        }
+        .search input{
+            width: 200px;
+            height: 20px;
+            
+        }
+        .before1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .after2{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .u2{
+            display: inline-block;
+            padding-left: 20px;
+           
+        }
+        .jiaoyan2 {
+            background: url(images/错误.png);
+            background-repeat: no-repeat;
+        }
+        .jiaoyan3 {
+            background: url(images/正确.png);
+            background-repeat: no-repeat;
+        }
+        .uu{
+            outline: none;
+            border-color:pink;
+        }
+        .u4{
+            border-color: #cccccc;
+        }
+        .bannar {
+            position: relative;
+        }
+        .bannar span{
+            position: absolute;
+            left: 1205px;
+            top: 0;
+        }
+        .xinlang ul{
+            display: none;
+        }
+        .xinlang li{
+            list-style: none;
+            width: 60px;
+            text-align: center;
+            border: 1px solid pink;
+        }
+        .xinlang span{
+            display: inline-block;
+            margin-left: 40px;
+            width: 62px;
+            height: 20px;
+            text-align: center;
+        }
+        .uuu{
+            background-color: #cccccc;
+            color: red;
+        }
+        .baidu li{
+            list-style: none;
+          
+        }
+        .baidu li img{
+            width: 200px;
+            height:200px;
+        }
+        .top ul li{
+            float: left;
+            list-style: none;
+            padding: 0 10px;
+        }
+        .comon{
+            color:blue;
+            border-bottom: 1px solid blue;
+        }
+        .div11{
+            display: none;
+        }
+        .xinlang1>ul>li{
+            float: left;
+            list-style: none;
+        }
+        .xinlang1>ul>li>ul{
+            display: none;
+            padding: 0;
+            margin: 0; 
+        }
+        .xinlang1>ul>li>ul>li{
+            height: 50px;
+            border: 1px solid #cccccc;
+            list-style: none;
+            text-align: center;
+            line-height: 50px;
+        }
+        .xinlang1>ul>li>ul>li:hover{
+            background-color: #cccccc;
+        }
+        .xinlang1 a{
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #cccccc;
+            color: black;
+            
+        }
+        .xinlang1 a:hover{
+            background-color: #cccccc;
+        }
+        .table2 table{
+            width: 500px;
+            padding: 10px 10px;
+            border-collapse: collapse;
+            text-align: center;
+           
+        }
+        .table2 table td{
+            height: 30px;
+            border: 1px solid #333;
+        }
+        .table2 table td a{
+            text-decoration: none;
+        }
+        .table2 table thead tr{
+           height: 40px;
+           background-color: #ccc;
+        }
+        .father1{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+        .father2{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .son1{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+        
+        .img5{
+            position: absolute;
+        }
+        .jd4{
+            position: relative;
+            margin-top: 20px;
+            display: inline-block;
+            display: none;
+            height:30px;
+            background-color: red;
+            font-size: 20px;
+          }
+          .jd4::before{
+            content: '';
+            position:absolute;
+            left:5px;
+            bottom:-15px;
+            width:0;
+            height:0;
+            border:10px solid transparent;
+            border-top:10px solid red;
+          } 
+          .j4_1{
+            display: block;
+            margin-top: 7px;
+            width: 180px;
+
+          }
+
+    </style>
+</head>
+<body>
+    <!--使用.getElementById('')获取元素-->
+    <div id="time">2022-09-18</div>
+    <script>//现有标签，再获取标签，所以写在标签下面
+        console.log(document.getElementById('time'));//调用接口传参必须是字符串类型
+        console.dir(document.getElementById('time'));//打印返回的元素对象，更好的查看属性和方法
+    </script>
+    <!--使用.getElementByTagName('')获取某类元素-->
+    <ul class="class1">
+        <li>我是美女</li>
+        <li>我是帅哥</li>
+    </ul>
+    <ol id="ol">
+        <li>我是变态</li>
+        <li>我是少年</li>
+    </ol>
+    <div class="class1">
+        <p>我是第一个元素</p>
+        <h6>我是第二个元素</h6>
+    </div>
+    <script>
+        console.log(document.getElementsByTagName('li'));//把li元素全部获取
+        //如果只想获取ol里的li怎么办？
+        //console.log(document.getElementsByTagName('ol'));这样会报错，执行时系统可能会存在多个ol
+        console.log(document.getElementById('ol'));//用ID获取ol元素
+        console.log(ol.getElementsByTagName('li'));//获取ol里的li元素
+    </script>
+    <!--使用.getElementsByClassName('')根据类名获取元素-->
+    <script>
+    console.log(document.getElementsByClassName('class1'));
+    </script>
+    <!--使用.querySelect('')根据类名和id获取第一个元素对象-->
+    <script>
+        console.log(document.querySelector('#time'));
+        console.log(document.querySelector('.class1'));
+    </script>
+    <!--使用.querySelectAll('')根据类名和id获取所有元素对象-->
+    <script>
+        console.log(document.querySelectorAll('.class1'))
+    </script>
+    <!--获取特殊元素body，html-->
+    <script>
+        console.log(document.body)//获取body
+        console.log(document.documentElement)//获取html
+    </script>
+
+    <!--事件基础-->
+    <!--事件三要素，1.确认事件源2.选择事件类型3.事件处理程序（函数赋值）-->
+    <button id="sj">点击事件</button>
+    <script>
+        var btn=document.getElementById('sj')//确认事件源
+        btn.onclick=function(){//选择事件类型
+            return alert('我是事件处理程序')//事件处理程序
+        }
+    </script>
+    <!--修改元素内容,innerText-->
+    <button id="timer10">点击获取时间</button>
+    <P id="nowtime">11111</P>
+    <p id="id1"></p>
+    <script>
+        function getDate(){
+        var date6=new Date();
+        var year=date6.getFullYear();
+        var month=date6.getMonth()+1;
+        var dates=date6.getDate();
+        var days=date6.getDay();
+        var arr=['星期天','星期一','星期二','星期三','星期四','星期五','星期六']
+        return year+'年'+month+'月'+dates+'日'+arr[days];
+        }
+        
+        var btn2= document.getElementById('timer10')
+        var btn3= document.getElementById('nowtime')
+        var btn4= document.getElementById('id1')
+        btn2.onclick=function(){
+            btn3.innerText =getDate();
+        }
+        btn4.innerText=getDate();//页面刷新直接获得时间案例
+    </script>
+    <!--修改元素内容,innerHTML，这个用的较多-->
+    <div id="ht"> 
+        我是帅哥
+        <p>我也是帅哥</p>
+
+    </div>
+    <script>
+        var ht1=document.getElementById('ht')
+        ht1.innerHTML='<h3>我是帅哥</h3>'//和innertext区别可以识别html标签
+        //ht1.innerText='<h3>我是帅哥</h3>'会全部打印出来
+    </script>
+    <!--innertext和innerhtml具有读写的特性，上面是写，下面是读-->
+    <div id="ht1"> 
+        我是帅哥
+        <span>我也是帅哥</span>
+    </div>
+    <script>
+        var ht2=document.getElementById('ht1')
+        console.log(ht2.innerText);//不会识别标签
+        console.log(ht2.innerHTML);//会识别标签，保留空格和换行
+    </script>
+    <!--修改元素属性-->
+    <button id="liu">刘德华</button>
+    <button id="zhang">张曼玉</button>
+    <img  id="img" src="images/男孩.png" title="男孩" />
+    <script>
+        var liu=document.getElementById('liu');//获取元素（确认事件源）
+        var zhang=document.getElementById('zhang');
+        var img=document.getElementById('img');
+        liu.onclick=function(){//事件类型
+            img.src='images/男孩.png';//修改元素（程序处理）
+
+        }
+        zhang.onclick=function(){
+            img.src='images/女孩.png';
+            img.title='女孩'//可以多个元素同时修改
+        }
+
+    </script>
+    <!--综合案例，根据系统不同时间展示不同图片和问候语-->
+    <div>
+        <img id="img2" src="images/bannar4.png" alt="">
+    </div>
+    <p id="wenhou">亲，上午好</p>
+    <script>
+        var img2=document.getElementById('img2');//获取元素
+        var wenhou=document.getElementById('wenhou')
+        var date=new Date();//调用内置date对象
+        var h=date.getHours();//获取小时
+        if(h<12){//分支结构
+            img2.src='images/bannar.png'//修改元素属性
+            wenhou.innerHTML='亲，上午好'//修改元素内容
+        }else if(h<18){
+            img2.src='images/女孩.png'
+            wenhou.innerHTML='亲，下午好'
+        }else{
+            img2.src='images/男孩.png'
+            wenhou.innerHTML='亲，晚上好'
+        }
+    </script>
+    <!--综合案例，用户输入的密码明文隐藏，通常用于一个按钮对应不同操作-->
+    <div class="password1">
+        <input type="password" id="p1">
+        <img id="img5" src="images/眼睛_显示.png"/>
+    </div>
+    <script>
+        var img5=document.getElementById('img5');//获取元素
+        var img6=document.getElementById('p1')
+        var flag=0;//便于写判断条件
+        img5.onclick=function(){
+            if(flag==0){
+            img6.type='text';
+            img5.src='images/眼睛_隐藏.png'
+            flag=1;//更新变量值
+        }else{
+            img6.type='password';
+            img5.src='images/眼睛_显示.png';
+            flag=0;
+        }
+        }
+    </script>
+    <!--修改样式属性，语法：元素.style.属性名，权重相当于写在元素内联样式，最该-->
+    <div class="sty"></div>
+    <script>
+        var sty1=document.querySelector('.sty')
+        sty1.onclick=function(){
+            sty1.style.backgroundColor='red';
+            sty1.style.width='200px';
+            sty1.style.height='200px';
+        }
+    </script>
+     <!--关闭二维码案例-->
+     <div class="on">
+        <img src="images/女孩.png"/>
+        <span id="close">X</span>
+     </div>
+     <script>
+        var on1=document.querySelector('.on');//确认事件源
+        var on2=document.getElementById('close');//确认事件源
+        on2.onclick=function(){
+            on1.style.display='none';//隐藏父元素
+        }
+     </script>
+     <!--循环精灵图案例-->
+     <div class="jingling">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+     </div>
+     <script>
+        var j1=document.querySelector('.jingling');//获取父盒子的元素
+        var j2=j1.getElementsByTagName('li');//获取父盒子内所有的li元素,li是一个数组类型
+        for(var i=0;i<j2.length;i++){
+            var y=i*55;//保存y坐标
+            j2[i].style.backgroundPosition='0 -'+y+'px'//原代码是background-position:0 -10px;
+        }
+     </script>
+     <!--输入框案例，当鼠标点击文本框时，隐藏默认文字，鼠标离开文本框时，显示默认文字，需要新的事件，获取光标和失去光标，onfocus和onblur-->
+     <div class="search">
+        <input id="search1" type="text" value="小米"/>
+        <button>搜索</button>
+     </div>
+     <script>
+        var se=document.querySelector('#search1');//获取元素
+        se.onfocus=function(){//获得光标
+            if(se.value=='小米'){//判断条件场景：防止用户输入的隐藏掉，所以当只有小米的时候才能隐藏
+                se.value='';
+            }   
+        }
+        se.onblur=function(){//失去光标
+            if(se.value==''){//判断条件场景：当用户未输入时失去光标显示小米
+                se.value='小米';
+            }
+        }
+     </script>
+     <!--当存在修改样式较多时，可以用classname对类重新命名调用,具体思路：写一个新的类样式进行调用,会把之前的类覆盖掉，当然也可以保留之前的，写上之前的类名和现在即可-->
+     <div class="before1"></div>
+     <script>
+        var before2=document.querySelector('.before1');
+        before2.onclick=function(){
+            before2.className='before1 after2';//重置类名，调用一个新的类，但是之前的类样式也保留
+        }
+     </script>
+     <!--根据用户输入值，失去光标时，如果小于6位数或大于16位数，就要提示，输入正确也要提示-->
+     <div class="jiaoyan">
+        <input type="text" class="u1"/>
+        <p class="u2">请输入数字</p>
+     </div>
+     <script>
+        var pass=document.querySelector('.u1');
+        var pass2=document.querySelector('.u2');
+        pass.onblur=function(){
+            if(pass.value.length<6||pass.value.length>16){
+                pass2.className='u2 jiaoyan2';
+                pass2.innerHTML='输入错误';
+            }else{
+                pass2.className='u2 jiaoyan3';
+                pass2.innerHTML='输入正确';
+            }
+        }
+     </script>
+     <!--案例1，鼠标移出移入效果-->
+     <div>
+        <input type="text" class="iu1"  value="用户名"/>
+        <input type="text" class="iu2" value="密码" />
+        
+     </div>
+     <script>
+        var iu1=document.querySelector('.iu1');
+        var iu2=document.querySelector('.iu2');
+        iu1.onfocus=function(){
+            iu1.className='uu';
+            if(iu1.value=='用户名'){
+                iu1.value='';
+            }
+        }
+        iu1.onblur=function(){
+            iu1.className='u4';
+            if(iu1.value==''){
+                iu1.value='用户名'
+            }
+        }
+        iu2.onfocus=function(){
+            iu2.className='uu';
+            if(iu2.value=='密码'){
+                iu2.value='';
+            }
+        }
+        iu2.onblur=function(){
+            iu2.className='u4';
+            if(iu2.value==''){
+                iu2.value='密码'
+            }
+        }
+     </script>
+     <!--案例2，关闭广告-->
+     <div class="bannar">
+        <img src="images/bannar图片.png" alt="">
+        <span class="close12">关闭</span>
+     </div>
+     <script>
+        var bannar=document.querySelector('.bannar');
+        var close12=document.querySelector('.close12');
+        close12.onclick=function(){
+            bannar.style.display='none'
+        }
+     </script>
+     <!--案例3，新浪下拉菜单-->
+     <div class="xinlang">
+        <span class="weibo">微博↓</span>
+        <ul class="xiala">
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li>
+        </ul>
+     </div>
+     <script>
+        var weibo=document.querySelector('.weibo');
+        var xiala=document.querySelector('.xiala');
+        var flag=0;
+        weibo.onclick=function(){
+            if(flag==0){
+            xiala.style.display='block';
+            weibo.className='weibo uuu';
+            flag=1;
+            }else{
+                xiala.style.display='none';
+                weibo.className='weibo';
+                flag=0;
+            }
+        }    
+        console.log(flag);
+     </script>
+     <!--案例4，开关灯-->
+     <div>
+        <button class="open1">开关灯</button>
+     </div>
+     <script>
+        var bd=document.body;
+        var kaiguan=document.querySelector('.open1');
+        var flag=0;
+        kaiguan.onclick=function(){
+            if(flag==0){
+                bd.style.backgroundColor='black'
+                flag=1;
+            }else{
+                bd.style.backgroundColor='white'
+            }
+            
+        }
+     </script>
+     <!--排他思想，场景：当点击事件较多时，不可能对每个元素进行注册事件-->
+     <div class="paita">
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+     </div>
+     <script>
+        var paita=document.querySelector('.paita');
+        var paita1=paita.getElementsByTagName('button');
+        for(var i=0;i<paita1.length;i++){
+            paita1[i].onclick=function(){
+                for(var i=0;i<paita1.length;i++){
+                    paita1[i].style.backgroundColor='';
+                }
+              this.style.backgroundColor='pink';
+            }
+
+        }
+     </script>
+     <!--百度换肤效果-->
+     <div class="baidu">
+        <ul>
+            <li><img src="images/学成网首页-数据分析师-left.png" /></li>
+            <li><img src="images/学成网首页-数据分析right-04.jpg" /></li>
+            <li><img src="images/学成网首页-数据分析right-03.png" /></li>
+        </ul>
+     </div>
+     <script>
+        var img=document.querySelector('.baidu').querySelectorAll('img')
+        for(var i=0;i<img.length;i++){
+            //console.log(this.src)   获取到每个img的路径给body背景
+            img[i].onclick=function(){
+                document.body.style.backgroundImage='url('+this.src+')';
+            }
+        }
+     </script>
+     <!--表格当鼠标经过一行变色效果，经过：onmouseover，离开：onmouseout-->
+     <table cellspacing="0" cellpadding="20">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody class="tbody" >
+            <tr>
+                <td>1</td>
+                <td>刘德华</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>蔡徐坤</td>
+                <td>男</td>
+            </tr>
+        </tbody>
+     </table>
+     <script>
+        var tbd=document.querySelector('.tbody').querySelectorAll('tr')
+            for(var i=0;i<tbd.length;i++){
+                tbd[i].onmouseover=function(){
+                    this.style.backgroundColor='pink'
+                }
+                tbd[i].onmouseout=function(){
+                    this.style.backgroundColor=''
+                }
+            }  
+     </script>
+     <!--列表全选取消全选，要求：1.表头中的全选可以全选也取消全选2.列表中如果全都选中，表头中的全选自动选择-->
+     <table cellspacing="0" cellpadding="20">
+        <thead >
+            <tr>
+                <th><input type="checkbox" id="checkbox"></th>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody id="tbody1" >
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>刘德华</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>2</td>
+                <td>蔡徐坤</td>
+                <td>男</td>
+            </tr>
+        </tbody>
+     </table>
+     <script>
+        var thead=document.getElementById('checkbox');//获取全选按钮
+        var tbody1=document.getElementById('tbody1').getElementsByTagName('input')//获取下面的复选框
+        //第一步：表头中的全选可以全选也取消全选
+        thead.onclick=function(){
+            //console.log(this.checked)选中返回true，没有选中返回false
+            for(var i=0;i<tbody1.length;i++){
+                tbody1[i].checked=this.checked
+            }
+        }
+        //第二步：列表中如果全都选中，表头中的全选自动选择，当点击的时候判断其他是否为选中，如果都为选中那么表头的全选选中，如果有存在一个未选中，表头的全选不能选中
+        for(var i=0;i<tbody1.length;i++){
+            tbody1[i].onclick=function(){
+                var flag=true;
+            for(var i=0;i<tbody1.length;i++){
+                if(!tbody1[i].checked){//条件为true的时候才执行，这里是取反，意思当存在false的时候，会执行下面的语句
+                    flag=false;
+                }
+            }
+            thead.checked=flag;
+        }
+        }
+        
+     </script>
+     <!--自定义属性值，element.getArrtirbute('属性名')，和element.属性名区别在于可以获得自定义的属性值-->
+     <div class="diy" id="1"  index="2"></div>
+     <script>
+        var div=document.querySelector('.diy')
+        console.log(div.id);
+        //console.log(div.index);获取不到自定义属性
+        console.log(div.getAttribute('index'))//用这个获取
+        div.setAttribute('index',4)//修改自定义属性值
+        div.removeAttribute('index')//删除自定义属性
+     </script>
+     <!--tab布局代码演练，会用到自定义属性值-->
+     <div>
+        <div class="top"> 
+            <ul class="clear" id="diy4">
+               <li class="comon">我的autobot</li>
+               <li>团队autobot</li>
+               <li>草稿箱</li>
+            </ul>
+        </div>
+        <div class="div11" style="display: block">
+            我的autobo列表
+        </div>
+        <div class="div11">
+            团队autobot列表
+        </div>
+        <div class="div11">
+            草稿箱列表
+        </div>
+     </div>
+     <script>
+        var li1=document.querySelector('.clear')
+        var li2=li1.getElementsByTagName('li')
+        var div1=document.querySelectorAll('.div11')
+        for(var i=0;i<li2.length;i++){
+            li2[i].setAttribute('index',i)//给每个li创建一个index属性，作为索引号,用来索引要显示的内容
+            li2[i].onclick=function(){
+                //第一步切换tab样式
+                for(var i=0;i<li2.length;i++){
+                    li2[i].className=''
+                }
+            this.className='comon'
+            //第二步根据点击的展示对应内容
+            var index=this.getAttribute('index')//获取自定义属性的值，其实是索引号
+            for(var i=0;i<div1.length;i++){
+                    div1[i].style.display='none'
+                }
+            div1[index].style.display='block'//通过tab索引号来索引要展示的内容
+
+            }
+        }
+        
+     </script>
+
+     <!--dom树结构中所有元素、文本都是节点，用nodetype标识节点类型，1代表元素3代表文本，用nodename标识节点名称-->
+     <!--获取元素节点第二个办法，操作起来比较方便-->
+     <!--获取元素节点之父节点,语法：子节点.parentnode-->
+     <div class="bro1">
+        <p class="bro2"></p>
+        <ul class="bro3">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+     </div>
+     <script>
+        //点击p关闭父元素
+        //var bro1=document.querySelector('.bro1')，按照之前需要获取父元素
+        var bro2=document.querySelector('.bro2') 
+        console.log(bro2.parentNode)//可以用.parentnode获取父元素
+     </script>
+     <!--获取元素节点之子节点,语法：父节点.children-->
+     <div class="bro1">
+        <p class="bro2"></p>
+        <ul class="bro3">
+            <li>第一个li</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li>最后一个li</li>
+        </ul>
+     </div>
+     <script>
+        var bro3=document.querySelector('.bro3') 
+        console.log(bro3.childNodes)//这个接口会获取到文本节点
+        console.log(bro3.children)//这个接口只获取元素节点
+        console.log(bro3.children[2])//获取子元素的第三个元素节点
+     </script>
+     <!--获取元素节点之子节点第一个节点和最后一个节点,语法：父节点.firstelementchild，lastelementchild-->
+     <div class="bro1">
+        <p class="bro2"></p>
+        <ul class="bro3">
+            <li>第一个li</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li>最后一个li</li>
+        </ul>
+     </div>
+     <script>
+        var bro3=document.querySelector('.bro3') 
+        console.log(bro3.firstElementChild)//获取第一个子元素
+        console.log(bro3.lastElementChild)//获取最后一个子元素
+     </script>
+     <!--新浪下拉菜单案例-->
+     <div class="xinlang1">
+        <ul class="xinlang2">
+            <li>
+                <a href="#"  class="weibo1">微博↓</a>
+                <ul>
+                  <li>私信</li>
+                  <li>评论</li>
+                  <li>@我</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="weibo">微信↓</a>
+                <ul>
+                  <li>私信</li>
+                  <li>评论</li>
+                  <li>@我</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="weibo">QQ↓</a>
+                <ul>
+                  <li>私信</li>
+                  <li>评论</li>
+                  <li>@我</li>
+                </ul>
+            </li>
+        </ul>
+        
+     </div>
+     <script>
+        var a=document.querySelector('.xinlang2')
+        var b=a.children
+        for(var i=0;i<b.length;i++){
+            b[i].onmouseover=function(){
+                this.children[1].style.display='block'
+            }
+            b[i].onmouseout=function(){
+                this.children[1].style.display='none'
+            }
+
+        }
+     </script>
+     <!--获取兄弟元素节点，nextelementsibing和previouselementsibing-->
+     <div>
+        <i></i>
+        <p class="pp"></p>
+        <span></span>
+     </div>
+     <script>
+        var pp=document.querySelector('.pp')
+        console.log(pp)
+        console.log(pp.nextElementSibling)//下一个兄弟元素节点
+        console.log(pp.previousElementSibling)//上一个兄弟元素节点
+     </script>
+     <!--创建节点，添加子级节点，先创建再添加-->
+     <div>
+        <ul class="ppp">
+            <li>123</li>
+        </ul>
+     </div>
+     <script>
+        var li=document.createElement('li')//创建元素节点
+        var ppp=document.querySelector('.ppp')
+        ppp.appendChild(li)//添加到指定节点的末尾
+        var lili=document.createElement('li')
+        ppp.insertBefore(lili,ppp.children[0])//添加到指定元素节点前面
+        console.log(ppp)
+     </script> 
+     <!--制作评论功能-->
+     <div>
+        <textarea class="textarea"></textarea>
+        <button class="button">回复</button>
+        <ul class="ul">
+
+        </ul>
+     </div>
+     <script>
+        var textarea=document.querySelector('.textarea')
+        var button=document.querySelector('.button')
+        var ul=document.querySelector('.ul')
+        button.onclick=function(){
+            if(textarea.value==''){
+                alert('请输入内容')
+            }else{
+            var lili2=document.createElement('li')
+            lili2.innerHTML=textarea.value
+            ul.appendChild(lili2)//这里如果按照评论最新的在上可以这样写：ul.insertbfore(lili2,ul.children[0])
+            }
+        }
+     </script>
+     <!--删除元素节点，node.removechild(child)-->
+     <div>
+        <button class="button1">删除</button>
+        <ul class="ul1">
+            <li>熊大</li>
+            <li>熊二</li>
+            <li>熊三</li>
+        </ul>
+     </div>
+     <script>
+        var button1=document.querySelector('.button1')
+        var ul1=document.querySelector('.ul1')
+        button1.onclick=function(){
+            if(ul1.children.length==0){
+                this.disabled=true//禁用按钮
+            }else{
+                ul1.removeChild(ul1.children[0])
+            }
+           
+        }
+     </script>
+     <!--制作评论功能-->
+     <div>
+        <textarea class="textarea5"></textarea>
+        <button class="button5">回复</button>
+        <ul class="ul5">
+
+        </ul>
+     </div>
+     <script>
+        var textarea5=document.querySelector('.textarea5')
+        var button5=document.querySelector('.button5')
+        var ul5=document.querySelector('.ul5')
+        button5.onclick=function(){
+            if(textarea5.value==''){
+                alert('请输入内容')
+            }else{
+            var lili2=document.createElement('li')
+            lili2.innerHTML=textarea5.value+"<a href='javascript:;'>删除</a>"//在li的子节点元素下创建,外双内单(创建元素节点另一种方式)
+            ul5.appendChild(lili2)//这里如果按照评论最新的在上可以这样写：ul.insertbfore(lili2,ul.children[0])
+            var a=lili2.querySelectorAll('a')
+            for(var i=0;i<a.length;i++){
+                a[i].onclick=function(){
+                    ul5.removeChild(this.parentNode)
+                }
+            }
+            }
+        }
+     </script>
+     <!--克隆元素节点，node.clonenode(true或false)-->
+     <div>
+        <ul class="clone">
+            <li>熊大</li>
+            <li>熊二</li>
+            <li>熊三</li>
+        </ul>
+     </div>
+     <script>
+        var clone=document.querySelector('.clone')
+        var clone1=clone.children[0].cloneNode(true);//克隆元素节点
+        clone.appendChild(clone1)//添加节点
+        var clonech=clone.querySelectorAll('li')
+        var clone2=clonech[0].cloneNode(true)//克隆元素节点
+        clone.appendChild(clone2)//添加节点
+     </script>
+     <!--动态生成表格-->
+     <div class="table2">
+        <table>
+            <thead>
+                <tr>
+                    <td>姓名</td>
+                    <td>年龄</td>
+                    <td>性别</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody class="tbody4">
+
+            </tbody>
+        </table>
+     </div>
+     <script>
+        var datas=[{
+            name:'刘德华',
+            age:55,
+            sex:'男'
+            },
+            {
+            name:'刘嘉陵',
+            age:55,
+            sex:'女'
+            },
+            {
+            name:'王宝强',
+            age:40,
+            sex:'男'
+            },
+            {
+            name:'李连杰',
+            age:60,
+            sex:'男'
+            }
+        ]
+        //第一步，创建行，遍历数组长度，几个元素生成几行
+        var tbody4=document.querySelector('.tbody4')
+        for(var i=0;i<datas.length;i++){
+            var tr=document.createElement('tr')
+            tbody4.appendChild(tr)
+            //第二步，创建单元格，遍历对象属性，生成单元格
+            for(var k in datas[i]){
+            var td=document.createElement('td')
+            tr.appendChild(td)
+            //第三步，给单元格修改属性内容
+            td.innerHTML=datas[i][k]
+            }
+            //第四步，添加删除按钮
+            var td=document.createElement('td')
+            td.innerHTML="<a href='javascript:;'>删除</a>"
+            tr.appendChild(td)
+        }
+        //第五步，删除数据
+        var a=tbody4.querySelectorAll('a')
+        console.log(a)
+        for(var i=0;i<a.length;i++){
+            a[i].onclick=function(){
+                tbody4.removeChild(this.parentNode.parentNode)
+            }
+        }
+     </script>
+     <!--事件高级，注册事件的两种方式-->
+     <div class="gaoji">
+        <button>我是传统注册事件</button>
+        <button>我是方法监听注册事件</button>
+     </div>
+     <script>
+        var gaoji=document.querySelector('.gaoji')
+        var gaojich=gaoji.children
+        //传统的注册事件，对元素有唯一性
+        gaojich[0].onclick=function(){
+            alert('hello')
+        }
+        gaojich[0].onclick=function(){//会覆盖上面的事件
+            alert('hello,我是最新的')
+        }
+        //方法监听注册事件，.addeventlistenner(事件类型，事件处理函数)，事件类型必须是字符串类型，并且onclick无需带有on
+        gaojich[1].addEventListener('click',function(){
+            alert('hello')
+        })
+        gaojich[1].addEventListener('click',function(){//不会覆盖上面事件
+            alert('hello,我是最新的')
+        })
+     </script>
+     <!--事件高级，解绑注册事件，场景：点过一次再点一次无反应-->
+     <div class="gaoji1">
+        <button class="old">我是传统注册事件</button>
+        <button class="news">我是方法监听注册事件</button>
+     </div>
+     <script>
+        var old=document.querySelector('.old')
+        var news=document.querySelector('.news')
+        //传统的注册事件的解绑
+        old.onclick=function(){
+            alert('hello')
+            old.onclick=null
+        }
+
+        //方法监听注册事件的解绑
+        news.addEventListener('click',fn)
+        function fn(){
+            alert('hello')
+            news.removeEventListener('click',fn)
+        }
+     </script>
+     <!--事件高级，事件流，三个阶段，第一阶段捕获阶段，从大到小元素找事件，第二阶段目标事件阶段，第三阶段冒泡阶段，从小到大元素找事件-->
+     <div class="father1">
+        <div class="son"></div>
+     </div>
+     <script>
+        var father1=document.querySelector('.father1')
+        var son=document.querySelector('.son')
+        son.addEventListener('click',function(){
+            alert('son')
+            
+        },false)//false或者不填代表冒泡阶段
+        father1.addEventListener('click',function(){
+            alert('father')
+        },false) 
+     </script>
+     <!--事件高级，事件对象，事件发生后会会返回一系列的相关数据集合对象，里面有各种属性和方法-->
+     <div class="gaoji2">
+        <button>我是来获取事件对象</button>
+     </div>
+     <script>
+        var gaoji2=document.querySelector('.gaoji2')
+        var gaojich1=gaoji2.children
+        gaojich1[0].addEventListener('click',function(event){
+            console.log(event)
+            console.log(event.target)//返回触发事件元素
+            console.log(event.type)//返回触发事件元素
+        })
+        
+     </script>
+     <!--事件高级，阻止事件默认行为-->
+     <div >
+        <a href="javascript:;" class="stop">我是链接点不动，因为阻止了默认行为</a>
+     </div>
+     <script>
+        var stop=document.querySelector('.stop')
+        stop.addEventListener('click',function(event){
+            event.preventDefault()
+        })
+        
+     </script>
+     <!--事件高级，阻止冒泡行为,因为默认会有冒泡行为-->
+     <div class="father2">
+        <div class="son1"></div>
+     </div>
+     <script>
+        var father2=document.querySelector('.father2')
+        var son1=document.querySelector('.son1')
+        son1.addEventListener('click',function(event){
+            alert('son')
+            event.stopPropagation()//调用event的方法
+            
+        },false)
+        father2.addEventListener('click',function(){
+            alert('father')
+        },false) 
+     </script>
+     <!--事件高级，利用冒泡行为,提升代码执行效率-->
+     <div>
+        <ul class="maopao">
+            <li>111111111111111111111111</li>
+            <li>222222222222222222222222</li>
+            <li>333333333333333333333333</li>
+            <li>444444444444444444444444</li>
+            <li>555555555555555555555555</li>
+        </ul>
+     </div>
+     <script>
+        var maopao=document.querySelector('.maopao')
+        maopao.addEventListener('click',function(event){
+            for( var i=0;i<maopao.children.length;i++){
+                maopao.children[i].style.backgroundColor=''
+
+            }
+            event.target.style.backgroundColor='pink'
+        })
+     </script>
+     <!--事件高级，鼠标事件：禁止选文字和禁止右键菜单-->
+     <div class="text1">我是选不中文字和禁止右键菜单</div>
+     <script>
+        var fin=document.querySelector('.text1')
+        fin.addEventListener('contextmenu',function(event){
+            event.preventDefault()
+        })
+        fin.addEventListener('selectstart',function(event){
+            event.preventDefault()
+        })
+     </script>
+     <!--事件高级，鼠标事件对象：获取鼠标触发事件时在页面的坐标-->
+     <script>
+        document.addEventListener('click',function(event){
+            //console.log(event.clientX)//鼠标在可视区的x和y
+            //console.log(event.clientY)
+            //console.log('-----------------')
+            //console.log(event.pageX)//鼠标在页面文档的x和y
+            //console.log(event.pageY)
+            //console.log('-----------------')
+            //console.log(event.screenX)//鼠标在电脑屏幕的x和y
+            //console.log(event.screenY)
+        })
+     </script>
+     <!--鼠标事件对象案例：图片跟随鼠标移动,需要给图片加绝对定位-->
+     <img class="img5" src="images/男孩.png" alt="">
+     <script>
+        var img4=document.querySelector('.img5')
+        document.addEventListener('mouseover',function(event){
+            var x=event.pageX
+            var y=event.pageY
+            img4.style.left=x+'px';
+            img4.style.top=y+'px';
+        })
+     </script> 
+     <!--键盘事件，键盘按键松开、按下触发，并且可以调用键盘事件对象的属性keycode（ascll码）-->
+     <script>
+        document.addEventListener('keyup',function(event){
+            console.log('按键松开,up')
+            console.log(event.keyCode)//返回按键的ascll码
+        })
+        document.addEventListener('keydown',function(event){
+            console.log('按键按下,down')
+            console.log(event.keyCode)
+            //if(event.keyCode==65){//判断用户输入的值
+                //alert('你按的a')
+           // }else{
+              //  alert('你没有按a')
+            }
+        )
+        document.addEventListener('keypress',function(event){
+            console.log('按键按下，press')
+            console.log(event.keyCode)//不识别功能键，比如ctrl,但是区分大小写
+        })
+     </script>
+     <!--键盘事件案例，在页面中按键s就把光标定位到搜索框内-->
+     <div >
+        <input type="text" class="jds">
+     </div>
+     <script>
+        var input5=document.querySelector('.jds')
+        document.addEventListener('keyup',function(event){
+            if(event.keyCode==83){
+                input5.focus()//调用表单获得焦点方法
+            }
+        })
+     </script> 
+     <!--键盘事件案例，京东查快递单号，根据用户输入的内容放大展示-->
+     <div>
+        <div class="jd4"></div>
+        <input class="j4_1" type="text">
+     </div>
+     <script>
+        var jd4=document.querySelector('.jd4')
+        var j4_1=document.querySelector('.j4_1')
+        j4_1.addEventListener('keyup',function(evet){
+            if(this.value==''){
+                jd4.style.display='none'
+            }else{
+                jd4.style.display='block'
+                jd4.innerHTML=this.value
+            }
+        })
+        j4_1.addEventListener('blur',function(){
+            jd4.style.display='none'
+        })
+        j4_1.addEventListener('focus',function(){
+            if(this.value==''){
+                jd4.style.display='none'
+            }else{
+                jd4.style.display='block'
+            }
+        })
+
+     </script>
+     <button class="get">获取bom里文件的永久存储数据（localstorage）</button>
+     <script>
+        var get=document.querySelector('.get')
+        get.addEventListener('click',function(){
+            console.log(localStorage.getItem('sex'))
+        })
+     </script>
+
+
+      
+</body>
+</html>

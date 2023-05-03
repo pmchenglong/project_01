@@ -1,0 +1,1616 @@
+        *{
+            margin:0;
+            padding:0;
+        }
+        .clear:before,.clear:after{
+            content:"";
+            display:table;
+        }
+        .clear:after{
+            clear:both;
+        }
+        .clear{
+            *zoom:1;
+        }
+       
+        li {
+            color: rgb(10, 1, 1);
+            font-family: "microsoft yahei";
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .red {
+            color: red;
+            font-size: 16px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .black {
+            color: black;
+            font-size: 17px;
+        }
+
+        .bule {
+            color: blue;
+            font-size: 18px;
+        }
+
+        #pink {
+            color: pink;
+            font-size: 19px;
+        }
+
+        .redbox {
+            background-color: red;
+        }
+
+        .greenbox {
+            background-color: green;
+        }
+
+        .boxsize {
+            width: 100px;
+            height: 100px;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .A {
+            text-decoration: none;
+            color: brown;
+        }
+
+        .indent {
+            font-size: 10px;
+            text-indent: 4em;
+        }
+
+        .line {
+            line-height: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .title {
+            text-align: center;
+            color: #888888;
+            font-size: 15px;
+        }
+
+        .search {
+            color: #666;
+            width: 150px;
+        }
+
+        .btn {
+            font-weight: 700;
+        }
+
+        .b {
+            text-decoration: none;
+        }
+
+        .suojin {
+            text-indent: 3em;
+            line-height: 30px;
+        }
+
+        .img {
+            text-align: center;
+        }
+
+        .foot {
+            text-align: left;
+        }
+
+        ol li {
+            color: blue;
+        }
+
+        /*后代选择器*/
+
+        ol li a {
+            color: aqua;
+        }
+
+        .B a {
+            color: #888888;
+        }
+
+        ul>li {
+            color: antiquewhite;
+        }
+
+        /*子选择器*/
+
+        div,
+        p,
+        .C dd {
+            color: red;
+        }
+
+        /*并集选择器，用于集体声明*/
+
+        .D a:link {
+            color: #e60f0f;
+            text-decoration: none;
+        }
+        /*css新增特性-属性选择器（按照属性名选择）*/
+        .shuxingming input[value]{
+            color:red;
+
+        }
+        /*css新增特性-属性选择器（按照属性值选择）*/
+        .shuxingzhi input[value="我是根据属性值选择器选中"]{
+            color:red;
+
+        }
+        /*css新增特性-属性选择器（按照属性值开头选择）*/
+        .shuxingkaitou input[value^="我是开头-01"]{
+            color:red;
+        }
+        /*css新增特性-属性选择器（按照属性值结尾选择）*/
+        .shuxingjiewei input[value$="的反义"]{
+            color: red;
+        }
+        /*css新增特性-结构伪类选择器（nth-child）*/
+        .jiegouweilei li{
+            color:#070000;
+        }
+        .jiegouweilei ul{
+            margin-top: 20px;
+        }
+        .jiegouweilei-01 li:nth-child(1){
+            background-color: pink;/*第一个孩子开始*/
+        }
+        .jiegouweilei-02 li:nth-child(even){
+            background-color: pink;/*偶数*/
+        }
+        .jiegouweilei-03 li:nth-child(odd){
+            background-color: pink;/*奇数*/
+        }
+        .jiegouweilei-03 li:nth-child(n){
+            background-color: pink;/*n=0，从零开始*/
+        }
+        .jiegouweilei-04 li:nth-child(2n){
+            background-color: pink;/*2*0=0，和even等价*/
+        }
+        .jiegouweilei-05 li:nth-child(2n+1){
+            background-color: pink;/*2*0+1=1，和odd等价*/
+        }
+        .jiegouweilei-06 li:nth-child(3n){
+            background-color: pink;/*3*0=3，3的倍数*/
+        }
+        .jiegouweilei-07 li:nth-child(n+2){
+            background-color: pink;/*0+2=2，从2开始*/
+        }
+        .jiegouweilei-08 li:nth-child(-n+5){
+            background-color: pink;/*0+5=5，-1+5=4，5以内的*/
+        }
+        /*css新增特性-结构伪类选择器（nth-of-type）*/
+        .jiegouweilei2 span:nth-child(1){/*因为child会把所有的span找出来，如果存在多个不同元素，会中断不起作用*/
+            background-color: pink;
+        }
+        .jiegouweilei3 span:nth-of-type(1){/*type会把span找出来，并且不会被其他元素中断*/
+            background-color: pink;
+        }
+
+        /*伪选择器，用户a链接的*/
+
+        .D a:visited {
+            color: #070000;
+            text-decoration: underline;
+        }
+
+        .D a:hover {
+            color: aqua;
+        }
+
+        .D a:active {
+            color: rgb(204, 127, 255);
+        }
+
+        input:focus {
+            background-color: pink;
+            color: black;
+        }
+
+        /*伪选择器，用户表单的*/
+        .E {
+            background-color: #e60f0f;
+            height: 50px;
+            /*如果不设置宽，就会按照父级body的宽度展示，即100%*/
+            color: black;
+        }
+        /*伪元素选择器*/
+        .weiyuansu{
+            width:400px;
+            height: 200px;
+            background-color: #ec4646;
+            color: #fff;
+        }
+        .weiyuansu::before{
+            content: '我是伪元素';/*必填，文字内容*/
+            color: #070000;
+        }
+        .weiyuansu::after{
+            display: inline-block;/*转换成行内块，可以指定宽高*/
+            width:100px;
+            background-color: #aa2626;
+            content: '我是伪元素';
+            color: #070000;
+        }
+         /*伪元素使用场景*/
+         
+         .weiyuansu-anli01{
+            position: relative; /*因为伪元素是加在这个盒子里面，所以这个是父盒子*/
+         }
+        .weiyuansu-anli01{
+            width: 200px;
+            border: 1px solid black;
+        }
+        .weiyuansu-anli01::after{
+            position: absolute;
+            height:10px;
+            right: 5px;
+            content: '^';
+            color:#070000;
+            font-size: 20px;
+        }
+
+        .F {
+            color: black;
+            background-color: red;
+            /*行内元素不能设置宽和高*/
+        }
+
+        .G {
+            width: 500px;
+            height: 120px;
+        }
+
+        .H {
+            background-color: #e60f0f;
+            height: 50px;
+            color: black;
+            display: inline;
+            /*块级元素转化成行内元素*/
+        }
+
+        .I {
+            color: black;
+            background-color: #e60f0f;
+            height: 50px;
+            display: block;
+            /*行内元素转化成块级元素*/
+        }
+
+        .J {
+            color: black;
+            background-color: #e60f0f;
+            height: 50px;
+            display: inline-block;
+            /*行内元素转化成行内块级元素*/
+        }
+
+        .K {
+            color: black;
+            background-color: #e60f0f;
+            height: 50px;
+            display: inline-block;
+            /*块级元素转化成行内块级元素*/
+        }
+
+        /*以下是小米案例中的样式代码*/
+        .xiaomi {
+            display: block;
+            /*因为a标签为行内元素，需要转换成块级元素*/
+            color: #ffffff;
+            width: 346px;
+            height: 57px;
+            background-color: #464953;
+            text-indent: 2em;/*实际开发中需要用padding-left表示，但是需要用width减掉内边距的值*/
+            text-decoration: none;
+            line-height: 57px;
+            /*行高由上空隙、字体高度、下空隙组成，当行高等于盒子高度，字体自然是居中*/
+        }
+
+        .xiaomi:hover {
+            background-color: #ff6700;
+        }
+
+        /*小米案例结束*/
+
+        /*背景样式代码*/
+        .L {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            color: #070000;
+            /*background:rgba(220, 16, 16, 0.3);红色0.3透明度*/
+        }
+
+        .L1 {
+            background-image: url(images/男孩.png);
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            font-size: 10px;
+            text-indent: 5em;
+            background-repeat: no-repeat;
+            /*默认平铺：reprat,水平平铺：x-repeat,垂直平铺：y-repeat*/
+            background-color: antiquewhite;
+            /*背景图片会压住背景颜色*/
+            background-position: left center;
+            /*方位属性，x代表水平方位，默认值是center，左left右right；y代表垂直方位，默认值是center，上top下bottom；可以填一个方位，另一个代表默认值*/
+        }
+
+        .L2 {
+            background-image: url(images/超大图片.jpg);
+            height: 1000px;
+            background-repeat: no-repeat;
+            background-position: center;
+            /*代表图片水平垂直居中*/
+            background-attachment: fixed;
+            /*固定背景图片*/
+        }
+
+        .L3 {
+            width: 200px;
+            height: 200px;
+            color: #070000;
+            background-color: red;
+            background-image: url(images/男孩.png);
+            background-repeat: no-repeat;
+            background-position: 100px 150px;
+            /*100代表x，150代表y*/
+        }
+
+        .L4 {
+            width: 200px;
+            height: 200px;
+            color: #070000;
+            background-color: red;
+            background-image: url(images/男孩.png);
+            background-repeat: no-repeat;
+            background-position: 100px;
+            /*100代表x，y是默认的center*/
+        }
+
+        .L5 {
+            width: 200px;
+            height: 200px;
+            color: #070000;
+            background-color: red;
+            background-image: url(images/男孩.png);
+            background-repeat: no-repeat;
+            background-position: 100px top;
+            /*100代表x，top代表y*/
+        }
+
+        /*五彩导航案例代码*/
+        .nav1 a {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            line-height: 160px;
+            color: #070000;
+            text-decoration: none;
+        }
+
+        .nav01 {
+            background-image: url(images/导航（点击前）.png);
+            background-repeat: no-repeat;
+        }
+
+        .nav02 {
+            background-image: url(images/消息（点击前）.png);
+            background-repeat: no-repeat;
+        }
+
+        .nav01:hover {
+            background-image: url(images/导航（点击后）.png);
+            background-repeat: no-repeat;
+        }
+
+        .nav02:hover {
+            background-image: url(images/消息（点击后）.png);
+            background-repeat: no-repeat;
+        }
+
+        /*css三大特性代码*/
+        .L6 {
+            color: red;
+        }
+
+        .L6 {
+            color: #7b00ff;
+        }
+
+        /*相同标签相同样式，取离主体代码最近的样式，即第二个*/
+        .L7 {
+            color: #888888;
+            line-height: 1.5;
+            /*不加px单位代表是为字体的1.5倍作为行高*/
+            font-size: 20px;
+        }
+
+        span {
+            color: #7b00ff;
+            /*当颜色冲突时，继承权重为零，所以展示这个颜色*/
+        }
+
+        .L8 {
+            font-size: 40px;
+            /*行高显示为40px的1.5倍进行展示*/
+        }
+
+        /*字体属性和行高都可以继承*/
+        .L9 {
+            color: #7b00ff;
+            /*类选择器大于标签选择器，所以展示这个颜色*/
+        }
+
+        #L10 {
+            color: #e60f0f;
+            /*id选择器大于类选择器，所以展示这个颜色*/
+        }
+
+        #L10 {
+            color: #e60f0f !important;
+            /*important最大，所以展示这个颜色*/
+        }
+
+        .L10 li {
+            color: aqua;
+            /*权重为：0.0.1.1，所以展示这个颜色*/
+        }
+
+        .L11 {
+            color: #ff6700;
+            font-size: 50px;
+            /*权重为：0.0.1.0 所以展示上面的颜色，但是字体大小不是冲突所以取这个50px*/
+        }
+
+        /*盒子模型边框样式代码，可以复合写：border:1px solid red;*/
+        .L12 {
+            font-size: 2px;
+            width: 50px;
+            height: 50px;
+            border-color: red;
+            border-width: 5px;
+            /*边框样式-边框宽度*/
+            border-style: solid;
+            /*边框样式-实线*/
+
+        }
+
+        .L13 {
+            font-size: 2px;
+            width: 50px;
+            height: 50px;
+            border-color: red;
+            border-width: 5px;
+            border-style: dashed;
+            /*边框样式-虚线*/
+        }
+
+        .L14 {
+            font-size: 2px;
+            width: 50px;
+            height: 50px;
+            border-color: red;
+            border-width: 5px;
+            border-style: dotted;
+            /*边框样式-点线*/
+        }
+
+        .L15 {
+            font-size: 2px;
+            width: 50px;
+            height: 50px;
+            border: 2px solid red;
+            border-top: 2px dotted blue;
+            /*盒子层叠性，上边框样式与上方代码冲突时，会取离标签最近的样式展示（上下换位置不行）*/
+        }
+        /*以下是表格边框样式代码，表格本来是个大盒子里面单元格是小盒子，所以需要把td和th标签选出来*/
+        .L16,
+        td,
+        th {
+            border: 1px solid red;
+            border-collapse: collapse;/*和cellspacing同义，合并相邻单元格*/
+            text-align: center;
+            font-size: 5px;
+        }
+        /*以下演示边框宽度会影响盒子大小，固定盒子宽度和高度是380px，边框宽度占了10px，所以盒子宽和高是400px*/
+        .L17{
+            width:380px;
+            height:380px;
+            background-color: #d5b3b3;
+            color:#070000;
+            border:10px solid red;
+            
+
+        }
+        /*以下演示边框宽度不会影响盒子大小，固定盒子宽度和高度是400px，边框宽度占了10px*/
+        .L17-01{
+            width:400px;
+            height:400px;
+            background-color: #d5b3b3;
+            color:#070000;
+            border:10px solid red;
+            box-sizing: border-box;
+
+        }
+        /*以下演示盒子内边距*/
+        .L18{
+            width: 200px;
+            height: 200px;
+            padding-top:50px;
+            padding-bottom: 50px;
+            padding-left:50px;
+            padding-right: 50px;
+            /*padding：50px;可以用复合写法，代表上下左右都是50px*/
+            border: 1px solid red;
+
+        }
+        /*以下演示盒子内边距会影响盒子大小*/
+        .L19{
+            width:98px;/*左右边框是2，左右内边距是200，所以相加正好是300*/
+            height: 98px;/*上下边框是2，上下内边距是200，所以相加正好是300*/
+            border: 1px solid red;
+            padding: 100px;
+        }
+        /*以下演示盒子内边距不会影响盒子大小*/
+        .L19-01{
+            width:300px;/*宽度固定300*/
+            height: 300px;/*高度固定300*/
+            border: 1px solid red;
+            padding: 100px;
+            box-sizing: border-box;
+        }
+        /*以下演示盒子内边距不会影响盒子大小*/
+        .L20{
+            height: 100px;
+            color:red;
+            border:1px solid red;
+            padding:0 20px;/*没指定宽度，所以宽度不会被撑开*/
+        }
+        /*以下是新浪导航案例代码*/
+        .nav2{
+            border-top: 3px solid #ff8500;
+            border-bottom: 1px solid #edeef0;
+            height:41px;
+            background-color: #fcfcfc;
+            line-height: 41px;
+        }
+        .nav2 a{
+            display: inline-block;
+            color:#4c4c4c;
+            text-decoration: none;
+            padding:0 20px;
+        }
+        .nav2 a:hover{
+            color:#ff8500;
+            background-color:#eee;
+        }
+        /*以下演示盒子外边距*/
+        .L21{
+            border:1px solid red;
+            color: #e60f0f;
+            margin-top:50px;
+            height: 50px;
+        }
+        .L22{
+            border: 1px solid red;
+            width: 400px;/*水平居中必须指定宽度，因为不指定宽度会与屏幕一样宽，无法水平居中*/
+            margin: 0 auto;
+        }
+        /*以下演示盒子的塌陷问题*/
+        .L23{
+            width:200px;
+            height:200px;
+            background-color: red;
+            color:#edeef0;
+            margin-top:200px;
+            border:1px solid red;/*需要给父元素指定边框，也可以添加overflow：hidden*/
+            
+        }
+        .L24{
+            width:100px;
+            height:100px;
+            background-color: black;
+            margin-top: 100px;
+
+        }
+        /*以下是图片广告案例*/
+        .bannar-top{
+            width:250px;
+            height:400px;
+            background-color:#e3e0e0;
+            margin:10px 10px 0 10px;
+
+        }
+        .bannar-top img{
+            width:100%;
+        }
+        .bannar-top p{
+            font-size:10px;
+            color:black;
+            height:50px;
+            padding: 0 10px;
+            margin: 10px 0;
+
+        }
+        .bannar-top .retrue{
+            font-size:7px;
+            color:#888888;
+            display: block;
+            padding: 0 10px;
+            margin: 20px 0;
+        }
+        .bannar-top .title{
+            font-size:10px;
+            color:black;
+            font-weight: 700px;
+            padding-left: 10px;
+        }
+        .bannar-top .title a:link{
+            text-decoration: none;
+            color:black;
+        }
+        .bannar-top .rich{
+            font-size:10px;
+            color:red;
+            font-weight: 700;
+            
+        }
+        .bannar-top em{
+            font-style: normal;
+            color:black;
+        }
+        /*以下是图片广告案例*/
+        .news{
+            width:400px;
+            height: 210px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+        }
+        .news h3{
+            color:black;
+            height:40px;
+            line-height: 41px;
+            border-bottom: 1px dashed #ccc;
+            padding-left: 20px;
+        }
+        li{
+            list-style: none;
+        }/*去除圆点*/
+        .news ul li a{
+            color:rgb(139, 137, 137);
+            text-decoration:none;
+        }
+        .news ul li a:hover{
+            
+            text-decoration:underline;
+        }
+        .news ul li{
+            height:30px;
+            line-height:30px;
+        }
+        .news ul{
+            padding: 15px 0 0 15px;
+        }
+        /*以下是圆角边框*/
+        .L25{
+            width:200px;
+            height:200px;
+            border-radius: 50%;/*与100是等价的，宽和高的一半，前提是正方形盒子*/
+            background-color: #d5b3b3;
+            text-align: center;
+            line-height:200px;
+        }
+        .L26{
+            width:200px;
+            height:100px;
+            background-color: #d5b3b3;
+            border-radius: 50px;/*给矩形做圆角，可以是高的一半就可以*/
+            text-align: center;
+            line-height:100px;
+        }
+        .L27{
+            width:200px;
+            height:100px;
+            background-color: #d5b3b3;
+            text-align: center;
+            line-height:100px;
+            border-radius: 10px 20px 30px 40px;/*按照左上角顺时针给值*/
+            /*以下代码和上面复合写法是等价的：
+            border-top-left-radius: 10px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 40px;*/
+        }
+        /*以下是盒子阴影*/
+        .L28{
+            width:100px;
+            height:100px;
+            background-color: #ccc;
+        }
+        .L28:hover{
+            box-shadow: 8px 8px 10px 2px rgba(0,0,0,.3); /*对应水平距离，垂直距离，模糊度数，阴影尺寸，阴影颜色*/
+        }
+        /*以下是文字阴影*/
+        .L29{
+            font-size: 30px;
+            text-shadow:8px 8px 20px rgba(0,0,0,.9) ;
+        }
+        /*以下是盒子浮动*/
+        .L30,.L31{
+            width:200px;
+            height:200px;
+            background-color: #d5b3b3;
+            float:left;/*左浮动*/
+        }
+        .L31{
+            width:200px;
+            height:200px;
+            background-color: #d5b3b3;
+            float:right;/*样式层叠性，会对这个生效*/
+        }
+        /*以下是演示盒子浮动脱标*/
+        .L32{
+            width:250px;
+            height:250px;
+            background-color: #f12222;
+            color:black;
+        }
+        /*演示盒子浮动具有行内块元素特性*/
+        .L33{
+            width:250px;
+            height:250px;
+            background-color: #8e6464;
+            color:#edeef0;
+            float: left;
+        }
+        .L34{
+            height:250px;
+            background-color: #b31919;
+            color:#f3f3f3;
+            float: left;
+        }
+        .L35{
+            width:250px;
+            height:250px;
+            background-color: #8e6464;
+            float:left;
+        }
+        .L36{
+            width:300px;
+            height:300px;
+            background-color:#888888;
+            
+        }
+        .L37{
+            width:250px;
+            height:250px;
+            background-color: #7b00ff;
+            float:left;
+        }
+        /*盒子浮动练习代码1*/
+        .fudong{
+            width:800px;
+            height: 200px;
+            background-color: #666;
+            margin:10px auto;
+        }
+        .fudong-left{
+            width:300px;
+            height: 200px;
+            background-color: rgb(114, 31, 31);
+            float: left;
+        }
+        .fudong-right{
+            width:500px;
+            height: 200px;
+            background-color: rgb(28, 12, 12);
+            float:left;
+        }
+        /*盒子浮动练习代码2*/
+        .fudong2{
+            width: 800px;
+            height: 200px;
+            background-color: #ccc;
+            margin: 10px auto;
+        }
+        .fudong2 li{
+            width:190px;
+            height:200px;
+            background-color: #b31919;
+            margin-right: 13px;
+            float: left;
+        }
+        .fudong2 .fudong21 {
+            margin-right: 0;
+            float:right;
+            
+        }
+        /*盒子浮动练习代码3*/
+        .fudong3 {
+            width:830px;
+            height: 500px;
+            background-color:#ccc;
+            
+        }
+        .fudong3 .fudong31 {
+            width:200px;
+            height: 500px;
+            background-color:rgb(235, 166, 166);
+            float: left;
+        }
+        .fudong3 .fudong31 .fudong32 {
+            float: left;
+        }
+        .fudong32 li {
+            width:200px;
+            height: 240px;
+            background-color:red;
+            float: left;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+        /*网页常见布局练习*/
+        .top{
+            height:100px;
+            background-color: #8e6464;
+        }
+        .bannar{
+            height:200px;
+            width:400px;
+            background-color: #8e6464;
+            margin:10px auto;
+
+        }
+        .body{
+            width:400px;
+            height: 200px;
+            
+            margin: 10px auto;
+        }
+        .body li{
+            width:90px;
+            height:200px;
+            background-color:#8e6464;
+            float: left;
+            margin-right: 10px;
+        }
+        .footer{
+            height:100px;
+            background-color: #8e6464;
+            margin:20px 0;
+        }
+        /*下是演示为什么清除浮动*/
+        .L38{
+            width:400px;
+            background-color: #666;
+            border:2px solid black;
+        }
+        .L38 div{
+            width:300px;
+            height:200px;
+            background-color: rgb(235, 52, 52);
+            color:#070000
+        }
+        .L39{
+            width:400px;
+            background-color: #666;
+            border:2px solid black;
+        }
+        .L39 div{
+            width:300px;
+            height: 200px;;
+            background-color: rgb(180, 78, 78);
+            float: left;
+        }
+        /*下是演示盒子的相对定位*/
+        .L40{
+            position:relative;/*相对定位得值*/
+            top:50px;/*相对目前位置上方的距离*/
+            left:50px;/*相对目前位置左方的距离*/
+            width:400px;
+            height:400px;
+            background-color: red;
+            color:#fff;
+        }
+        .L41{
+            width:400px;
+            height:400px;
+            background-color: rgb(10, 10, 10);
+        }
+        /*下是演示盒子的绝对定位*/
+        .L42{
+            position:relative;
+            left:100px;
+            top: 100px;
+            width:400px;
+            height:400px;
+            background-color:#b31919;
+            color:#fff;
+        }
+        .L43{
+            position:relative;
+            left:40px;
+            top: 40px;
+            width:300px;
+            height:300px;
+            background-color:#fff;
+            color:rgb(19, 17, 17);
+        }
+        .L44{
+            position:absolute;/*因为最近的父元素存在定位，所以按照父元素位偏移*/
+            left:40px;
+            top: 40px;
+            width:200px;
+            height:200px;
+            background-color:rgb(24, 155, 24);
+            color:rgb(19, 17, 17);
+        }
+        .L45{
+            margin-top:50px;
+            position:relative;
+            left:100px;
+            top: 100px;
+            width:400px;
+            height:400px;
+            background-color:#b31919;
+            color:#fff;
+        }
+        .L46{
+            width:300px;
+            height:300px;
+            background-color:#fff;
+            color:rgb(19, 17, 17);
+        }
+        .L47{
+            position:absolute;/*因为最近的爷爷元素存在定位，所以按照爷爷元素位偏移*/
+            left:40px;
+            top: 40px;
+            width:200px;
+            height:200px;
+            background-color:rgb(24, 155, 24);
+            color:rgb(19, 17, 17);
+        }
+        /*下是演示盒子的固定定位*/
+        .L48{
+            position: fixed;
+            top:100px;
+            left: 0 ;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0,0,0,.3);
+            color:#b31919;
+        }
+        /*下是演示盒子如何在版心右侧展示*/
+        .L49{
+            margin:10px auto;
+            width:600px;
+            height:300px;
+            background-color: red;
+            color:#070000;
+        }
+        .L50{
+            position:fixed;
+            top:400px;
+            left:50%;/*距离左侧50%，就会在定位在屏幕中间右侧位置*/
+            margin-left: 300px;/*距离左侧为版心宽度的一半，会移动到版心右侧*/
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0,0,0,.3);
+        }
+        /*下是演示定位盒子的叠放顺序*/
+        .L51 div{
+            position:absolute;
+            left: 10px;
+        }
+        .L51-1{
+            z-index: 1;
+            width: 200px;
+            height:200px;
+            background-color: #b31919;
+            color: #ccc;
+        }
+        .L51-2{
+            width:300px;
+            height: 300px;
+            background-color: #d5b3b3;
+        }
+        /*下是演示定位盒子如何垂直居中*/
+        .L52{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: #8e6464;
+        }
+        .L52 div{
+            position: absolute;
+            left:50%;
+            top: 50%;
+            margin-top: -100px;
+            margin-left: -100px;
+            width: 200px;
+            height: 200px;
+            background-color: #464953;
+        }
+        /*以下是淘宝焦点图案例*/
+        .taobao{
+            position: relative;
+            left:0;
+            right:0;
+            width: 1200px;/*需要按照图片绝对定位，所以需要把盒子规定图片一样宽*/
+         
+        }
+        .back,
+        .next/*并集选择器*/{
+            position: absolute;
+            top:50%;
+            margin-top:-15px;
+            width:20px;
+            height:30px;
+            background-color:rgba(0,0,0,.3);
+            color:#fff;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        .taobao .back {
+            border-radius:0 15px 15px 0;/*从盒子左上角开始顺时针*/
+            left: 0;
+        }
+        .taobao .next {
+            right: 0;
+            border-radius:15px 0 0 15px;
+        }
+        .taobao ul{
+            position: absolute;
+            bottom:20px;
+            left:50%;
+            margin-left: -100px;
+            border-radius:10px;/*圆形角*/
+            width: 200px;
+            height:20px;
+            background-color:rgba(0,0,0,.3);
+        }
+        .taobao ul li{
+            float: left;
+            width: 10px;
+            height: 10px;
+            border-radius:5px;/*正方形盒子，高度的一半为圆*/
+            margin:5px 15px;
+            background-color: #fff;
+        }
+        .taobao .select{
+            background-color: #e91515;
+        }
+        /*以下是显示与隐藏元素*/
+        .L53{
+            display: none;/*隐藏元素,不保留位置*/
+            width:200px;
+            height:200px;
+            background-color: #8e6464;
+        }
+        .L54{
+            width:200px;
+            height:200px;
+            background-color: #f5ecec;
+            color:red;
+        }
+        .L55{
+            visibility: hidden;/*隐藏元素,保留位置*/
+            width:200px;
+            height:200px;
+            background-color: #aa2626;
+        }
+        .L56{
+            width:200px;
+            height:200px;
+            background-color: #f5ecec;
+            color:red;
+        }
+        .L57{
+            overflow: hidden;/*隐藏超出部分*/
+            width:100px;
+            height:100px;
+            background-color: #f5ecec;
+            color:red;
+        }
+        .L58{
+            overflow: auto;/*如果超出部分就出现滑块*/
+            width:100px;
+            height:100px;
+            background-color: #f5ecec;
+            color:red;
+        }
+        .L59{
+            overflow:scroll;/*不管超出与否，都会出现滑块*/
+            width:100px;
+            height:100px;
+            background-color: #f5ecec;
+            color:red;
+        }
+        /*以下是土豆播放图片案例*/
+        .tudou{
+            position: relative;
+            width: 228px;
+            height: 155px;
+        }
+        .tudou-01{
+            display: none;
+            position: absolute;
+            left:0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.3);
+            background-image: url(images/播放图标.png);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .tudou:hover .tudou-01{
+            display: block;
+        }
+        /*以下是利用伪元素制作土豆播放图片案例*/
+        .tudou01{
+            position: relative;
+            width: 228px;
+            height: 155px;
+        }
+        .tudou01::before{
+            display: none;
+            position: absolute;
+            left:0;
+            top: 0;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.3);
+            background-image: url(images/播放图标.png);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .tudou01:hover::before{
+            display: block;
+        }
+        /*以下是精灵图代码*/
+        .L60 span{
+            display: inline-block;
+            width:79px;
+            height:27px;
+            background-image: url(images/bannar图片.png);
+        }
+        .study{
+            background-position:-531px -285px;
+        }
+        .wenjian{
+            background-position:-615px -236px;
+        }
+        /*以下是字体图标的应用*/
+        @font-face { /*进行声明引入*/
+            font-family: "test";
+            src: url('字体图标/iconfont.ttf') format('truetype');
+          }
+          .L61{/*样式调整*/
+            font-family: "test";
+            font-size: 20px;
+            color:#070000;
+          }
+          .L62{
+            font-family: "test";
+            font-size: 40px;
+            color:red;
+          }
+          .L63{
+            font-family: "test";
+            font-size: 60px;
+            color:#d5b3b3;
+          }
+          /*以下是三角形的制作*/
+          .L64{
+            width: 0;
+            height: 0;
+            border-right: 30px solid red;
+            border-left: 30px solid pink;
+            border-bottom: 30px solid black;
+            border-top:30px solid #8e6464;
+          }
+          .L65{
+            width: 0;
+            height: 0;
+            border: 30px solid transparent;
+            border-left: 30px solid pink;
+          }
+          /*以下是三角形的案例代码*/
+          .jd{
+            position: relative;
+            margin-top: 20px;;
+            width:200px;
+            height:200px;
+            background-color: red;
+          }
+          .jd-01{
+            position:absolute;
+            right:15px;
+            top:-20px;
+            width:0;
+            height:0;
+            border:10px solid transparent;
+            border-bottom:10px solid red;
+          }
+          /*以下是三角形制作京东价格标签的案例代码*/
+          .L65-price {
+            margin-top: 10px;
+            width: 200px;
+            height: 30px;
+            border: 2px solid red;
+          }
+          .L65-price span {
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+          }
+          .price-now {
+            position: relative;
+            float: left;
+            background-color: red;
+            color: #fff;
+          }
+          .price-now i {
+            position:absolute;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style:solid;
+            border-color:transparent #fff transparent transparent;
+            border-width: 30px 15px 0 0;
+
+          }
+          .price-past {
+            display: inline-block;
+            background-color: #fff;
+            color: #888888;
+            text-decoration: line-through;
+          }
+          /*以下是鼠标移入样式变化*/
+          .L66 li{
+            color:#070000;
+            font-size: 20px;
+          }
+          .l661{
+            cursor: default;
+          }
+          .l662{
+            cursor: pointer;
+          }
+          .l663{
+            cursor: move;
+          }
+          .l664{
+            cursor: text;
+          }
+          .l665{
+            cursor: not-allowed;
+          }
+          /*以下是表单获得焦点轮廓取消和文本域防拖拽*/
+          .L67 input{
+            outline:none;
+          }
+          .L67 textarea{
+            outline:none;
+            resize:none;
+          }
+          /*以下是图片、表单和文字对齐方式*/
+          .L68 img{
+            vertical-align: middle;
+          }
+          .L69 img{
+            vertical-align: bottom;
+          }
+          .L70 img{
+            vertical-align: top;
+          }
+          .L71 textarea{
+            width:200px;
+            height:100px;
+            vertical-align: middle;
+            resize: none;
+            outline: none;
+          }
+          /*以下是文字超出宽度省略号展示*/
+          .L72{/*控制一行超出宽度省略号展示*/
+            width:200px;
+            height:200px;
+            background-color: #888888;
+            white-space:nowrap;/*强制一行展示*/
+            overflow:hidden;/*超出部分隐藏*/
+            text-overflow: ellipsis;/*用省略号代替隐藏的*/
+          }
+          .L73{
+            width:200px;
+            height:40px;
+            background-color: #888888;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display:-webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          /*以下是利用margin的负值布局技巧*/
+          .L74 li{
+            float: left;
+            margin-left: -1px;
+            width:200px;
+            height:300px;
+            border: 1px solid #666;
+          }
+          .L74 li:hover{
+            position: relative;/*可以利用相对定位提高层级*/
+            border: 1px solid blue;
+          }
+          .L75 li{
+            position: relative;
+            float: left;
+            margin-left: -1px;
+            width:200px;
+            height:300px;
+            border: 1px solid #666;
+          }
+          .L75 li:hover{
+            z-index: 1;/*因为li存在定位，所以可以利用z-index提高层级*/
+            border: 1px solid blue;
+          }
+          /*以下是文字环绕浮动元素技巧*/
+          .L76{
+            width:400px;
+            height:156px;
+            background-color: pink;
+          }
+          .L76-1{
+            float: left;
+          }
+          .L76 p{
+            color: #070000;
+          }
+          /*以下是行内块元素的技巧应用，做出分页器*/
+          .L77{
+            text-align: center;
+            color:#464953 ;
+          }
+          .L77 a{
+            display: inline-block;
+            width: 40px;
+            height: 30px;
+            border: 1px solid #ccc;
+            background-color: #f7f7f7;
+            color:#464953;
+            line-height: 30px;
+            text-decoration: none;
+          }
+          .L77 .l77-back{
+            width: 100px;
+          }
+          .L77 .l77-next{
+            width: 100px;
+          }
+          .L77 input{
+            height: 30px;
+            width: 40px;
+            border: 1px solid #ccc;
+            outline: none;
+          }
+          .L77 input:focus{
+            background-color: #fff;
+
+          }
+          .L77 button{
+            display: inline-block;
+            height: 30px;
+            width: 50px;
+            border: 1px solid #ccc;
+          }
+          .L77 .l77no{
+            border: 1px solid transparent;
+            background-color: #fff;
+          }
+          /*以下是html5新增语义标签的代码*/
+          .header-new{
+            width: 400px;
+            height: 200px;
+            background-color: #7b00ff;
+          }
+          .nav-new{
+            margin-top: 20px;
+            width: 400px;
+            height: 200px;
+            background-color: #7b00ff;
+          }
+          .article-new{
+            margin-top: 20px;
+            width: 400px;
+            height: 400px;
+            background-color: #7b00ff;
+          }
+          .section-new{
+            margin-top: 20px;
+            width: 400px;
+            height: 200px;
+            background-color: #7b00ff;
+          }
+          .aside-new{
+            margin-top: 20px;
+            width: 400px;
+            height: 200px;
+            background-color: #7b00ff;
+          }
+          .footer-new{
+            margin-top: 20px;
+            width: 400px;
+            height: 200px;
+            background-color: #7b00ff;
+          }
+          /*以下是图片模糊属性*/
+          .L78 img{
+            filter: blur(10px);
+
+          }
+          .L78 img:hover{
+            filter: blur(0);
+
+          }
+          /*以下是css过渡属性*/
+          .L79{
+            width:200px;
+            height:200px;
+            background-color: #d5b3b3;
+            transition: width 0.5s,height 0.5s,background-color 0.5s ;/*属性变化可以填写all，和这个是等价的*/
+          }
+          .L79:hover{
+            width:400px;
+            height:400px;
+            background-color: #b3c6d5;
+          }
+          /*以下是css过渡案例1*/
+          .guodu{
+            margin-top: 10px;
+            width: 100px;
+            height: 20px;
+            border: 1px solid red;
+            border-radius: 10px;
+          }
+          .guodu:hover .guodu-01{
+            width: 70px;
+            height: 100%;
+            background-color: red;
+          }
+          .guodu-01{
+            width: 50%;
+            height: 100%;
+            background-color: red;
+            border-radius: 10px;
+            transition: all 0.5s;
+          }
+          /*以下是css过渡案例2*/
+          .guodu2{
+            width: 100px;
+            height: 100px;
+            background-image: url(images/学成网首页-数据分析right-02.png);
+            background-position: -55px -30px;
+            transition: all 1s;
+          }
+          .guodu2:hover{
+            background-image: url(images/学成网首页-数据分析right-02.png);
+            background-position: -120px -30px;
+          }
+          /*以下是css新特性综合案例*/
+          .zonghe{
+            margin-top: 10px;
+            width:225px;
+          }
+          .zonghe li:nth-child(2){
+            margin-top: 10px;
+            color:#666;
+            line-height: 20px;
+          }
+          .zonghe li:nth-child(3){
+            margin-top: 10px;
+          }
+          .zonghe li:nth-child(4){
+            margin: 10px 0;
+          }
+          .zonghe li span:nth-child(1){
+            font-size: 20px;
+            color:red;
+          }
+          .zonghe li span:nth-child(2){
+            text-decoration: line-through;
+            color:#666;
+            font-size: 10px;
+          }
+          .zonghe li i:nth-child(1){
+            color:#666;
+            font-size: 8px;
+          }
+          .zonghe li i:nth-child(2){
+            color:red;
+            font-size: 8px;
+          }
+          .zonghe li i:nth-child(3){
+            position: relative;
+            margin-left: 5px;
+            display: inline-block;
+            width: 80px;
+            height:8px;
+            border-radius: 4px;
+            border: 1px solid red;
+            background-color: #fff;
+          }
+          .zonghe li i:nth-child(3)::after{
+            content: '';
+            display: inline-block;
+            position: absolute;
+            width: 50px;
+            height:8px;
+            border-radius: 4px;
+            background-color: red;
+          }
+          
+          .zonghe li i:nth-child(4){
+            color:#666;
+            font-size: 8px;
+          }
+          .zonghe li i:nth-child(5){
+            color:red;
+            font-size: 8px;
+          }
+          .zonghe li i:nth-child(6){
+            color:#666;
+            font-size: 8px;
+          }
+          .zonghe li:nth-child(5) a{
+            display: inline-block;
+            width: 100%;
+            height: 35px;
+            background-color: red;
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+            line-height: 35px;
+            text-align: center;
+          }
+          
+          /*以下是iframe标签代码*/
+          iframe{
+            width: 1690px;
+            height:500px;
+            border:0;
+          }
+
+
+              
+
+        
+

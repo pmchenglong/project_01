@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ch-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <style>
+        .todo,.done li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <span>todolist</span>
+            <input type="text" class="form">
+            <button class="btn">保存</button>
+        </div>
+        <div>
+            <h2>正在进行<span class="todocount"></span></h2>
+            <ul class="todo">
+
+            </ul>
+            <h2>已经完成<span class="donecount"></span></h2>
+            <ul class="done">
+            </ul>
+        </div>
+    </div>
+    <script>
+        load()
+        //todolist核心思路
+        $(".form").on("keydown",function(event){//新增事件
+            if(event.keyCode==13){
+                var local=getdata()//读取本地存储
+                local.push({title:$(this).val(),todo:false})//新增数据
+                console.log(local)
+                localStorage.setItem("name",JSON.stringify(local) )//存储数据
+                load()//渲染数据
+                
+            }
+            
+        })
+        $(".todo,.done").on("click","a",function(){//删除事件
+            var local=getdata()//读取本地存储
+            var index=$(this).attr("id")//获取id的属性值
+            local.splice(index,1)//删除数据
+            localStorage.setItem("name",JSON.stringify(local) )//存储数据
+            load()//渲染数据
+        })
+        $(".todo,.done").on("click","input",function(){
+            var local=getdata()//读取本地存储
+            //修改done属性值为true
+            var index=$(this).siblings("a").attr("id")//获取id的属性值
+            local[index].todo=$(this).prop("checked")//修改属性
+            localStorage.setItem("name",JSON.stringify(local) )//存储数据
+            load()
+
+        })
+        var data=[]
+        localStorage.setItem("name",JSON.stringify(data) )//本地存储的是字符串格式，需要转成字符串格式
+        var data1=localStorage.getItem("name")
+        var data1=JSON.parse(data1)//转成数组格式
+        function getdata(){//读取本地存储
+            if(data1!=null){
+                return data1
+            }else{
+                return [];
+            }
+        }
+        function load(){
+            $(".todo,.done").empty()//遍历之前删除li，解决数据累加问题
+            var data=getdata()
+            var todocount=0;
+            var donecount=0;
+            $.each(data,function(i,n){//遍历数组数据，有几条数据生成几个li
+                    if(n.todo==true){
+                        $(".done").append("<li><input type='checkbox'>"+n.title+"<a href=# id="+i+">删除</a></li>");
+                        donecount++;
+                    }else{
+                        $(".todo").append("<li><input type='checkbox'>"+n.title+"<a href=# id="+i+">删除</a></li>");
+                        todocount++;
+                    }
+                    
+
+                })
+                
+            $(".todocount").text(todocount)
+            $(".donecount").text(donecount)
+        }
+       
+    </script>
+</body>
+</html>

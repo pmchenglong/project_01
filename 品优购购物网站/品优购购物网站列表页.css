@@ -1,0 +1,104 @@
+.logo div{
+    position: absolute;
+    top:50px;
+    left: 184px;
+    width:73px;
+    height: 32px;
+}
+.nav-left {
+    height: 47px;
+    width: 390px;
+    line-height: 45px;
+}
+.nav-left a{
+    padding: 0 27px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: bold;
+}
+.nav-right a i{
+    font-family: "iconfont";
+}
+.nav-right{
+    float: right;
+    margin-right: 58px;
+    margin-left: 5px;
+}
+.list_iphonetop img{
+    height: 120px;
+}
+.list_iphonebottom ul li{
+    float: left;
+    margin-left: 13px;
+    height: 461px;
+    width: 291px;
+    border: 1px solid transparent;
+}
+.list_iphonebottom ul {
+    width: 1310px;
+}
+.list_iphonebottom ul li:hover{
+    
+    border: 1px solid red;
+
+}
+.list_iphonebottom ul li h3{
+    margin-top: 20px;
+    margin-left: 12px;
+    font-size: 14px;
+    color: #666666;
+}
+.list_iphonebottom p{
+    position: relative;
+    margin-left: 12px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #a4a4a4;
+}
+.list_iphonebottom p i:nth-child(1){
+    color: red;
+}
+.list_iphonebottom p i:nth-child(2){
+    font-size: 22px;
+    color: red;
+}
+.list_iphonebottom p i:nth-child(3){
+    margin-left: 5px;
+    text-decoration: line-through;
+}
+.list_iphonebottom p span:nth-child(2){
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 12px;
+    border: 1px solid red;
+    border-radius: 7px;
+    width:133px;
+    height:14px;
+    background-color: #fff;
+}
+.list_iphonebottom p span:nth-child(2)::after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    margin-top: 5px;
+    border-radius: 7px;
+    width:117px;
+    height:14px;
+    background-color: red;
+}
+.list_iphonebottom p span:nth-child(4){
+    color: red;
+}
+.list_iphonebottom a{
+    display: block;
+    margin-top: 11px;
+    margin-left: -1px;
+    width: 291px;
+    height: 50px;
+    background-color: #b1191a;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+}

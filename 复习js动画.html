@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="公共js文件.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .father{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            margin: 20px;
+        }
+        .son{
+            width: 50px;
+            height: 50px;
+            background-color: palevioletred;
+            margin-left: 25px;
+            border: 2px solid red;
+        }
+        .father1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            margin: 20px;
+        }
+        .moutai{
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%) ;
+            width: 500px;
+            height: 250px;
+            background-color: #ffffff;
+            border: 1px solid black;
+        }
+        .moutai div:nth-child(1){
+            cursor: move;
+            position: relative;
+            margin-top: 10px;
+            height: 20px;
+            background-color: #ffffff;
+            text-align: center;
+            line-height: 20px;
+        }
+        .moutai div:nth-child(1) span{
+            cursor: pointer;
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+            font-size: 5px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        .moutai div:nth-child(2),div:nth-child(3){
+            margin-top: 40px;
+            margin-left: 20px;
+            height: 20px;
+            background-color: #ffffff;
+        }
+        .moutai div:nth-child(2) input,div:nth-child(3) input{
+            height: 30px;
+            width: 400px;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+        }
+        .moutai div:nth-child(3) {
+            padding-left: 18px;
+        }
+        .moutai div:nth-child(4){
+            margin-top: 40px;
+            text-align: center;
+        }
+        .moutai div:nth-child(4) button{
+            cursor: pointer;
+            width: 300px;
+            height: 50px;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        
+        .jd-01{
+            position: relative;
+            width: 300px;
+
+        }
+        .small{
+            width: 300px;
+            height: 300px;
+        }
+        .occ{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            width: 70px;
+            height: 70px;
+            background-color: rgb(0, 0, 0,0.3);
+        }
+        .big{
+            position: absolute;
+            top: 232px;
+            left: 350px;
+            display: none;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+        .bigimg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1200px;
+        }
+        .client1{
+            width: 100px;
+            height: 100px;
+            border: 10px solid red;
+            padding: 10px;
+        }
+        .scroll1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            overflow: auto;
+        }
+        .banner{
+            position: relative;
+            height: 150px;
+            width: 1700px;
+            background-color: rgb(126, 51, 51);
+        }
+        .bar{
+            position: absolute;
+            right:0 ;
+            top: 900px;
+            height: 200px;
+            width: 100px;
+            background-color: #ccc;
+        }
+        .bar span{
+            display: none;
+        }
+        .banner div span{
+            position: absolute;
+            left:15px;
+            top: 180px;
+            background-color: #ccc;
+        }
+        .svg{
+            height: 150px;
+            width: 1700px;
+            background-color: burlywood;
+        }
+        .list{
+            height: 150px;
+            width: 1700px;
+            background-color: pink;
+            margin-bottom: 900px;
+        }
+        .father0{
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+        }
+        .father1{
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+        .donghua{
+            position: absolute;
+            top: 2300px;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+        }
+        .donghua2{
+            position: absolute;
+            top: 2400px;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background-color: purple;
+        }
+        .donghua3{
+            display: block;
+            position: absolute;
+            top: 2500px;
+            left: 0;
+            width: 50px;
+            height: 50px;
+        }
+        .huakuai{
+            margin-top: 400px;
+        }
+        .donghua4{
+            display: block;
+            position: absolute;
+            top: 2650px;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+        }
+        .sliderbar{
+            position: absolute;
+            top: 2700px;
+            right: 0;
+            width: 50px;
+        }
+        .sliderbar span{
+            z-index: 1;
+            float: left;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: red;
+            cursor: pointer;
+            color: #ffffff;
+        }
+        .sliderbar div{
+            z-index: -1;
+            
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #ffffff;
+            background-color: red;
+        }
+        .jindouyun{
+            position: relative;
+            margin-top:150px;
+        }
+        .jindouyun ul li{
+            float: left;
+            list-style: none;
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .jindouyun_class{
+            background-color: #ccc;
+        }
+        .jindouyun_1{
+            position: absolute;
+            top: 10px;
+            left: 0;
+        }
+        .jindouyun_01{
+            width:400px;
+            height: 80px;
+        }
+
+    </style>
+</head>
+<body>
+    <!--offset属性，只读元素样式属性-->
+    <div class="father">
+        <div class="son" style="width:50px;">1</div>
+    </div>
+    <script>
+        var father=document.querySelector('.father')
+        var son=document.querySelector('.son')
+        console.log('父盒子的距离顶部位置是：'+father.offsetTop)//返回带有定位的父级元素距离，没有默认的是body
+        console.log('父盒子的距离左部位置是：'+father.offsetLeft)
+        console.log(son.offsetLeft)//返回带有定位的父级元素距离，没有默认的是body,所以是45
+        console.log(son.offsetWidth)//返回元素宽度
+        console.log(son.offsetHeight)//返回元素高度
+        console.log(son.offsetParent)//返回带有定位的父级的元素，没有默认的是body
+        console.log(son.parentNode)//返回父级元素
+       
+        // <!--offset属性和style区别-->
+        console.log(son.offsetWidth)
+        console.log(son.style.width)//style只能获得行内样式表,并且带有单位
+        console.log(son.style.width='50px')//style可以重新赋值，offset只能获取元素大小位置   
+    </script>
+    <!--获取鼠标移动时在盒子内的坐标-->
+    <div class="father1">
+    </div>
+    <script>
+        var father=document.querySelector('.father1')
+        father.addEventListener('mousemove',function(event){
+            var x=event.pageX-father.offsetLeft
+            var y=event.pageY-father.offsetTop
+            father.innerHTML='点击的x轴为：'+x +'点击的x轴为：'+y  
+        })
+    </script>
+    <!--模态框中，实现拖拽-->
+    <div class="moutaifather">点击打开弹窗</div>
+    <div class="moutai">
+        <div class="moutai-01">登录会员
+            <span class="moutai-011">关闭</span>
+        </div>
+        <div>
+            <label>用户名:</label>
+            <input class="input1" type="text" value="请输入用户名">
+           
+        </div>
+        <div><label>密码:</label>
+            <input class="input1" type="text" value="请输入登录密码">
+        </div>
+        <div>
+            <button>登陆会员</button>
+        </div>
+    </div>
+    <script>
+        var moutai01=document.querySelector('.moutai-01')
+        var moutai011=document.querySelector('.moutai-011')
+        var moutaitather=document.querySelector('.moutaifather')
+        var moutai=document.querySelector('.moutai')
+        var input1=moutai.querySelector('.input1')
+        input1.addEventListener('focus',function(){
+            this.value='';
+            console.log('获得光标')
+        })
+        moutaitather.addEventListener('click',function(){
+            moutai.style.display='block'
+        })
+        moutai011.addEventListener('click',function(){
+            moutai.style.display='none'
+        })
+        moutai01.addEventListener('mousedown',function(event){
+            var  x=event.pageX-moutai.offsetLeft
+            var  y=event.pageY-moutai.offsetTop
+            document.addEventListener('mousemove',fn5)
+            function fn5(event){
+                var  x1=event.pageX-x
+                var  y1=event.pageY-y
+                moutai.style.left=x1+'px'
+                moutai.style.top=y1+'px'
+            }
+            document.addEventListener('mouseup',function(){
+                document.removeEventListener('mousemove',fn5)
+            })
+        })
+    </script>
+    <!--京东放大镜案例-->
+    <div class="jd">
+        <div class="jd-01">
+            <img src="images/iphone手机.png"  class="small" alt="" >
+            <div class="occ"></div>
+            
+        </div>
+        <div class="big"><img src="images/bannar图片.png" alt="" class="bigimg"></div>
+    </div>
+    <script>
+        var jd01=document.querySelector('.jd-01')
+        var small=document.querySelector('.small')
+        var occ=document.querySelector('.occ')
+        var big=document.querySelector('.big')
+        var bigimg=document.querySelector('.bigimg')
+        jd01.addEventListener('mouseover',function(){
+            occ.style.display='block'
+            big.style.display='block'
+            
+        })
+        jd01.addEventListener('mouseout',function(){
+            occ.style.display='none'
+            big.style.display='none'
+        })
+        jd01.addEventListener('mousemove',function(event){
+            var windowX=event.pageX-jd01.offsetLeft //鼠标在盒子的x
+            var windowY=event.pageY-jd01.offsetTop//鼠标在盒子的y
+            var occx=windowX-occ.offsetWidth/2 //遮挡盒子的x        
+            var occy=windowY-occ.offsetHeight/2 //遮挡盒子的y
+            var maxx=jd01.offsetWidth-occ.offsetWidth//遮挡盒子的最大移动x
+            var maxy=jd01.offsetHeight-occ.offsetHeight//遮挡盒子的最大移动y
+            if(occx<=0){
+                occx=0//不让遮挡盒子的左侧超出大盒子
+                }else if(occx>=maxx){
+                    occx=maxx//不让遮挡盒子的右侧超出大盒子
+                }
+            if(occy<=0){
+                occy=0}else if(occy>=maxy){
+                    occy=maxy
+                }
+            occ.style.top=occy +'px'
+            occ.style.left=occx +'px'
+            //右侧大图片的移动距离=遮挡层移动距离*大图片最大移动距离/遮挡层的最大移动距离
+            var bigimg=document.querySelector('.bigimg')
+            //大图片的最大移动距离
+            var bigmax=bigimg.offsetWidth-big.offsetWidth;
+            
+            //大图片的移动距离
+            var bigimgx=occx * bigmax / maxx
+            var bigimgy=occy*bigmax/maxy
+            bigimg.style.top=-bigimgy+'px'
+            bigimg.style.left=-bigimgx+'px'
+            })
+    </script>
+    <!--client系列，与offset区别在于不带边框-->
+    <div class="client1"></div>
+    <script>
+        var client=document.querySelector('.client1')
+        console.log(client.clientWidth)//返回不带边框的宽度
+        console.log(client.offsetWidth)
+        console.log(client.clientHeight)//返回不带边框的高度
+        console.log(client.offsetHeight)
+    </script>
+    <!--scroll系列，与offset&client区别可以返回被卷的上侧或左侧距离-->
+    <div class="scroll1">我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容</div>
+    <script>
+        var scroll1=document.querySelector('.scroll1')
+        console.log(scroll1.scrollTop)//返回0，不算边框
+        scroll1.addEventListener('scroll',function(){//滚动事件------scroll
+            console.log(this.scrollTop)
+        })
+
+    </script>
+    <!--仿淘宝固定侧边栏案例-->
+    <div class="bar">
+        <span class="backtop">返回顶部</span>
+    </div>
+    <div class="banner">banner</div>
+    <div class="svg">svg</div>
+    <div class="list">list</div>
+    <script>
+        var banner=document.querySelector('.banner')
+        var bar=document.querySelector('.bar')
+        var backtop=document.querySelector('.backtop')
+        var bartop=bar.offsetTop-banner.offsetTop
+        document.addEventListener('scroll',function(){
+            if(window.pageYOffset>=banner.offsetTop){
+                bar.style.position='fixed'
+                bar.style.top=bartop+'px'
+                backtop.style.display='block'
+            }else{
+                bar.style.position='absolute'
+                bar.style.top='900'+'px'
+                backtop.style.display='none'
+            }
+            
+        })
+        backtop.addEventListener('click',function(){
+            //window.scroll(0,0)
+            donghuahan(window,0)
+            function donghuahan(obj,mumu){
+            clearInterval(obj.times)
+            obj.times=setInterval(function(){
+            var step=(mumu-window.pageYOffset)/10;
+            if(step>0){
+                var step=Math.ceil(step)
+            }else{
+                var step=Math.floor(step)
+            }
+            if(window.pageYOffset ==mumu){
+                clearInterval(obj.times)
+            }
+            //obj.style.left=obj.offsetLeft+step+'px'
+            window.scroll(0,window.pageYOffset+step)
+
+        },15)
+        }
+
+        })
+    </script>
+    <!--区别mouseover和mouseenter的区别，多个盒子重叠的时候，用mouseenter只触发一次,mouseleave鼠标移开-->
+    <div class="father0">
+        <div class="father1"></div>
+    </div>
+    <script>
+        var father0=document.querySelector('.father0')
+        var father1=document.querySelector('.father1')
+        father0.addEventListener('mouseenter',function(){
+            console.log('1')
+        })
+    </script>
+
+    <!--动画原理-->
+    <div class="donghua"></div>
+    <script>
+        var donghua=document.querySelector('.donghua')
+        var times=setInterval(function(){
+            if(donghua.offsetLeft >400){
+                clearInterval(times)
+            }
+            donghua.style.left=donghua.offsetLeft+1+'px'
+
+        },30)
+    </script>
+    <!--封装动画函数，场景：多个动画效果时-->
+    <div class="donghua2"></div>
+    <span class="donghua3">helloword</span>
+    <script>
+        var donghua2=document.querySelector('.donghua2')
+        var donghua3=document.querySelector('.donghua3')
+        function donghuahan(obj,size){//定义形参：对象和移动距离变量
+            obj.times=setInterval(function(){//如果用var的话会每次都会开辟一个空间影响效率，用属性赋值方式
+            if(obj.offsetLeft >400){
+                clearInterval(obj.times)
+            }
+            obj.style.left=obj.offsetLeft+size+'px'
+
+        },30)
+        }
+        donghuahan(donghua2,1);//传参
+        donghuahan(donghua3,1);
+    </script>
+    <button class="huakuai">点击移动滑块，缓动动画效果</button>
+    <button class="huakuai2">点击再次移动滑块，缓动动画效果</button>
+    <div class="donghua4"></div>
+    <script>
+        //步长公式：（目标距离-现在位置）/10
+        var huakuai=document.querySelector('.huakuai')
+        var huakuai2=document.querySelector('.huakuai2')
+        var donghua4=document.querySelector('.donghua4')
+        function donghuahan(obj,mumu,callback){
+            clearInterval(obj.times)//避免点击过多，导致滑块过快
+            obj.times=setInterval(function(){//定时器
+            var step=(mumu-obj.offsetLeft)/10;
+            if(step>0){
+                var step=Math.ceil(step)//会存在小数位，offsetleft距离会有误差，所以取整数（往大的整数取）
+            }else{
+                var step=Math.floor(step)//如果存在负数，offsetleft距离会有误差，所以取整数（往小的整数取）
+            }
+            if(obj.offsetLeft ==mumu){
+                clearInterval(obj.times)//等于规定的距离时，停止动画
+                if(callback){//如果有callback参数传进来，就执行
+                    //调用函数名
+                    callback()};
+            }
+            obj.style.left=obj.offsetLeft+step+'px'
+
+        },30)
+        }
+        huakuai.addEventListener('click',function(){
+            donghuahan(donghua4,400)
+        })
+        huakuai2.addEventListener('click',function(){
+            donghuahan(donghua4,800,function(){console.log('执行完毕')})//函数作为参数传参，对应callback参数名
+        })
+    </script>
+    <!--京东鼠标移入的滑块的案例-->
+    <div class="sliderbar">
+        <span>←</span>
+        <div class="con">反馈</div>
+    </div>
+    <script>
+        var sliderbar=document.querySelector('.sliderbar')
+        var con=document.querySelector('.con')
+        //donghuahan(obj,mumu,callback)
+        sliderbar.addEventListener('mouseenter',function(){
+           sliderbar.children[0].innerHTML='→'
+            donghuahan(con,-50)
+        })
+        sliderbar.addEventListener('mouseleave',function(){
+            sliderbar.children[0].innerHTML='←'
+            donghuahan(con,0)
+        })
+        
+    </script>
+    <!--筋斗云的案例-->
+    <div class="jindouyun">
+        <div class="jindouyun_1"><img src="images/云朵.png" alt=""></div>
+        <ul class="jindouyun_01">
+            <li>投诉</li>
+            <li>笔记</li>
+            <li>案例</li>
+            <li>分析</li>
+            <li>总计</li>
+        </ul>
+    </div>
+    <script>
+        var jindouyun_01=document.querySelector('.jindouyun_01')
+        var jindouyun_li=jindouyun_01.querySelectorAll('li')
+        var jindouyun_1=document.querySelector('.jindouyun_1')
+        var ii=0;//筋斗云起始位置
+        for(var i=0;i<jindouyun_li.length;i++){
+            jindouyun_li[i].addEventListener('mouseenter',function(){
+                this.className='jindouyun_class'
+                //jindouyun_1.style.left=this.offsetLeft+'px'
+                donghuahan(jindouyun_1,this.offsetLeft)
+            })
+            jindouyun_li[i].addEventListener('mouseleave',function(){
+                this.className=''
+                donghuahan(jindouyun_1,ii)
+            })
+            jindouyun_li[i].addEventListener('click',function(){
+                ii=this.offsetLeft//赋值起始位置
+            })
+        }
+
+    </script>
+    
+    
+
+</body>
+</html>
+
